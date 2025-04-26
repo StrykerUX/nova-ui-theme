@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - NovaUI</title>
     
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Stylesheet principal que importa todos los demás -->
+    <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Tabler Icons (CDN para propósitos de demo) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.42.0/tabler-icons.min.css">
+    <!-- jQuery (necesario para los scripts) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -403,83 +403,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script>
-        // Toggle Dark/Light Mode
-        document.getElementById('light-dark-mode').addEventListener('click', function() {
-            const htmlElement = document.documentElement;
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            
-            const moonIcon = this.querySelector('i');
-            if (newTheme === 'dark') {
-                moonIcon.classList.replace('ti-moon', 'ti-sun');
-            } else {
-                moonIcon.classList.replace('ti-sun', 'ti-moon');
-            }
-            
-            // Save preference (localStorage would go here in a real app)
-        });
-        
-        // Sidebar Toggle
-        document.querySelector('.sidenav-toggle-button').addEventListener('click', function() {
-            document.querySelector('.sidenav-menu').classList.toggle('sidebar-collapsed');
-        });
-        
-        // Chat AI Send Button
-        document.querySelector('.chat-send-btn').addEventListener('click', function() {
-            const input = document.querySelector('.chat-input');
-            const message = input.value.trim();
-            
-            if (message) {
-                // Create user message
-                const userMessage = document.createElement('div');
-                userMessage.className = 'chat-message user-message';
-                userMessage.innerHTML = `
-                    <div class="message-content">
-                        <p>${message}</p>
-                    </div>
-                    <div class="message-avatar">
-                        <div class="avatar-icon" style="background-color: #FF6B6B;">
-                            <span>M</span>
-                        </div>
-                    </div>
-                `;
-                
-                // Add to chat
-                document.querySelector('.chat-messages').appendChild(userMessage);
-                
-                // Clear input
-                input.value = '';
-                
-                // Simulate AI response
-                setTimeout(() => {
-                    const aiMessage = document.createElement('div');
-                    aiMessage.className = 'chat-message ai-message';
-                    aiMessage.innerHTML = `
-                        <div class="message-avatar">
-                            <div class="avatar-icon" style="background-color: #4ECDC4;">
-                                <span>AI</span>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            <p>This is a static demo. In a real implementation, this would be a response from the AI.</p>
-                        </div>
-                    `;
-                    
-                    document.querySelector('.chat-messages').appendChild(aiMessage);
-                }, 1000);
-            }
-        });
-        
-        // Handle Enter key in chat input
-        document.querySelector('.chat-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                document.querySelector('.chat-send-btn').click();
-            }
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
