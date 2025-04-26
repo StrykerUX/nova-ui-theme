@@ -1,193 +1,159 @@
 /**
- * Variables CSS para el tema NovaUI
- * Implementa el estilo Soft Neobrutalism con influencias de UI de videojuegos indie
+ * Variables CSS globales para el tema NovaUI
+ * Soft Neobrutalism Style
  */
 
 :root {
-    /* Colores Primarios */
-    --color-primary: #FF6B6B; /* Coral */
-    --color-secondary: #4ECDC4; /* Teal */
-    --color-accent: #FFE66D; /* Amarillo */
+    /* PALETA DE COLORES - MODO CLARO */
     
-    /* Colores de Estado */
-    --color-success: #7BC950; /* Verde */
-    --color-warning: #FFA552; /* Naranja */
-    --color-error: #F76F8E; /* Rosa-rojo */
+    /* Colores primarios */
+    --nova-color-primary: #FF6B6B; /* Coral */
+    --nova-color-secondary: #4ECDC4; /* Teal */
+    --nova-color-accent: #FFE66D; /* Amarillo */
     
-    /* Colores Base */
-    --color-dark: #505168; /* Gris-púrpura */
-    --color-light: #F7F9F9; /* Blanco hueso */
+    /* Colores de estado */
+    --nova-color-success: #7BC950; /* Verde */
+    --nova-color-warning: #FFA552; /* Naranja */
+    --nova-color-error: #F76F8E; /* Rosa-rojo */
     
-    /* Escala de Grises */
-    --gray-100: #F7F7F7;
-    --gray-200: #E1E1E1;
-    --gray-300: #CFCFCF;
-    --gray-400: #B1B1B1;
-    --gray-500: #9E9E9E;
-    --gray-600: #7E7E7E;
-    --gray-700: #626262;
-    --gray-800: #515151;
-    --gray-900: #313131;
+    /* Colores de fondo y texto */
+    --nova-color-dark: #505168; /* Gris-púrpura oscuro */
+    --nova-color-light: #F7F9F9; /* Blanco hueso */
     
-    /* Colores específicos para UI de juego */
-    --game-xp: #8971D0; /* Púrpura para XP/progreso */
-    --game-energy: #45D09E; /* Verde menta para indicadores de energía/recursos */
-    --game-health: #FC6471; /* Rojo suave para salud/elementos críticos */
+    /* Escala de grises */
+    --nova-gray-100: #F7F7F7;
+    --nova-gray-200: #E1E1E1;
+    --nova-gray-300: #CFCFCF;
+    --nova-gray-400: #B1B1B1;
+    --nova-gray-500: #9E9E9E;
+    --nova-gray-600: #7E7E7E;
+    --nova-gray-700: #626262;
+    --nova-gray-800: #515151;
+    --nova-gray-900: #313131;
     
-    /* Tipografía */
-    --font-primary: 'Jost', sans-serif;
-    --font-secondary: 'Quicksand', sans-serif;
-    --font-mono: monospace;
+    /* Colores específicos de UI de juego */
+    --nova-game-xp: #8971D0; /* Morado para XP/progreso */
+    --nova-game-energy: #45D09E; /* Verde menta para energía/recursos */
+    --nova-game-health: #FC6471; /* Rojo suave para salud/elementos críticos */
     
-    --font-size-xs: 0.75rem; /* 12px */
-    --font-size-sm: 0.875rem; /* 14px */
-    --font-size-base: 1rem; /* 16px */
-    --font-size-md: 1.125rem; /* 18px */
-    --font-size-lg: 1.25rem; /* 20px */
-    --font-size-xl: 1.5rem; /* 24px */
-    --font-size-2xl: 1.875rem; /* 30px */
-    --font-size-3xl: 2.25rem; /* 36px */
+    /* Colores de fondo */
+    --nova-bg-body: var(--nova-color-light);
+    --nova-bg-card: #FFFFFF;
+    --nova-bg-sidebar: #F2F5FA;
+    --nova-bg-header: #FFFFFF;
+    --nova-bg-footer: #F2F5FA);
+    --nova-bg-input: var(--nova-gray-100);
     
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+    /* Colores de texto */
+    --nova-text-primary: var(--nova-color-dark);
+    --nova-text-secondary: var(--nova-gray-600);
+    --nova-text-muted: var(--nova-gray-500);
+    --nova-text-on-primary: #FFFFFF;
+    
+    /* Colores de bordes */
+    --nova-border-color: var(--nova-gray-200);
+    --nova-border-color-hover: var(--nova-gray-300);
+    --nova-border-color-focus: var(--nova-color-primary);
+    
+    /* DIMENSIONES */
+    
+    /* Tamaños de borde */
+    --nova-border-width: 2px; /* Valor predeterminado para bordes visibles */
+    --nova-border-radius: 8px; /* Esquinas redondeadas estándar */
+    --nova-border-radius-sm: 4px;
+    --nova-border-radius-lg: 12px;
     
     /* Espaciado */
-    --spacing-xs: 0.25rem; /* 4px */
-    --spacing-sm: 0.5rem; /* 8px */
-    --spacing-md: 1rem; /* 16px */
-    --spacing-lg: 1.5rem; /* 24px */
-    --spacing-xl: 2rem; /* 32px */
-    --spacing-2xl: 3rem; /* 48px */
-    --spacing-3xl: 4rem; /* 64px */
+    --nova-spacing-xs: 0.25rem; /* 4px */
+    --nova-spacing-sm: 0.5rem; /* 8px */
+    --nova-spacing-md: 1rem; /* 16px */
+    --nova-spacing-lg: 1.5rem; /* 24px */
+    --nova-spacing-xl: 2rem; /* 32px */
+    --nova-spacing-xxl: 3rem; /* 48px */
     
-    /* Bordes y Esquinas (Neo-brutalismo) */
-    --border-width: 2px;
-    --border-radius-sm: 4px;
-    --border-radius: 8px;
-    --border-radius-lg: 12px;
-    --border-radius-xl: 16px;
-    --border-radius-pill: 9999px;
+    /* Elementos de diseño */
+    --nova-header-height: 4rem; /* 64px */
+    --nova-sidebar-width: 16rem; /* 256px */
+    --nova-sidebar-collapsed-width: 5rem; /* 80px */
     
-    /* Sombras (Neo-brutalismo) */
-    --shadow-normal: 6px 6px 0 rgba(0, 0, 0, 0.1);
-    --shadow-large: 8px 8px 0 rgba(0, 0, 0, 0.1);
-    --shadow-small: 4px 4px 0 rgba(0, 0, 0, 0.1);
-    --shadow-hover: 4px 4px 0 rgba(0, 0, 0, 0.2);
-    --shadow-active: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    /* TIPOGRAFÍA */
+    --nova-font-family-base: 'Jost', 'Quicksand', system-ui, sans-serif;
+    --nova-font-family-headings: 'Jost', 'Quicksand', system-ui, sans-serif;
     
-    /* Transiciones */
-    --transition-fast: 0.15s ease;
-    --transition-normal: 0.25s ease;
-    --transition-slow: 0.5s ease;
+    --nova-font-size-xs: 0.75rem; /* 12px */
+    --nova-font-size-sm: 0.875rem; /* 14px */
+    --nova-font-size-md: 1rem; /* 16px */
+    --nova-font-size-lg: 1.25rem; /* 20px */
+    --nova-font-size-xl: 1.5rem; /* 24px */
+    --nova-font-size-xxl: 2rem; /* 32px */
     
-    /* Capas (z-index) */
-    --z-negative: -1;
-    --z-normal: 1;
-    --z-dropdown: 1000;
-    --z-sticky: 1100;
-    --z-fixed: 1200;
-    --z-modal: 1300;
-    --z-popover: 1400;
-    --z-tooltip: 1500;
+    --nova-font-weight-normal: 400;
+    --nova-font-weight-medium: 500;
+    --nova-font-weight-bold: 700;
     
-    /* Layout */
-    --container-max-width: 1200px;
-    --container-padding: var(--spacing-md);
+    --nova-line-height-tight: 1.2;
+    --nova-line-height-normal: 1.5;
+    --nova-line-height-loose: 1.8;
     
-    /* Sidebar */
-    --sidebar-width: 16rem; /* 256px */
-    --sidebar-collapsed-width: 5rem; /* 80px */
+    /* SOMBRAS */
+    --nova-shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    --nova-shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1); /* Sombra neo-brutalista estándar */
+    --nova-shadow-lg: 10px 10px 0 rgba(0, 0, 0, 0.1);
     
-    /* Header */
-    --header-height: 4rem; /* 64px */
+    /* TRANSICIONES */
+    --nova-transition-fast: 0.15s ease-in-out;
+    --nova-transition-normal: 0.3s ease-in-out;
+    --nova-transition-slow: 0.5s ease-in-out;
     
-    /* Grid */
-    --grid-gap: var(--spacing-md);
-    
-    /* Controles de formulario */
-    --input-height: 2.5rem; /* 40px */
-    --input-font-size: var(--font-size-base);
-    --input-padding: 0 var(--spacing-md);
-    --input-border-width: var(--border-width);
-    --input-border-radius: var(--border-radius);
-    
-    /* Botones */
-    --button-padding-y: 0.5rem; /* 8px */
-    --button-padding-x: 1rem; /* 16px */
-    --button-font-size: var(--font-size-base);
-    --button-height: var(--input-height);
-    --button-border-width: var(--border-width);
-    --button-border-radius: var(--border-radius);
+    /* Z-INDEX */
+    --nova-z-index-1: 10;
+    --nova-z-index-2: 20;
+    --nova-z-index-3: 30;
+    --nova-z-index-4: 40;
+    --nova-z-index-5: 50;
+    --nova-z-index-max: 999;
 }
 
-/* Tema Oscuro */
+/* TEMA OSCURO */
 .dark-mode {
-    --color-dark: #F7F9F9;
-    --color-light: #2A2D45;
+    /* Colores de fondo */
+    --nova-bg-body: #2A2D45;
+    --nova-bg-card: #343A5E;
+    --nova-bg-sidebar: #343A5E;
+    --nova-bg-header: #2A2D45;
+    --nova-bg-footer: #343A5E;
+    --nova-bg-input: #2A2D45;
     
-    --gray-100: #313131;
-    --gray-200: #515151;
-    --gray-300: #626262;
-    --gray-400: #7E7E7E;
-    --gray-500: #9E9E9E;
-    --gray-600: #B1B1B1;
-    --gray-700: #CFCFCF;
-    --gray-800: #E1E1E1;
-    --gray-900: #F7F7F7;
+    /* Colores de texto */
+    --nova-text-primary: var(--nova-color-light);
+    --nova-text-secondary: var(--nova-gray-300);
+    --nova-text-muted: var(--nova-gray-400);
     
-    /* Fondos específicos del tema oscuro */
-    --bg-dark: #2A2D45;
-    --bg-component: #343A5E;
-    --bg-element: #3F4577;
-    --bg-highlight: #4E56A6;
+    /* Colores de bordes */
+    --nova-border-color: #3F4577;
+    --nova-border-color-hover: #4E56A6;
+    --nova-border-color-focus: var(--nova-color-primary);
     
-    /* Sombras ajustadas para tema oscuro */
-    --shadow-normal: 3px 3px 0 rgba(0, 0, 0, 0.3);
-    --shadow-large: 5px 5px 0 rgba(0, 0, 0, 0.3);
-    --shadow-small: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    /* Sombras suavizadas para modo oscuro */
+    --nova-shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    --nova-shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.3);
+    --nova-shadow-lg: 10px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Clases para colores */
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
-.text-accent { color: var(--color-accent); }
-.text-success { color: var(--color-success); }
-.text-warning { color: var(--color-warning); }
-.text-error { color: var(--color-error); }
-.text-dark { color: var(--color-dark); }
-.text-light { color: var(--color-light); }
+/* INTENSIDAD DEL ESTILO NEO-BRUTALISTA */
 
-.bg-primary { background-color: var(--color-primary); }
-.bg-secondary { background-color: var(--color-secondary); }
-.bg-accent { background-color: var(--color-accent); }
-.bg-success { background-color: var(--color-success); }
-.bg-warning { background-color: var(--color-warning); }
-.bg-error { background-color: var(--color-error); }
-.bg-dark { background-color: var(--color-dark); }
-.bg-light { background-color: var(--color-light); }
-
-/* Clases para sombras neo-brutalistas */
-.shadow-normal { box-shadow: var(--shadow-normal); }
-.shadow-large { box-shadow: var(--shadow-large); }
-.shadow-small { box-shadow: var(--shadow-small); }
-.shadow-active { box-shadow: var(--shadow-active); }
-.shadow-none { box-shadow: none; }
-
-/* Clases para bordes neo-brutalistas */
-.border-neo {
-    border: var(--border-width) solid;
-    border-radius: var(--border-radius);
+/* Light - versión más sutil */
+.neobrutalism-light {
+    --nova-border-width: 1px;
+    --nova-shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.07);
+    --nova-shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.07);
+    --nova-shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.07);
 }
 
-.border-neo-sm {
-    border: var(--border-width) solid;
-    border-radius: var(--border-radius-sm);
-}
-
-.border-neo-lg {
-    border: var(--border-width) solid;
-    border-radius: var(--border-radius-lg);
+/* Strong - versión más pronunciada */
+.neobrutalism-strong {
+    --nova-border-width: 3px;
+    --nova-shadow-sm: 4px 4px 0 rgba(0, 0, 0, 0.15);
+    --nova-shadow-md: 8px 8px 0 rgba(0, 0, 0, 0.15);
+    --nova-shadow-lg: 12px 12px 0 rgba(0, 0, 0, 0.15);
 }
