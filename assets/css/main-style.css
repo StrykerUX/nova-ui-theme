@@ -1,0 +1,19 @@
+/**
+ * NovaUI - Estilo principal
+ * Este archivo importa todos los componentes CSS del tema
+ *
+ * Tema: NovaUI
+ * Estilo: Soft Neubrutalism
+ */
+
+/* Importar variables CSS */
+@import 'variables.css';
+
+/* Importar estilos base */
+@import 'main.css';
+
+/* Importar estilos específicos */
+@import 'dashboard.css';
+
+/* Importar modo oscuro (este debe ser el último para sobreescribir estilos) */
+@import 'dark-mode.css';
