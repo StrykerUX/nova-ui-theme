@@ -1,0 +1,378 @@
+/**
+ * Neo Brutalism - Efectos y Animaciones Adicionales
+ * Este archivo complementa main.css con efectos específicos del estilo Neo Brutalista
+ */
+
+/* Pulsado de botones (efecto 3D más pronunciado al hacer clic) */
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Efecto de elevación para tarjetas en hover */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px) rotate(0.5deg);
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Efecto de rotación sutil para tarjetas alternas */
+.card:nth-child(odd):hover {
+    transform: translateY(-5px) rotate(-0.5deg);
+}
+
+/* Efecto de destello para borde de elementos activos */
+.card-pulse {
+    animation: card-pulse 1s ease-in-out;
+}
+
+@keyframes card-pulse {
+    0% {
+        box-shadow: var(--shadow-md);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.3);
+    }
+    100% {
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* Efectos para íconos */
+.menu-icon i,
+.stats-icon i,
+.avatar-icon i {
+    transition: transform 0.3s ease;
+}
+
+.side-nav-item:hover .menu-icon i,
+.stats-card:hover .stats-icon i,
+.message-avatar:hover .avatar-icon i {
+    transform: scale(1.2);
+}
+
+/* Efectos visuales para el tema neo-brutalista */
+.noise-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.noise-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Bordes más pronunciados para elementos destacados */
+.btn-primary,
+.active .side-nav-link,
+.stats-icon,
+.avatar-icon {
+    position: relative;
+}
+
+.btn-primary::after,
+.active .side-nav-link::after,
+.stats-icon::after,
+.avatar-icon::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::after,
+.active .side-nav-link:hover::after,
+.stats-card:hover .stats-icon::after,
+.chat-message:hover .avatar-icon::after {
+    opacity: 1;
+}
+
+/* Animación flotante para el widget de ayuda */
+.help-widget-floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Efecto de escritura para los títulos de las tarjetas */
+.typing-effect {
+    border-right: 2px solid var(--color-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-primary) }
+}
+
+/* Transiciones suaves para el modo oscuro/claro */
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+    transition: all 750ms !important;
+    transition-delay: 0 !important;
+}
+
+/* Efecto de escala para íconos de notificaciones */
+.noti-icon-badge {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    background-color: var(--color-error);
+    border-radius: 50%;
+    transform-origin: center;
+    animation: scale-badge 2s infinite;
+}
+
+@keyframes scale-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* Efecto degradado para fondos de tarjetas estadísticas */
+.stats-card .card-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-card .card-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .stats-card .card-body::before {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+/* Efectos para enlaces y botones del menú lateral */
+.side-nav-link {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.side-nav-link:hover {
+    transform: translateX(3px);
+}
+
+.active .side-nav-link:hover {
+    transform: translateX(3px) scale(1.02);
+}
+
+/* Efecto marquesina para textos largos */
+.text-marquee {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.text-marquee:hover span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* Estilizado para esquinas dobladas en tarjetas */
+.card-folded-corner {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-folded-corner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 24px 24px 0;
+    border-color: transparent var(--color-primary) transparent transparent;
+    transition: all 0.3s ease;
+}
+
+.card-folded-corner:hover::before {
+    border-width: 0 32px 32px 0;
+}
+
+/* Efecto de ondulación para elementos interactivos */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, var(--color-primary) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Estilizado especial para botones grandes */
+.btn-neo {
+    border: 3px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.btn-neo:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-neo:active {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Más animaciones para los estados de las tarjetas */
+.card-animation-wobble:hover {
+    animation: wobble 1s ease-in-out;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: translateX(0); }
+    15% { transform: translateX(-8px) rotate(-3deg); }
+    30% { transform: translateX(6px) rotate(2deg); }
+    45% { transform: translateX(-4px) rotate(-1deg); }
+    60% { transform: translateX(2px) rotate(1deg); }
+    75% { transform: translateX(-1px) rotate(-0.5deg); }
+}
+
+/* Bordes con trazo manual (estilo dibujado a mano) */
+.hand-drawn {
+    position: relative;
+}
+
+.hand-drawn::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 3px solid var(--color-primary);
+    border-radius: inherit;
+    opacity: 0.6;
+    clip-path: polygon(
+        0% 15%, 5% 10%, 15% 5%, 25% 0%, 35% 0%, 45% 0%, 55% 0%, 65% 0%, 75% 5%, 85% 10%, 95% 15%, 100% 25%,
+        100% 35%, 100% 45%, 100% 55%, 100% 65%, 100% 75%, 95% 85%, 85% 95%, 75% 100%, 65% 100%, 55% 100%,
+        45% 100%, 35% 100%, 25% 100%, 15% 95%, 5% 85%, 0% 75%, 0% 65%, 0% 55%, 0% 45%, 0% 35%, 0% 25%
+    );
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.hand-drawn:hover::before {
+    opacity: 1;
+}
+
+/* Tema oscuro - ajustes adicionales */
+[data-theme="dark"] {
+    /* Adición de textura para contraste */
+    --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 5px 5px 0 rgba(0, 0, 0, 0.4);
+    --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .btn,
+[data-theme="dark"] .card,
+[data-theme="dark"] .menu-link,
+[data-theme="dark"] .stats-icon,
+[data-theme="dark"] .avatar-icon {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de destello para el cambio de tema */
+.theme-transition-flash {
+    animation: theme-flash 1s;
+}
+
+@keyframes theme-flash {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Animaciones para métricas de incremento/decremento */
+.stats-trend {
+    position: relative;
+}
+
+.stats-trend.positive::before,
+.stats-trend.negative::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: currentColor;
+    opacity: 0.1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s ease;
+    z-index: -1;
+    border-radius: var(--border-radius-pill);
+}
+
+.stats-card:hover .stats-trend.positive::before,
+.stats-card:hover .stats-trend.negative::before {
+    transform: scaleX(1);
+}
