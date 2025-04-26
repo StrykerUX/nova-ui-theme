@@ -1,0 +1,389 @@
+/**
+ * Estilos para botones con estilo Soft Neobrutalism
+ *
+ * @package NovaUI
+ */
+
+/* Importar variables CSS */
+@import '../variables.css';
+
+/* Botón base con estilo Soft Neobrutalism */
+.nova-button {
+    display: inline-block;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: var(--border-width) solid var(--color-primary);
+    border-radius: var(--border-radius);
+    background-color: var(--color-primary);
+    color: white;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+    box-shadow: var(--shadow-normal);
+}
+
+/* Efectos en hover/focus */
+.nova-button:hover,
+.nova-button:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
+    text-decoration: none;
+    color: white;
+}
+
+/* Efecto en active */
+.nova-button:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-small);
+}
+
+/* Variantes de color */
+.nova-button-secondary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.nova-button-accent {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.nova-button-accent:hover,
+.nova-button-accent:focus {
+    color: var(--color-dark);
+}
+
+.nova-button-success {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.nova-button-warning {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+    color: var(--color-dark);
+}
+
+.nova-button-warning:hover,
+.nova-button-warning:focus {
+    color: var(--color-dark);
+}
+
+.nova-button-error {
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.nova-button-dark {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+}
+
+.dark-mode .nova-button-dark {
+    background-color: var(--bg-highlight);
+    border-color: var(--bg-highlight);
+}
+
+.nova-button-light {
+    background-color: var(--color-light);
+    border-color: var(--gray-200);
+    color: var(--color-dark);
+}
+
+.nova-button-light:hover,
+.nova-button-light:focus {
+    color: var(--color-dark);
+    background-color: var(--gray-200);
+}
+
+.dark-mode .nova-button-light {
+    background-color: var(--bg-component);
+    border-color: var(--bg-element);
+    color: var(--color-light);
+}
+
+.dark-mode .nova-button-light:hover,
+.dark-mode .nova-button-light:focus {
+    background-color: var(--bg-element);
+    color: var(--color-light);
+}
+
+/* Botones outline */
+.nova-button-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.nova-button-outline:hover,
+.nova-button-outline:focus {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.nova-button-outline-secondary {
+    background-color: transparent;
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.nova-button-outline-secondary:hover,
+.nova-button-outline-secondary:focus {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.nova-button-outline-accent {
+    background-color: transparent;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.nova-button-outline-accent:hover,
+.nova-button-outline-accent:focus {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.nova-button-outline-success {
+    background-color: transparent;
+    border-color: var(--color-success);
+    color: var(--color-success);
+}
+
+.nova-button-outline-success:hover,
+.nova-button-outline-success:focus {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.nova-button-outline-warning {
+    background-color: transparent;
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+}
+
+.nova-button-outline-warning:hover,
+.nova-button-outline-warning:focus {
+    background-color: var(--color-warning);
+    color: var(--color-dark);
+}
+
+.nova-button-outline-error {
+    background-color: transparent;
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.nova-button-outline-error:hover,
+.nova-button-outline-error:focus {
+    background-color: var(--color-error);
+    color: white;
+}
+
+/* Variantes de tamaño */
+.nova-button-large {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-lg);
+}
+
+.nova-button-small {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-sm);
+}
+
+/* Botón con icono */
+.nova-button-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nova-button-icon-left {
+    margin-right: 0.5rem;
+}
+
+.nova-button-icon-right {
+    margin-left: 0.5rem;
+}
+
+/* Botón circular */
+.nova-button-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nova-button-circle.nova-button-large {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.nova-button-circle.nova-button-small {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Botón con borde más grueso para estilo neobrutalism más fuerte */
+.neobrutalism-strong .nova-button {
+    border-width: 3px;
+}
+
+/* Botón con borde más fino para estilo neobrutalism más suave */
+.neobrutalism-light .nova-button {
+    border-width: 1px;
+}
+
+/* Botón bloque (ancho completo) */
+.nova-button-block {
+    display: block;
+    width: 100%;
+}
+
+/* Grupos de botones */
+.nova-button-group {
+    display: inline-flex;
+    border-radius: var(--border-radius);
+}
+
+.nova-button-group .nova-button {
+    border-radius: 0;
+    margin-right: -1px;
+}
+
+.nova-button-group .nova-button:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.nova-button-group .nova-button:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    margin-right: 0;
+}
+
+/* Botón deshabilitado */
+.nova-button:disabled,
+.nova-button.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+    transform: none !important;
+    box-shadow: var(--shadow-normal) !important;
+}
+
+/* Estilos de botón tipo juego */
+.nova-button-game {
+    position: relative;
+    overflow: hidden;
+    border-width: 3px;
+    transform: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.nova-button-game::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nova-button-game:hover {
+    transform: translateY(-2px);
+}
+
+.nova-button-game:active {
+    transform: translateY(2px);
+}
+
+/* Botón con animación de pulsación */
+.nova-button-pulse {
+    animation: buttonPulse 2s infinite;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Botón flotante (fixed position) */
+.nova-button-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: var(--z-fixed);
+}
+
+/* Botón con estado de carga */
+.nova-button-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.nova-button-loading .nova-button-text {
+    opacity: 0;
+}
+
+.nova-button-loading::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-right-color: white;
+    border-radius: 50%;
+    animation: buttonLoading 0.75s linear infinite;
+    top: calc(50% - 0.5rem);
+    left: calc(50% - 0.5rem);
+}
+
+@keyframes buttonLoading {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos para temas oscuros */
+.dark-mode .nova-button {
+    /* El fondo y borde ya están determinados por los colores */
+}
+
+.dark-mode .nova-button-outline {
+    background-color: transparent;
+}
+
+.dark-mode .nova-button-outline:hover,
+.dark-mode .nova-button-outline:focus {
+    background-color: var(--color-primary);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .nova-button {
+        padding: 0.375rem 0.75rem;
+    }
+    
+    .nova-button-large {
+        padding: 0.5rem 1rem;
+        font-size: var(--font-size-base);
+    }
+}
