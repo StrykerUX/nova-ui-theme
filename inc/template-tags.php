@@ -259,8 +259,9 @@ if ( ! function_exists( 'nova_ui_breadcrumbs' ) ) :
                 echo '<li>' . get_the_title() . '</li>';
             }
         } elseif ( is_page() ) {
-            // Página
-            if ( $post->post_parent ) {
+            // Página - AQUÍ ESTÁ EL FIX
+            global $post; // Asegurarse de que $post esté disponible
+            if ( $post && $post->post_parent ) { // Verificar que $post no sea nulo
                 $ancestors = get_post_ancestors( $post->ID );
                 $ancestors = array_reverse( $ancestors );
                 foreach ( $ancestors as $ancestor ) {
