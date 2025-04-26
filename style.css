@@ -1,0 +1,20 @@
+/*
+Theme Name: NovaUI
+Theme URI: https://github.com/StrykerUX/nova-ui-theme
+Author: StrykerUX
+Author URI: https://github.com/StrykerUX
+Description: Un tema WordPress personalizado con estilo Soft Neubrutalism para plataformas SaaS, con soporte para Chat IA, Quick Links y futuro CRM.
+Version: 0.1.0
+Requires at least: 5.9
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nova-ui
+Tags: saas, dashboard, soft-neubrutalism, dark-mode, chat-ia, quick-links
+*/
+
+/* 
+Este archivo solo contiene la información del tema.
+Los estilos se cargarán desde la carpeta assets/css
+*/
