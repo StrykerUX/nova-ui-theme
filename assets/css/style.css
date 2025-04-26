@@ -1,0 +1,19 @@
+/**
+ * Nova UI - Punto de entrada principal de CSS
+ * Importa todos los archivos CSS en el orden correcto
+ */
+
+/* Variables */
+@import url('variables.css');
+
+/* Estilos principales */
+@import url('main.css');
+
+/* Efectos Neo Brutalistas */
+@import url('neo-brutalism.css');
+
+/* Fuentes (Inter desde Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Iconos Tabler */
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.42.0/tabler-icons.min.css');
