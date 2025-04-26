@@ -1,0 +1,405 @@
+/**
+ * Estilos para tarjetas con estilo Soft Neobrutalism
+ *
+ * @package NovaUI
+ */
+
+/* Importar variables CSS */
+@import '../variables.css';
+
+/* Tarjeta base con estilo Soft Neobrutalism */
+.nova-card {
+    background-color: var(--color-light);
+    border: var(--border-width) solid var(--gray-200);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-normal);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tema oscuro */
+.dark-mode .nova-card {
+    background-color: var(--bg-component);
+    border-color: var(--bg-element);
+}
+
+/* Efecto hover en tarjetas */
+.nova-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
+}
+
+/* Tarjeta con header */
+.nova-card-header {
+    margin: calc(-1 * var(--spacing-lg));
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: var(--border-width) solid var(--gray-200);
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode .nova-card-header {
+    border-bottom-color: var(--bg-element);
+}
+
+/* Título de tarjeta */
+.nova-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+}
+
+/* Icono de tarjeta */
+.nova-card-icon {
+    margin-right: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+/* Footer de tarjeta */
+.nova-card-footer {
+    margin: 0 calc(-1 * var(--spacing-lg));
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: var(--border-width) solid var(--gray-200);
+}
+
+.dark-mode .nova-card-footer {
+    border-top-color: var(--bg-element);
+}
+
+/* Contenido de tarjeta */
+.nova-card-content {
+    position: relative;
+}
+
+/* Variantes de tarjetas */
+.nova-card-primary {
+    border-color: var(--color-primary);
+}
+
+.nova-card-primary .nova-card-header {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.nova-card-secondary {
+    border-color: var(--color-secondary);
+}
+
+.nova-card-secondary .nova-card-header {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.nova-card-accent {
+    border-color: var(--color-accent);
+}
+
+.nova-card-accent .nova-card-header {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.nova-card-success {
+    border-color: var(--color-success);
+}
+
+.nova-card-success .nova-card-header {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.nova-card-warning {
+    border-color: var(--color-warning);
+}
+
+.nova-card-warning .nova-card-header {
+    background-color: var(--color-warning);
+    color: var(--color-dark);
+}
+
+.nova-card-error {
+    border-color: var(--color-error);
+}
+
+.nova-card-error .nova-card-header {
+    background-color: var(--color-error);
+    color: white;
+}
+
+/* Tarjetas compactas */
+.nova-card-compact {
+    padding: var(--spacing-md);
+}
+
+.nova-card-compact .nova-card-header {
+    margin: calc(-1 * var(--spacing-md));
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.nova-card-compact .nova-card-footer {
+    margin: 0 calc(-1 * var(--spacing-md));
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* Tarjetas sin padding */
+.nova-card-flush {
+    padding: 0;
+}
+
+.nova-card-flush .nova-card-header {
+    margin: 0;
+    padding: var(--spacing-md);
+}
+
+.nova-card-flush .nova-card-content {
+    padding: var(--spacing-md);
+}
+
+.nova-card-flush .nova-card-footer {
+    margin: 0;
+    padding: var(--spacing-md);
+}
+
+/* Tarjetas con bordes más intensos para un estilo más neo-brutalista */
+.neobrutalism-strong .nova-card {
+    border-width: 3px;
+}
+
+/* Tarjetas con bordes más suaves para un estilo menos neo-brutalista */
+.neobrutalism-light .nova-card {
+    border-width: 1px;
+}
+
+/* Tarjeta con borde de color */
+.nova-card-border-primary {
+    border-left: 4px solid var(--color-primary);
+}
+
+.nova-card-border-secondary {
+    border-left: 4px solid var(--color-secondary);
+}
+
+.nova-card-border-accent {
+    border-left: 4px solid var(--color-accent);
+}
+
+.nova-card-border-success {
+    border-left: 4px solid var(--color-success);
+}
+
+.nova-card-border-warning {
+    border-left: 4px solid var(--color-warning);
+}
+
+.nova-card-border-error {
+    border-left: 4px solid var(--color-error);
+}
+
+/* Tarjetas con esquina girada (estilo papel) */
+.nova-card-paper {
+    position: relative;
+}
+
+.nova-card-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent var(--gray-300) transparent transparent;
+    transition: border-color var(--transition-fast);
+}
+
+.nova-card-paper:hover::before {
+    border-color: transparent var(--gray-400) transparent transparent;
+}
+
+.dark-mode .nova-card-paper::before {
+    border-color: transparent var(--bg-highlight) transparent transparent;
+}
+
+/* Tarjetas estilo juego */
+.nova-card-game {
+    border-width: 3px;
+    position: relative;
+}
+
+.nova-card-game::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    height: 6px;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent));
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+/* Soporte para media en tarjetas */
+.nova-card-media {
+    margin: calc(-1 * var(--spacing-lg));
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.nova-card-media img {
+    width: 100%;
+    display: block;
+}
+
+.nova-card-media-top {
+    margin-bottom: var(--spacing-lg);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.nova-card-media-bottom {
+    margin-top: var(--spacing-lg);
+    margin-bottom: calc(-1 * var(--spacing-lg));
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+/* Tarjetas con avatar */
+.nova-card-avatar {
+    display: flex;
+    align-items: flex-start;
+}
+
+.nova-avatar {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-small);
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+/* Tarjetas de login/signup */
+.nova-card-auth {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+/* Tarjetas desplegables */
+.nova-card-collapsible .nova-card-header {
+    cursor: pointer;
+    position: relative;
+}
+
+.nova-card-collapsible .nova-card-header::after {
+    content: '\f107'; /* FontAwesome chevron down */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: var(--spacing-lg);
+    transition: transform var(--transition-fast);
+}
+
+.nova-card-collapsible.collapsed .nova-card-header::after {
+    transform: rotate(-90deg);
+}
+
+.nova-card-collapsible.collapsed .nova-card-content,
+.nova-card-collapsible.collapsed .nova-card-footer {
+    display: none;
+}
+
+/* Tarjetas con medidor de progreso */
+.nova-card-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.nova-card-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-normal);
+}
+
+/* Tarjetas con notificación */
+.nova-card-notification {
+    position: relative;
+}
+
+.nova-card-notification::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    border: 2px solid var(--color-light);
+}
+
+.dark-mode .nova-card-notification::after {
+    border-color: var(--bg-component);
+}
+
+.nova-card-notification-success::after {
+    background-color: var(--color-success);
+}
+
+.nova-card-notification-warning::after {
+    background-color: var(--color-warning);
+}
+
+.nova-card-notification-error::after {
+    background-color: var(--color-error);
+}
+
+/* Grids de tarjetas */
+.nova-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Responsividad de tarjetas */
+@media (max-width: 768px) {
+    .nova-card {
+        padding: var(--spacing-md);
+    }
+    
+    .nova-card-header {
+        margin: calc(-1 * var(--spacing-md));
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .nova-card-footer {
+        margin: 0 calc(-1 * var(--spacing-md));
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .nova-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
