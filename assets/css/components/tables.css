@@ -1,3 +1,511 @@
 /**
- * NovaUI - Estilos de tablas
+ * Estilos de tablas - NovaUI Theme
+ * Diseño Neo-brutalista suave con elementos de UI de videojuego
  */
+
+/* Tabla base */
+.nova-table {
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+  border-collapse: collapse;
+}
+
+/* Encabezados de tabla */
+.nova-table th {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+  background-color: var(--color-background-alt);
+  border-bottom: var(--border-width) solid var(--color-border);
+  vertical-align: bottom;
+}
+
+/* Celdas de tabla */
+.nova-table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+/* Filas de tabla */
+.nova-table tr:last-child td {
+  border-bottom: none;
+}
+
+.nova-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.nova-table tbody tr:hover {
+  background-color: rgba(255, 107, 107, 0.05);
+}
+
+/* Tabla con bordes */
+.nova-table-bordered {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.nova-table-bordered th,
+.nova-table-bordered td {
+  border: 1px solid var(--color-gray-200);
+}
+
+.nova-table-bordered thead th {
+  border-bottom-width: var(--border-width);
+}
+
+/* Tabla con rayas */
+.nova-table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.nova-table-striped tbody tr:hover {
+  background-color: rgba(255, 107, 107, 0.05);
+}
+
+/* Tabla compacta */
+.nova-table-sm th,
+.nova-table-sm td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+/* Tabla grande */
+.nova-table-lg th,
+.nova-table-lg td {
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* Contextos de fila */
+.nova-table-primary {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+.nova-table-secondary {
+  background-color: rgba(78, 205, 196, 0.1);
+}
+
+.nova-table-accent {
+  background-color: rgba(255, 230, 109, 0.1);
+}
+
+.nova-table-success {
+  background-color: rgba(123, 201, 80, 0.1);
+}
+
+.nova-table-warning {
+  background-color: rgba(255, 165, 82, 0.1);
+}
+
+.nova-table-error {
+  background-color: rgba(247, 111, 142, 0.1);
+}
+
+/* Tabla con contenedor */
+.nova-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  border: var(--border-width) solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.nova-table-container .nova-table {
+  margin-bottom: 0;
+}
+
+/* Tabla con encabezados fijos */
+.nova-table-fixed-header {
+  overflow: auto;
+  max-height: 400px;
+}
+
+.nova-table-fixed-header thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--color-background-alt);
+}
+
+/* Tabla con columna de acciones */
+.nova-table-actions {
+  white-space: nowrap;
+  width: 1%;
+  text-align: right;
+}
+
+.nova-table-actions .nova-btn {
+  margin-left: var(--spacing-xs);
+}
+
+/* Tabla responsiva */
+.nova-table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Tabla con select */
+.nova-table-select th:first-child,
+.nova-table-select td:first-child {
+  width: 40px;
+  text-align: center;
+}
+
+/* Tabla con filas seleccionables */
+.nova-table-selectable tbody tr {
+  cursor: pointer;
+}
+
+.nova-table-selectable tbody tr.selected {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+/* Pie de tabla */
+.nova-table tfoot {
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-background-alt);
+}
+
+/* Leyenda de tabla */
+.nova-table-caption {
+  padding: var(--spacing-sm) 0;
+  color: var(--color-text-light);
+  text-align: left;
+  caption-side: bottom;
+}
+
+/* Tabla con tarjeta */
+.nova-table-card {
+  background-color: var(--card-background);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.nova-table-card .nova-table {
+  margin-bottom: 0;
+}
+
+.nova-table-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  background-color: var(--card-background);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.nova-table-card-title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.nova-table-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  background-color: var(--card-background);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+/* Tabla con paginación */
+.nova-table-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.nova-table-pagination-info {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+/* Tablas de datos avanzadas */
+.nova-datatable {
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--card-background);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.nova-datatable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.nova-datatable-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.nova-datatable-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.nova-datatable-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.nova-datatable-search {
+  position: relative;
+  width: 250px;
+}
+
+.nova-datatable-search input {
+  padding-left: 2.5rem;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-lg);
+}
+
+.nova-datatable-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-light);
+}
+
+.nova-datatable-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.nova-datatable .nova-table {
+  margin-bottom: 0;
+  border: none;
+}
+
+.nova-datatable-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.nova-datatable-info {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+.nova-datatable-pagination {
+  display: flex;
+  align-items: center;
+}
+
+/* Celda de tabla con estado */
+.nova-table-cell-status {
+  display: flex;
+  align-items: center;
+}
+
+.nova-table-status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: var(--spacing-sm);
+}
+
+.nova-table-status-active {
+  background-color: var(--color-success);
+}
+
+.nova-table-status-pending {
+  background-color: var(--color-warning);
+}
+
+.nova-table-status-inactive {
+  background-color: var(--color-error);
+}
+
+/* Celda de tabla con progreso */
+.nova-table-cell-progress {
+  width: 150px;
+}
+
+.nova-table-progress {
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--color-gray-200);
+  overflow: hidden;
+}
+
+.nova-table-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+  border-radius: 4px;
+}
+
+/* Celda de tabla con avatar */
+.nova-table-cell-avatar {
+  display: flex;
+  align-items: center;
+}
+
+.nova-table-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: var(--spacing-sm);
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Encabezados ordenables */
+.nova-table-sortable th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.nova-table-sortable th::after {
+  content: '⇅';
+  font-size: 0.75em;
+  margin-left: var(--spacing-xs);
+  opacity: 0.3;
+}
+
+.nova-table-sortable th.sort-asc::after {
+  content: '↑';
+  opacity: 1;
+}
+
+.nova-table-sortable th.sort-desc::after {
+  content: '↓';
+  opacity: 1;
+}
+
+/* Estilo de videojuego para tablas */
+.nova-table-game {
+  border: 3px solid var(--color-border);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+.nova-table-game th {
+  background-color: var(--color-primary);
+  color: white;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--color-gray-800);
+}
+
+.nova-table-game td {
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.nova-table-game tbody tr:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+/* Celdas con alineaciones específicas */
+.nova-table-cell-center {
+  text-align: center;
+}
+
+.nova-table-cell-right {
+  text-align: right;
+}
+
+/* Filas expandibles */
+.nova-table-expandable tr.expandable-row {
+  cursor: pointer;
+}
+
+.nova-table-expandable tr.expanded-content {
+  display: none;
+  background-color: var(--color-background-alt);
+}
+
+.nova-table-expandable tr.expanded-content.show {
+  display: table-row;
+}
+
+.nova-table-expandable tr.expanded-content td {
+  padding: var(--spacing-md);
+}
+
+.nova-table-expand-icon {
+  transition: transform var(--transition-fast);
+}
+
+.nova-table-expandable tr.expanded .nova-table-expand-icon {
+  transform: rotate(90deg);
+}
+
+/* Tabla para móviles (transforma tabla en tarjetas) */
+@media (max-width: 767.98px) {
+  .nova-table-mobile {
+    display: block;
+  }
+  
+  .nova-table-mobile thead {
+    display: none;
+  }
+  
+  .nova-table-mobile tbody,
+  .nova-table-mobile tr,
+  .nova-table-mobile td {
+    display: block;
+    width: 100%;
+  }
+  
+  .nova-table-mobile tr {
+    margin-bottom: var(--spacing-md);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .nova-table-mobile td {
+    display: flex;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: right;
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+  
+  .nova-table-mobile td::before {
+    content: attr(data-label);
+    width: 40%;
+    padding-right: var(--spacing-md);
+    font-weight: var(--font-weight-semibold);
+    text-align: left;
+  }
+  
+  .nova-table-mobile td:last-child {
+    border-bottom: none;
+  }
+}
