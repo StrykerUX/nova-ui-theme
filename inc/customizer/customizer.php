@@ -425,6 +425,6 @@ function nova_ui_adjust_brightness( $hex, $steps ) {
  * Agregar script para preview en tiempo real del personalizador
  */
 function nova_ui_customize_preview_js() {
-    wp_enqueue_script( 'nova-ui-customizer', get_template_directory_uri() . '/assets/js/theme-customizer.js', array( 'jquery', 'customize-preview' ), NOVA_UI_VERSION, true );
+    wp_enqueue_script( 'nova-ui-customizer', get_template_directory_uri() . '/assets/js/theme-customizer.js', array( 'jquery', 'customize-preview' ), NOVAUI_VERSION, true );
 }
 add_action( 'customize_preview_init', 'nova_ui_customize_preview_js' );
