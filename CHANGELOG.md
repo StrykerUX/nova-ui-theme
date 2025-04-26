@@ -2,6 +2,28 @@
 
 Registro de cambios para NovaUI - Tema WordPress personalizado.
 
+## [0.2.0] - 2025-04-26
+
+### Añadido
+- Componentes UI Core (Fase 2) implementados:
+  - Botones con diferentes variantes y estados
+  - Tarjetas/Cards con variantes
+  - Formularios e inputs con diseño neo-brutalista
+  - Navegación (principal, tabs, pills, dropdown)
+  - Tablas para presentación de datos
+  - Alertas y notificaciones
+  - Modales y diálogos
+  - Widgets para dashboard
+  - Header personalizado
+  - Footer con múltiples variantes
+  - Sidebar con modo colapsable
+- Cada componente incluye:
+  - Estilos base
+  - Variantes por color y tamaño
+  - Estados (hover, active, disabled)
+  - Versión con estilo de videojuego
+  - Soporte para responsive
+
 ## [0.1.0] - 2025-04-26
 
 ### Añadido
