@@ -1,3 +1,431 @@
 /**
- * NovaUI - Estilos de footer
+ * Estilos del footer - NovaUI Theme
+ * Diseño Neo-brutalista suave con elementos de UI de videojuego
  */
+
+/* Base del footer */
+.nova-footer {
+  background-color: var(--footer-background);
+  padding: var(--spacing-lg) 0;
+  border-top: var(--border-width) solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* Contenedor del footer */
+.nova-footer-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Layout en columnas */
+.nova-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Columna de footer */
+.nova-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo en el footer */
+.nova-footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.nova-footer-logo-img {
+  height: 36px;
+  margin-right: var(--spacing-sm);
+}
+
+.nova-footer-logo-text {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Descripción en el footer */
+.nova-footer-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  max-width: 300px;
+}
+
+/* Título de sección en footer */
+.nova-footer-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Enlaces en footer */
+.nova-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nova-footer-link-item {
+  margin-bottom: var(--spacing-sm);
+}
+
+.nova-footer-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nova-footer-link:hover {
+  color: var(--color-primary);
+}
+
+.nova-footer-link-icon {
+  margin-right: var(--spacing-xs);
+}
+
+/* Redes sociales */
+.nova-footer-social {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.nova-footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-border);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.nova-footer-social-link:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Información de contacto */
+.nova-footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nova-footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.nova-footer-contact-icon {
+  margin-right: var(--spacing-sm);
+  margin-top: 4px;
+}
+
+/* Boletín de noticias */
+.nova-footer-newsletter {
+  margin-top: var(--spacing-sm);
+}
+
+.nova-footer-newsletter-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.nova-footer-newsletter-form {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.nova-footer-newsletter-input {
+  flex: 1;
+  height: 40px;
+  padding: 0 var(--spacing-sm);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-background);
+  font-size: var(--font-size-sm);
+}
+
+.nova-footer-newsletter-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.nova-footer-newsletter-btn {
+  height: 40px;
+  padding: 0 var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-primary);
+  color: white;
+  border: var(--border-width) solid var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nova-footer-newsletter-btn:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Barra inferior de derechos y políticas */
+.nova-footer-bottom {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.nova-footer-copyright {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.nova-footer-policies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.nova-footer-policy-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.nova-footer-policy-link:hover {
+  color: var(--color-primary);
+}
+
+/* Versiones de footer */
+/* Footer minimalista */
+.nova-footer-minimal {
+  padding: var(--spacing-md) 0;
+}
+
+.nova-footer-minimal .nova-footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.nova-footer-minimal .nova-footer-copyright {
+  margin: 0;
+}
+
+.nova-footer-minimal .nova-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin: 0;
+}
+
+.nova-footer-minimal .nova-footer-link-item {
+  margin-bottom: 0;
+}
+
+/* Footer centrado */
+.nova-footer-centered {
+  text-align: center;
+}
+
+.nova-footer-centered .nova-footer-logo {
+  justify-content: center;
+}
+
+.nova-footer-centered .nova-footer-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nova-footer-centered .nova-footer-social {
+  justify-content: center;
+}
+
+.nova-footer-centered .nova-footer-bottom {
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Footer con estilo de videojuego */
+.nova-footer-game {
+  border-top-width: 3px;
+  box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nova-footer-game .nova-footer-title {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+}
+
+.nova-footer-game .nova-footer-social-link {
+  border-width: 3px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nova-footer-game .nova-footer-social-link:hover {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.nova-footer-game .nova-footer-newsletter-btn {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nova-footer-game .nova-footer-newsletter-btn:hover {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.nova-footer-game .nova-footer-logo-text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+/* Footer con fondo oscuro */
+.nova-footer-dark {
+  background-color: var(--color-gray-800);
+  color: white;
+  border-top: none;
+}
+
+.nova-footer-dark .nova-footer-title {
+  color: white;
+}
+
+.nova-footer-dark .nova-footer-link {
+  color: var(--color-gray-300);
+}
+
+.nova-footer-dark .nova-footer-link:hover {
+  color: white;
+}
+
+.nova-footer-dark .nova-footer-description,
+.nova-footer-dark .nova-footer-contact-item,
+.nova-footer-dark .nova-footer-newsletter-text,
+.nova-footer-dark .nova-footer-copyright {
+  color: var(--color-gray-400);
+}
+
+.nova-footer-dark .nova-footer-social-link {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
+  color: white;
+}
+
+.nova-footer-dark .nova-footer-social-link:hover {
+  background-color: var(--color-primary);
+}
+
+.nova-footer-dark .nova-footer-bottom {
+  border-top-color: var(--color-gray-700);
+}
+
+.nova-footer-dark .nova-footer-policy-link {
+  color: var(--color-gray-400);
+}
+
+.nova-footer-dark .nova-footer-policy-link:hover {
+  color: white;
+}
+
+.nova-footer-dark .nova-footer-newsletter-input {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-600);
+  color: white;
+}
+
+.nova-footer-dark .nova-footer-newsletter-input::placeholder {
+  color: var(--color-gray-400);
+}
+
+/* Responsividad del footer */
+@media (max-width: 767.98px) {
+  .nova-footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .nova-footer-col:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .nova-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+  
+  .nova-footer-policies {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .nova-footer-minimal .nova-footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Animaciones */
+.nova-footer .nova-footer-link {
+  position: relative;
+}
+
+.nova-footer .nova-footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.nova-footer .nova-footer-link:hover::after {
+  width: 100%;
+}
+
+/* Logo with accent */
+.nova-footer-logo-accent {
+  color: var(--color-primary);
+}
