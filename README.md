@@ -17,6 +17,18 @@ Un tema WordPress personalizado para plataformas SaaS con diseño neo-brutalista
 - Integración con WooCommerce y complementos de membresía
 - Soporte para plugins propios: Chat IA, Quick Links, y CRM
 
+## Estilo Neo-Brutalista
+
+NovaUI implementa un estilo Neo-Brutalista suave con elementos de UI de videojuego indie de manera consistente en **todos los componentes**. Este estilo se caracteriza por:
+
+- Bordes visibles y definidos
+- Esquinas redondeadas
+- Sombras características (no difuminadas)
+- Colores vibrantes pero no agresivos
+- Elementos inspirados en interfaces de videojuegos
+
+Tenemos una [guía completa de estilo Neo-Brutalista](docs/neo-brutalism-style-guide.md) para mantener la consistencia visual en todo el tema.
+
 ## Estructura del Proyecto
 
 ```
@@ -24,6 +36,8 @@ nova-ui-theme/
 ├── assets/
 │   ├── css/
 │   │   ├── base/               # Estilos base y reset
+│   │   │   ├── neo-brutalism.css  # Base Neo-Brutalista global
+│   │   │   └── neo-helpers.css   # Helpers para estilos Neo-Brutalistas
 │   │   ├── components/         # Componentes reutilizables
 │   │   ├── templates/          # Estilos específicos por plantilla
 │   │   ├── woocommerce/        # Personalización WooCommerce
@@ -45,6 +59,8 @@ nova-ui-theme/
 │   ├── sin-sidebar.php         # Template sin sidebar
 │   └── dashboard.php           # Template para dashboard
 ├── woocommerce/                # Templates sobrescritas de WooCommerce
+├── docs/
+│   └── neo-brutalism-style-guide.md # Guía de estilo Neo-Brutalista
 ├── functions.php               # Funciones principales del tema
 └── style.css                   # Información del tema
 ```
@@ -84,6 +100,40 @@ NovaUI implementa un sistema completo de variables CSS que permite una personali
   --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1);
 }
 ```
+
+## Aplicando el Estilo Neo-Brutalista
+
+El estilo Neo-Brutalista está implementado a nivel global a través de:
+
+1. **Base global**: En `assets/css/base/neo-brutalism.css` que define la estética fundamental.
+2. **Helpers utilitarios**: En `assets/css/base/neo-helpers.css` con clases para aplicación rápida.
+3. **Variables CSS**: En `assets/css/variables.css` con los valores que definen el aspecto visual.
+
+### Clases Principales
+
+```html
+<!-- Usando componentes Neo-Brutalistas -->
+<div class="neo-container">
+  <h2 class="neo-heading">Título</h2>
+  <p>Contenido de ejemplo...</p>
+  <button class="neo-button neo-button--primary">Acción</button>
+</div>
+
+<!-- Usando helpers utilitarios -->
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">Título de Tarjeta</h3>
+  </div>
+  <div class="card-body">
+    <p>Contenido...</p>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary">Acción</button>
+  </div>
+</div>
+```
+
+Para más detalles, consulta la [guía de estilo Neo-Brutalista](docs/neo-brutalism-style-guide.md).
 
 ## Sistema de Shortcodes
 
