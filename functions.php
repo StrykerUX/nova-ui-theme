@@ -245,18 +245,4 @@ function novaui_register_post_types() {
 }
 add_action('init', 'novaui_register_post_types');
 
-/**
- * Agregar clases al body para el tema
- */
-function novaui_body_classes($classes) {
-    // Agregar clase para modo oscuro/claro
-    $classes[] = novaui_theme_mode_class();
-    
-    // Agregar clase si estamos en el dashboard
-    if (is_page_template('templates/dashboard.php')) {
-        $classes[] = 'nova-dashboard';
-    }
-    
-    return $classes;
-}
-add_filter('body_class', 'novaui_body_classes');
+// Eliminada la función novaui_body_classes que estaba duplicada con template-functions.php
