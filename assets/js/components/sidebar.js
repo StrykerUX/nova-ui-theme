@@ -1,105 +1,165 @@
 /**
- * Script para manejar la funcionalidad del sidebar del dashboard
- * 
- * @package NovaUI
+ * Script para gestionar la funcionalidad del sidebar colapsable
+ * y la navegación del dashboard
  */
 
 (function() {
-    document.addEventListener('DOMContentLoaded', function() {
-        // Variables para los elementos del DOM
-        const sidebarToggle = document.querySelector('.sidebar-toggle');
-        const sidebar = document.querySelector('.dashboard-sidebar');
-        const content = document.querySelector('.dashboard-content');
-        const header = document.querySelector('.dashboard-header');
+    'use strict';
+    
+    // Referencias a elementos DOM
+    const sidebar = document.querySelector('.dashboard-sidebar');
+    const collapseButton = document.querySelector('.sidebar-collapse-btn');
+    const navLinks = document.querySelectorAll('.dashboard-nav-link');
+    const mainContent = document.querySelector('.dashboard-main');
+    
+    // Nombre de la cookie para guardar el estado del sidebar
+    const SIDEBAR_STATE_COOKIE = 'novaui_sidebar_collapsed';
+    
+    /**
+     * Establecer una cookie con el estado del sidebar
+     */
+    function setSidebarStateCookie(isCollapsed) {
+        const date = new Date();
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000)); // Expira en un año
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = SIDEBAR_STATE_COOKIE + "=" + isCollapsed + ";" + expires + ";path=/";
+    }
+    
+    /**
+     * Obtener el valor de la cookie para el estado del sidebar
+     */
+    function getSidebarStateCookie() {
+        const name = SIDEBAR_STATE_COOKIE + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const cookieArray = decodedCookie.split(';');
         
-        // Verificar si estamos en la vista dashboard
-        if (!sidebar || !sidebarToggle) {
-            return;
-        }
-        
-        // Comprobar si hay una preferencia guardada para el estado del sidebar
-        function isSidebarCollapsed() {
-            return localStorage.getItem('novaui_sidebar_collapsed') === 'true';
-        }
-        
-        // Aplicar estado guardado del sidebar
-        function applySidebarState() {
-            const isCollapsed = isSidebarCollapsed();
-            sidebar.classList.toggle('collapsed', isCollapsed);
-            
-            // También ajustar el contenido principal y el header
-            if (content) {
-                content.classList.toggle('sidebar-collapsed', isCollapsed);
+        for (let i = 0; i < cookieArray.length; i++) {
+            let cookie = cookieArray[i].trim();
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length) === 'true';
             }
+        }
+        
+        return false; // Por defecto, no colapsado
+    }
+    
+    /**
+     * Cambiar el estado del sidebar entre colapsado y expandido
+     */
+    function toggleSidebar() {
+        if (sidebar) {
+            sidebar.classList.toggle('collapsed');
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            setSidebarStateCookie(isCollapsed);
             
-            if (header) {
-                header.classList.toggle('sidebar-collapsed', isCollapsed);
+            // Cambiar el icono del botón de colapso
+            if (collapseButton) {
+                const iconElement = collapseButton.querySelector('i, svg');
+                if (iconElement) {
+                    if (isCollapsed) {
+                        iconElement.classList.remove('fa-chevron-left');
+                        iconElement.classList.add('fa-chevron-right');
+                    } else {
+                        iconElement.classList.remove('fa-chevron-right');
+                        iconElement.classList.add('fa-chevron-left');
+                    }
+                }
             }
         }
-        
-        // Aplicar estado al cargar la página
-        applySidebarState();
-        
-        // Función para alternar el estado del sidebar
-        function toggleSidebar() {
-            const currentState = isSidebarCollapsed();
-            localStorage.setItem('novaui_sidebar_collapsed', (!currentState).toString());
-            applySidebarState();
-        }
-        
-        // Evento de click para el botón de alternar sidebar
-        sidebarToggle.addEventListener('click', toggleSidebar);
-        
-        // Funcionalidad para dispositivos móviles
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-                document.body.classList.toggle('sidebar-open');
-            });
+    }
+    
+    /**
+     * Marcar el enlace de navegación activo según la URL actual
+     */
+    function setActiveNavLink() {
+        if (navLinks && navLinks.length) {
+            const currentPath = window.location.pathname;
             
-            // Cerrar sidebar al hacer click fuera de él en móvil
-            document.addEventListener('click', function(event) {
-                const isMobile = window.innerWidth <= 768;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
                 
-                if (isMobile && 
-                    sidebar.classList.contains('active') && 
-                    !sidebar.contains(event.target) && 
-                    !menuToggle.contains(event.target)) {
-                    sidebar.classList.remove('active');
-                    document.body.classList.remove('sidebar-open');
+                const linkPath = link.getAttribute('href');
+                
+                // Verificar si la URL actual coincide con el enlace
+                if (linkPath && currentPath === linkPath) {
+                    link.classList.add('active');
+                }
+                // También verificar para páginas secundarias (por ejemplo, /dashboard/stats/)
+                else if (linkPath && currentPath.startsWith(linkPath) && linkPath !== '/') {
+                    link.classList.add('active');
                 }
             });
         }
+    }
+    
+    /**
+     * Inicializar el estado del sidebar desde la cookie guardada
+     */
+    function initializeSidebarState() {
+        const isCollapsed = getSidebarStateCookie();
         
-        // Active state para ítems de navegación
-        const navLinks = document.querySelectorAll('.dashboard-nav-link');
-        
-        navLinks.forEach(function(link) {
-            // Comprobar si el link actual corresponde a la página actual
-            if (link.href === window.location.href || 
-                window.location.href.indexOf(link.href) === 0) {
-                link.classList.add('active');
-            }
+        if (isCollapsed && sidebar) {
+            sidebar.classList.add('collapsed');
             
-            // También añadir event listener para activar el link al hacer click
-            link.addEventListener('click', function() {
-                navLinks.forEach(function(l) {
-                    l.classList.remove('active');
-                });
-                
-                link.classList.add('active');
-            });
-        });
-        
-        // Ajustar sidebar para dispositivos móviles cuando la ventana cambia de tamaño
-        window.addEventListener('resize', function() {
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('collapsed');
-                localStorage.setItem('novaui_sidebar_collapsed', 'false');
+            // Actualizar el icono del botón de colapso
+            if (collapseButton) {
+                const iconElement = collapseButton.querySelector('i, svg');
+                if (iconElement) {
+                    iconElement.classList.remove('fa-chevron-left');
+                    iconElement.classList.add('fa-chevron-right');
+                }
             }
-            applySidebarState();
-        });
+        }
+    }
+    
+    /**
+     * Mostrar tooltips para íconos en el sidebar colapsado
+     */
+    function setupTooltips() {
+        if (navLinks && navLinks.length) {
+            navLinks.forEach(link => {
+                // Obtener el texto y el ícono del enlace
+                const linkText = link.querySelector('.dashboard-nav-text')?.textContent?.trim();
+                const iconElement = link.querySelector('.dashboard-nav-icon');
+                
+                if (linkText && iconElement) {
+                    // Añadir atributo title para mostrar tooltip al pasar el mouse
+                    iconElement.setAttribute('title', linkText);
+                }
+            });
+        }
+    }
+    
+    /**
+     * Configurar escuchadores de eventos para el sidebar
+     */
+    function setupEventListeners() {
+        // Escuchador para botón de colapso
+        if (collapseButton) {
+            collapseButton.addEventListener('click', toggleSidebar);
+        }
+        
+        // Escuchador para enlaces de navegación
+        if (navLinks && navLinks.length) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Quitar la clase activa de todos los enlaces
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    // Añadir la clase activa al enlace clickeado
+                    this.classList.add('active');
+                });
+            });
+        }
+    }
+    
+    // Iniciar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+        if (sidebar) {
+            initializeSidebarState();
+            setActiveNavLink();
+            setupTooltips();
+            setupEventListeners();
+        }
     });
+    
 })();
