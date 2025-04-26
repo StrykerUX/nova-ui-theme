@@ -1,0 +1,121 @@
+/**
+ * Variables CSS para Tema Oscuro - NovaUI Theme
+ */
+
+/* Detección automática de preferencias del sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Colores de texto y fondo */
+    --color-text: #E0E0E0; /* Texto claro para fondo oscuro */
+    --color-text-light: #A0AEC0; /* Texto secundario más suave */
+    --color-background: #2A2D45; /* Azul-púrpura oscuro en lugar de negro puro */
+    --color-background-alt: #343A5E; /* Fondo alternativo ligeramente más claro */
+    --color-border: #3F4577; /* Borde visible pero suave */
+    
+    /* Ajustes sutiles a los colores principales para modo oscuro */
+    --color-primary: #FF6B6B; /* Se mantiene igual para consistencia */
+    --color-secondary: #4ECDC4; /* Se mantiene igual para consistencia */
+    --color-accent: #FFE66D; /* Se mantiene igual para consistencia */
+    
+    /* Estados de componentes interactivos */
+    --color-primary-hover: #FF5252;
+    --color-primary-active: #FF3A3A;
+    --color-link: #63B3ED;
+    --color-link-hover: #90CDF4;
+    
+    /* Escala de grises ajustada para modo oscuro */
+    --color-gray-100: #3F4577; /* Más oscuro que en tema claro */
+    --color-gray-200: #4E56A6;
+    --color-gray-300: #5D68D5;
+    --color-gray-400: #7F8AE5;
+    --color-gray-500: #A0A9EB;
+    --color-gray-600: #C1C6F0;
+    --color-gray-700: #D8DCF5;
+    --color-gray-800: #EDF0FB;
+    --color-gray-900: #FFFFFF;
+    
+    /* Sombras ajustadas para modo oscuro */
+    --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 3px 3px 0 rgba(0, 0, 0, 0.3); /* Neo-brutalista más sutil en oscuro */
+    --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.3);
+    --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.5);
+    
+    /* Componentes específicos */
+    --header-background: var(--color-background);
+    --footer-background: var(--color-background-alt);
+    --sidebar-background: var(--color-background-alt);
+    --card-background: var(--color-background-alt);
+    --input-background: var(--color-background);
+    --input-border: var(--color-border);
+  }
+}
+
+/* Control manual para el modo oscuro */
+html.dark-mode {
+  /* Colores de texto y fondo */
+  --color-text: #E0E0E0; /* Texto claro para fondo oscuro */
+  --color-text-light: #A0AEC0; /* Texto secundario más suave */
+  --color-background: #2A2D45; /* Azul-púrpura oscuro en lugar de negro puro */
+  --color-background-alt: #343A5E; /* Fondo alternativo ligeramente más claro */
+  --color-border: #3F4577; /* Borde visible pero suave */
+  
+  /* Ajustes sutiles a los colores principales para modo oscuro */
+  --color-primary: #FF6B6B; /* Se mantiene igual para consistencia */
+  --color-secondary: #4ECDC4; /* Se mantiene igual para consistencia */
+  --color-accent: #FFE66D; /* Se mantiene igual para consistencia */
+  
+  /* Estados de componentes interactivos */
+  --color-primary-hover: #FF5252;
+  --color-primary-active: #FF3A3A;
+  --color-link: #63B3ED;
+  --color-link-hover: #90CDF4;
+  
+  /* Escala de grises ajustada para modo oscuro */
+  --color-gray-100: #3F4577; /* Más oscuro que en tema claro */
+  --color-gray-200: #4E56A6;
+  --color-gray-300: #5D68D5;
+  --color-gray-400: #7F8AE5;
+  --color-gray-500: #A0A9EB;
+  --color-gray-600: #C1C6F0;
+  --color-gray-700: #D8DCF5;
+  --color-gray-800: #EDF0FB;
+  --color-gray-900: #FFFFFF;
+  
+  /* Sombras ajustadas para modo oscuro */
+  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 3px 3px 0 rgba(0, 0, 0, 0.3); /* Neo-brutalista más sutil en oscuro */
+  --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.5);
+  
+  /* Componentes específicos */
+  --header-background: var(--color-background);
+  --footer-background: var(--color-background-alt);
+  --sidebar-background: var(--color-background-alt);
+  --card-background: var(--color-background-alt);
+  --input-background: var(--color-background);
+  --input-border: var(--color-border);
+}
+
+/* Control manual para el modo claro */
+html.light-mode {
+  /* Restablecer a los valores predeterminados del tema claro */
+  --color-text: #505168;
+  --color-text-light: #718096;
+  --color-background: #F7F9F9;
+  --color-background-alt: #F2F5FA;
+  --color-border: #E2E8F0;
+  
+  /* Reestablecer sombras */
+  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1);
+  --shadow-lg: 10px 10px 0 rgba(0, 0, 0, 0.1);
+  --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.25);
+  
+  /* Componentes específicos */
+  --header-background: var(--color-background);
+  --footer-background: var(--color-background-alt);
+  --sidebar-background: var(--color-background-alt);
+  --card-background: var(--color-background);
+  --input-background: var(--color-background);
+  --input-border: var(--color-border);
+}
