@@ -1,275 +1,187 @@
 /**
  * Estilos para botones con estilo Soft Neobrutalism
- *
- * @package NovaUI
  */
 
-/* Importar variables CSS */
-@import '../variables.css';
-
-/* Botón base con estilo Soft Neobrutalism */
-.nova-button {
-    display: inline-block;
-    padding: var(--button-padding-y) var(--button-padding-x);
-    font-family: var(--font-primary);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
+.nova-button,
+button.nova-button,
+a.nova-button,
+input[type="button"].nova-button,
+input[type="submit"].nova-button,
+input[type="reset"].nova-button {
+    /* Estructura base */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--nova-spacing-sm) var(--nova-spacing-lg);
+    font-family: var(--nova-font-family-base);
+    font-size: var(--nova-font-size-md);
+    font-weight: var(--nova-font-weight-medium);
     line-height: 1.5;
     text-align: center;
-    text-decoration: none;
+    white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
     user-select: none;
-    border: var(--border-width) solid var(--color-primary);
-    border-radius: var(--border-radius);
-    background-color: var(--color-primary);
-    color: white;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
-    box-shadow: var(--shadow-normal);
+    min-height: 2.5rem;
+    
+    /* Apariencia Soft Neobrutalism */
+    color: var(--nova-text-primary);
+    background-color: var(--nova-bg-card);
+    border: var(--nova-border-width) solid var(--nova-border-color);
+    border-radius: var(--nova-border-radius);
+    box-shadow: var(--nova-shadow-md);
+    transition: all var(--nova-transition-fast);
 }
 
-/* Efectos en hover/focus */
+/* Estados hover y focus */
 .nova-button:hover,
 .nova-button:focus {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-large);
+    box-shadow: var(--nova-shadow-lg);
+    border-color: var(--nova-border-color-hover);
     text-decoration: none;
+}
+
+/* Estado active */
+.nova-button:active {
+    transform: translateY(0);
+    box-shadow: var(--nova-shadow-sm);
+}
+
+/* Estilos para el botón primario */
+.nova-button-primary {
+    background-color: var(--nova-color-primary);
+    border-color: var(--nova-color-primary);
     color: white;
 }
 
-/* Efecto en active */
-.nova-button:active {
-    transform: translateY(1px);
-    box-shadow: var(--shadow-small);
+.nova-button-primary:hover,
+.nova-button-primary:focus {
+    background-color: color-mix(in srgb, var(--nova-color-primary) 85%, black);
+    border-color: color-mix(in srgb, var(--nova-color-primary) 85%, black);
+    color: white;
 }
 
-/* Variantes de color */
+/* Estilos para el botón secundario */
 .nova-button-secondary {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
+    background-color: var(--nova-color-secondary);
+    border-color: var(--nova-color-secondary);
+    color: white;
 }
 
+.nova-button-secondary:hover,
+.nova-button-secondary:focus {
+    background-color: color-mix(in srgb, var(--nova-color-secondary) 85%, black);
+    border-color: color-mix(in srgb, var(--nova-color-secondary) 85%, black);
+    color: white;
+}
+
+/* Estilos para el botón de acento */
 .nova-button-accent {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-dark);
+    background-color: var(--nova-color-accent);
+    border-color: var(--nova-color-accent);
+    color: var(--nova-color-dark);
 }
 
 .nova-button-accent:hover,
 .nova-button-accent:focus {
-    color: var(--color-dark);
+    background-color: color-mix(in srgb, var(--nova-color-accent) 85%, black);
+    border-color: color-mix(in srgb, var(--nova-color-accent) 85%, black);
+    color: var(--nova-color-dark);
 }
 
+/* Estilos para estados/acciones */
 .nova-button-success {
-    background-color: var(--color-success);
-    border-color: var(--color-success);
+    background-color: var(--nova-color-success);
+    border-color: var(--nova-color-success);
+    color: white;
 }
 
 .nova-button-warning {
-    background-color: var(--color-warning);
-    border-color: var(--color-warning);
-    color: var(--color-dark);
-}
-
-.nova-button-warning:hover,
-.nova-button-warning:focus {
-    color: var(--color-dark);
+    background-color: var(--nova-color-warning);
+    border-color: var(--nova-color-warning);
+    color: var(--nova-color-dark);
 }
 
 .nova-button-error {
-    background-color: var(--color-error);
-    border-color: var(--color-error);
+    background-color: var(--nova-color-error);
+    border-color: var(--nova-color-error);
+    color: white;
 }
 
-.nova-button-dark {
-    background-color: var(--color-dark);
-    border-color: var(--color-dark);
-}
-
-.dark-mode .nova-button-dark {
-    background-color: var(--bg-highlight);
-    border-color: var(--bg-highlight);
-}
-
-.nova-button-light {
-    background-color: var(--color-light);
-    border-color: var(--gray-200);
-    color: var(--color-dark);
-}
-
-.nova-button-light:hover,
-.nova-button-light:focus {
-    color: var(--color-dark);
-    background-color: var(--gray-200);
-}
-
-.dark-mode .nova-button-light {
-    background-color: var(--bg-component);
-    border-color: var(--bg-element);
-    color: var(--color-light);
-}
-
-.dark-mode .nova-button-light:hover,
-.dark-mode .nova-button-light:focus {
-    background-color: var(--bg-element);
-    color: var(--color-light);
-}
-
-/* Botones outline */
+/* Botón de contorno (outline) */
 .nova-button-outline {
     background-color: transparent;
-    color: var(--color-primary);
+    color: var(--nova-text-primary);
 }
 
-.nova-button-outline:hover,
-.nova-button-outline:focus {
-    background-color: var(--color-primary);
+.nova-button-outline.nova-button-primary {
+    border-color: var(--nova-color-primary);
+    color: var(--nova-color-primary);
+}
+
+.nova-button-outline.nova-button-primary:hover,
+.nova-button-outline.nova-button-primary:focus {
+    background-color: var(--nova-color-primary);
     color: white;
 }
 
-.nova-button-outline-secondary {
-    background-color: transparent;
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
+.nova-button-outline.nova-button-secondary {
+    border-color: var(--nova-color-secondary);
+    color: var(--nova-color-secondary);
 }
 
-.nova-button-outline-secondary:hover,
-.nova-button-outline-secondary:focus {
-    background-color: var(--color-secondary);
+.nova-button-outline.nova-button-secondary:hover,
+.nova-button-outline.nova-button-secondary:focus {
+    background-color: var(--nova-color-secondary);
     color: white;
 }
 
-.nova-button-outline-accent {
-    background-color: transparent;
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+/* Tamaños de botones */
+.nova-button-sm {
+    padding: var(--nova-spacing-xs) var(--nova-spacing-md);
+    font-size: var(--nova-font-size-sm);
+    min-height: 2rem;
 }
 
-.nova-button-outline-accent:hover,
-.nova-button-outline-accent:focus {
-    background-color: var(--color-accent);
-    color: var(--color-dark);
+.nova-button-lg {
+    padding: var(--nova-spacing-md) var(--nova-spacing-xl);
+    font-size: var(--nova-font-size-lg);
+    min-height: 3rem;
 }
 
-.nova-button-outline-success {
-    background-color: transparent;
-    border-color: var(--color-success);
-    color: var(--color-success);
+/* Botones con iconos */
+.nova-button i,
+.nova-button svg {
+    margin-right: var(--nova-spacing-sm);
 }
 
-.nova-button-outline-success:hover,
-.nova-button-outline-success:focus {
-    background-color: var(--color-success);
-    color: white;
+.nova-button.icon-right i,
+.nova-button.icon-right svg {
+    margin-right: 0;
+    margin-left: var(--nova-spacing-sm);
 }
 
-.nova-button-outline-warning {
-    background-color: transparent;
-    border-color: var(--color-warning);
-    color: var(--color-warning);
-}
-
-.nova-button-outline-warning:hover,
-.nova-button-outline-warning:focus {
-    background-color: var(--color-warning);
-    color: var(--color-dark);
-}
-
-.nova-button-outline-error {
-    background-color: transparent;
-    border-color: var(--color-error);
-    color: var(--color-error);
-}
-
-.nova-button-outline-error:hover,
-.nova-button-outline-error:focus {
-    background-color: var(--color-error);
-    color: white;
-}
-
-/* Variantes de tamaño */
-.nova-button-large {
-    padding: 0.75rem 1.5rem;
-    font-size: var(--font-size-lg);
-}
-
-.nova-button-small {
-    padding: 0.25rem 0.5rem;
-    font-size: var(--font-size-sm);
-}
-
-/* Botón con icono */
+/* Botón de sólo icono */
 .nova-button-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nova-button-icon-left {
-    margin-right: 0.5rem;
-}
-
-.nova-button-icon-right {
-    margin-left: 0.5rem;
-}
-
-/* Botón circular */
-.nova-button-circle {
+    padding: var(--nova-spacing-sm);
     width: 2.5rem;
     height: 2.5rem;
-    padding: 0;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.nova-button-circle.nova-button-large {
-    width: 3.5rem;
-    height: 3.5rem;
+.nova-button-icon i,
+.nova-button-icon svg {
+    margin-right: 0;
 }
 
-.nova-button-circle.nova-button-small {
+.nova-button-icon.nova-button-sm {
     width: 2rem;
     height: 2rem;
 }
 
-/* Botón con borde más grueso para estilo neobrutalism más fuerte */
-.neobrutalism-strong .nova-button {
-    border-width: 3px;
-}
-
-/* Botón con borde más fino para estilo neobrutalism más suave */
-.neobrutalism-light .nova-button {
-    border-width: 1px;
-}
-
-/* Botón bloque (ancho completo) */
-.nova-button-block {
-    display: block;
-    width: 100%;
-}
-
-/* Grupos de botones */
-.nova-button-group {
-    display: inline-flex;
-    border-radius: var(--border-radius);
-}
-
-.nova-button-group .nova-button {
-    border-radius: 0;
-    margin-right: -1px;
-}
-
-.nova-button-group .nova-button:first-child {
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-}
-
-.nova-button-group .nova-button:last-child {
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    margin-right: 0;
+.nova-button-icon.nova-button-lg {
+    width: 3rem;
+    height: 3rem;
 }
 
 /* Botón deshabilitado */
@@ -277,113 +189,74 @@
 .nova-button.disabled {
     opacity: 0.65;
     pointer-events: none;
-    transform: none !important;
-    box-shadow: var(--shadow-normal) !important;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
-/* Estilos de botón tipo juego */
-.nova-button-game {
+/* Grupo de botones */
+.nova-button-group {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.nova-button-group .nova-button {
     position: relative;
-    overflow: hidden;
-    border-width: 3px;
-    transform: none;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    flex: 1 1 auto;
 }
 
-.nova-button-game::before {
+.nova-button-group .nova-button:not(:first-child) {
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.nova-button-group .nova-button:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Estilo de botón de videojuego */
+.nova-button-game {
+    font-family: "Press Start 2P", var(--nova-font-family-base);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: var(--nova-spacing-md) var(--nova-spacing-lg);
+    background: linear-gradient(to bottom, var(--nova-color-primary), color-mix(in srgb, var(--nova-color-primary) 70%, black));
+    border: var(--nova-border-width) solid black;
+    box-shadow: 
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3),
+        var(--nova-shadow-md);
+    position: relative;
+}
+
+.nova-button-game::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
+    left: calc(var(--nova-border-width) * 2);
+    right: calc(var(--nova-border-width) * 2);
+    bottom: 7px;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
 }
 
 .nova-button-game:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .nova-button-game:active {
     transform: translateY(2px);
+    box-shadow: 
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3),
+        var(--nova-shadow-sm);
 }
 
-/* Botón con animación de pulsación */
-.nova-button-pulse {
-    animation: buttonPulse 2s infinite;
+.nova-button-game.nova-button-secondary {
+    background: linear-gradient(to bottom, var(--nova-color-secondary), color-mix(in srgb, var(--nova-color-secondary) 70%, black));
 }
 
-@keyframes buttonPulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Botón flotante (fixed position) */
-.nova-button-float {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: var(--z-fixed);
-}
-
-/* Botón con estado de carga */
-.nova-button-loading {
-    position: relative;
-    pointer-events: none;
-}
-
-.nova-button-loading .nova-button-text {
-    opacity: 0;
-}
-
-.nova-button-loading::after {
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    border-right-color: white;
-    border-radius: 50%;
-    animation: buttonLoading 0.75s linear infinite;
-    top: calc(50% - 0.5rem);
-    left: calc(50% - 0.5rem);
-}
-
-@keyframes buttonLoading {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Estilos para temas oscuros */
-.dark-mode .nova-button {
-    /* El fondo y borde ya están determinados por los colores */
-}
-
-.dark-mode .nova-button-outline {
-    background-color: transparent;
-}
-
-.dark-mode .nova-button-outline:hover,
-.dark-mode .nova-button-outline:focus {
-    background-color: var(--color-primary);
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .nova-button {
-        padding: 0.375rem 0.75rem;
-    }
-    
-    .nova-button-large {
-        padding: 0.5rem 1rem;
-        font-size: var(--font-size-base);
-    }
+.nova-button-game.nova-button-accent {
+    background: linear-gradient(to bottom, var(--nova-color-accent), color-mix(in srgb, var(--nova-color-accent) 70%, black));
 }
