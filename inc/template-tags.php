@@ -314,23 +314,42 @@ endif;
 
 if ( ! function_exists( 'nova_ui_get_svg_icon' ) ) :
     /**
-     * Muestra un icono SVG
+     * Muestra un icono SVG (versión mejorada)
      *
      * @param string $icon Nombre del icono
      * @param string $size Tamaño del icono (sm, md, lg)
      * @return string HTML para el icono SVG
      */
     function nova_ui_get_svg_icon( $icon, $size = 'md' ) {
-        // Tamaños
+        // Tamaños de iconos
         $sizes = array(
             'sm' => '16',
             'md' => '24',
             'lg' => '32',
+            'xl' => '48'
         );
         
         $width_height = isset( $sizes[ $size ] ) ? $sizes[ $size ] : $sizes['md'];
         
-        // Iconos disponibles (Limitados para esta demo)
+        // Buscar primero en la biblioteca extendida si existe
+        $lucide_icons_path = get_template_directory() . '/inc/lucide-icons.php';
+        
+        if (file_exists($lucide_icons_path)) {
+            $lucide_icons = include $lucide_icons_path;
+            
+            // Si el icono existe en la biblioteca extendida, usarlo
+            if (is_array($lucide_icons) && isset($lucide_icons[$icon])) {
+                $svg = $lucide_icons[$icon];
+                // Ajustar tamaño si es necesario
+                if ($width_height != '24') {
+                    $svg = str_replace('width="24"', 'width="' . $width_height . '"', $svg);
+                    $svg = str_replace('height="24"', 'height="' . $width_height . '"', $svg);
+                }
+                return $svg;
+            }
+        }
+        
+        // Iconos básicos disponibles (si no se encuentra en la biblioteca extendida)
         $icons = array(
             'menu' => '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width_height . '" height="' . $width_height . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>',
             'search' => '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width_height . '" height="' . $width_height . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
@@ -340,6 +359,7 @@ if ( ! function_exists( 'nova_ui_get_svg_icon' ) ) :
             'chevron-down' => '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width_height . '" height="' . $width_height . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>',
             'chevron-up' => '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width_height . '" height="' . $width_height . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>',
             'play' => '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width_height . '" height="' . $width_height . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>',
+            'help-circle' => '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width_height . '" height="' . $width_height . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>',
         );
         
         // Si el icono existe, devolverlo
@@ -348,6 +368,6 @@ if ( ! function_exists( 'nova_ui_get_svg_icon' ) ) :
         }
         
         // Icono por defecto si no existe
-        return $icons['menu'];
+        return $icons['help-circle'];
     }
 endif;
