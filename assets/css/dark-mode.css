@@ -2,47 +2,43 @@
  * Variables CSS para Tema Oscuro - NovaUI Theme
  */
 
-/* Detección automática de preferencias del sistema */
+/* Aplicar cuando la clase .dark-mode está presente o cuando el sistema prefiere oscuro */
+.dark-mode, 
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not(.light-mode) {
     /* Colores de texto y fondo */
-    --color-text: #E0E0E0; /* Texto claro para fondo oscuro */
-    --color-text-light: #A0AEC0; /* Texto secundario más suave */
-    --color-background: #2A2D45; /* Azul-púrpura oscuro en lugar de negro puro */
-    --color-background-alt: #343A5E; /* Fondo alternativo ligeramente más claro */
-    --color-border: #3F4577; /* Borde visible pero suave */
+    --color-text: #E0E0E0;
+    --color-text-light: #A0A0A0;
+    --color-background: #2A2D45;
+    --color-background-alt: #343A5E;
+    --color-border: #3F4577;
     
-    /* Ajustes sutiles a los colores principales para modo oscuro */
-    --color-primary: #FF6B6B; /* Se mantiene igual para consistencia */
-    --color-secondary: #4ECDC4; /* Se mantiene igual para consistencia */
-    --color-accent: #FFE66D; /* Se mantiene igual para consistencia */
-    
-    /* Estados de componentes interactivos */
+    /* Estados de componentes interactivos - mantener colores primarios similares */
     --color-primary-hover: #FF5252;
     --color-primary-active: #FF3A3A;
-    --color-link: #63B3ED;
-    --color-link-hover: #90CDF4;
+    --color-link: #4DB8FF;
+    --color-link-hover: #79CAFF;
     
-    /* Escala de grises ajustada para modo oscuro */
-    --color-gray-100: #3F4577; /* Más oscuro que en tema claro */
-    --color-gray-200: #4E56A6;
-    --color-gray-300: #5D68D5;
-    --color-gray-400: #7F8AE5;
-    --color-gray-500: #A0A9EB;
-    --color-gray-600: #C1C6F0;
-    --color-gray-700: #D8DCF5;
-    --color-gray-800: #EDF0FB;
-    --color-gray-900: #FFFFFF;
+    /* Escala de grises para tema oscuro */
+    --color-gray-100: #4E4E5A;
+    --color-gray-200: #424250;
+    --color-gray-300: #383846;
+    --color-gray-400: #33333E;
+    --color-gray-500: #2E2E38;
+    --color-gray-600: #28283A;
+    --color-gray-700: #212132;
+    --color-gray-800: #1A1A2E;
+    --color-gray-900: #13131E;
     
-    /* Sombras ajustadas para modo oscuro */
+    /* Sombras más suaves para el tema oscuro */
     --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 3px 3px 0 rgba(0, 0, 0, 0.3); /* Neo-brutalista más sutil en oscuro */
-    --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.3);
-    --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.5);
+    --shadow-md: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-lg: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.4);
     
     /* Componentes específicos */
     --header-background: var(--color-background);
-    --footer-background: var(--color-background-alt);
+    --footer-background: var(--color-background);
     --sidebar-background: var(--color-background-alt);
     --card-background: var(--color-background-alt);
     --input-background: var(--color-background);
@@ -50,72 +46,98 @@
   }
 }
 
-/* Control manual para el modo oscuro */
-html.dark-mode {
-  /* Colores de texto y fondo */
-  --color-text: #E0E0E0; /* Texto claro para fondo oscuro */
-  --color-text-light: #A0AEC0; /* Texto secundario más suave */
-  --color-background: #2A2D45; /* Azul-púrpura oscuro en lugar de negro puro */
-  --color-background-alt: #343A5E; /* Fondo alternativo ligeramente más claro */
-  --color-border: #3F4577; /* Borde visible pero suave */
-  
-  /* Ajustes sutiles a los colores principales para modo oscuro */
-  --color-primary: #FF6B6B; /* Se mantiene igual para consistencia */
-  --color-secondary: #4ECDC4; /* Se mantiene igual para consistencia */
-  --color-accent: #FFE66D; /* Se mantiene igual para consistencia */
-  
-  /* Estados de componentes interactivos */
-  --color-primary-hover: #FF5252;
-  --color-primary-active: #FF3A3A;
-  --color-link: #63B3ED;
-  --color-link-hover: #90CDF4;
-  
-  /* Escala de grises ajustada para modo oscuro */
-  --color-gray-100: #3F4577; /* Más oscuro que en tema claro */
-  --color-gray-200: #4E56A6;
-  --color-gray-300: #5D68D5;
-  --color-gray-400: #7F8AE5;
-  --color-gray-500: #A0A9EB;
-  --color-gray-600: #C1C6F0;
-  --color-gray-700: #D8DCF5;
-  --color-gray-800: #EDF0FB;
-  --color-gray-900: #FFFFFF;
-  
-  /* Sombras ajustadas para modo oscuro */
-  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 3px 3px 0 rgba(0, 0, 0, 0.3); /* Neo-brutalista más sutil en oscuro */
-  --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.3);
-  --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.5);
-  
-  /* Componentes específicos */
-  --header-background: var(--color-background);
-  --footer-background: var(--color-background-alt);
-  --sidebar-background: var(--color-background-alt);
-  --card-background: var(--color-background-alt);
-  --input-background: var(--color-background);
-  --input-border: var(--color-border);
+/* Estilos específicos para el tema oscuro */
+.dark-mode .nova-card {
+  border-color: var(--color-border);
 }
 
-/* Control manual para el modo claro */
-html.light-mode {
-  /* Restablecer a los valores predeterminados del tema claro */
-  --color-text: #505168;
-  --color-text-light: #718096;
-  --color-background: #F7F9F9;
-  --color-background-alt: #F2F5FA;
-  --color-border: #E2E8F0;
-  
-  /* Reestablecer sombras */
-  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1);
-  --shadow-lg: 10px 10px 0 rgba(0, 0, 0, 0.1);
-  --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.25);
-  
-  /* Componentes específicos */
-  --header-background: var(--color-background);
-  --footer-background: var(--color-background-alt);
-  --sidebar-background: var(--color-background-alt);
-  --card-background: var(--color-background);
-  --input-background: var(--color-background);
-  --input-border: var(--color-border);
+.dark-mode .dashboard-sidebar {
+  border-right-color: var(--color-border);
+}
+
+.dark-mode .dashboard-header {
+  border-bottom-color: var(--color-border);
+}
+
+.dark-mode .dashboard-menu-item {
+  color: var(--color-text-light);
+}
+
+.dark-mode .dashboard-menu-item:hover, 
+.dark-mode .dashboard-menu-item.active {
+  background-color: var(--color-gray-800);
+  color: var(--color-text);
+}
+
+.dark-mode .dashboard-menu-item.active {
+  border-left-color: var(--color-primary);
+}
+
+.dark-mode .nova-btn-outline {
+  border-color: var(--color-border);
+}
+
+.dark-mode .saas-dark-mode-toggle .icon-moon {
+  display: none;
+}
+
+.dark-mode .saas-dark-mode-toggle .icon-sun {
+  display: block;
+}
+
+.dark-mode .dashboard-search input {
+  background-color: var(--color-gray-800);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.dark-mode .dashboard-user-dropdown {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.dark-mode .dashboard-user-menu-list li a:hover {
+  background-color: var(--color-gray-700);
+}
+
+/* 
+ * Estilos especiales para el modo oscuro del diseño Neo-Brutalist
+ * Estos estilos se aplicarán solo cuando el modo oscuro esté activo
+ */
+.dark-mode .nova-card-game {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .nova-card-game:hover {
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .nova-btn-primary,
+.dark-mode .nova-btn-secondary,
+.dark-mode .nova-btn-accent {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .nova-btn-primary:hover,
+.dark-mode .nova-btn-secondary:hover,
+.dark-mode .nova-btn-accent:hover {
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Transición suave cuando se cambia entre modos */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nova-card, 
+.nova-btn, 
+.dashboard-menu-item,
+.dashboard-sidebar,
+.dashboard-header {
+  transition: background-color 0.3s ease, 
+              border-color 0.3s ease, 
+              color 0.3s ease,
+              box-shadow 0.3s ease;
 }
