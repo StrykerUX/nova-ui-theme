@@ -184,3 +184,28 @@ function nova_ui_get_options( $option_group = '' ) {
     
     return apply_filters( 'nova_ui_options_' . $option_group, $options );
 }
+
+/**
+ * Función personalizada para mostrar el enlace de edición de post
+ * con el estilo de NovaUI
+ */
+function nova_ui_edit_post_link() {
+    edit_post_link(
+        sprintf(
+            wp_kses(
+                /* translators: %s: Name of current post. Only visible to screen readers */
+                __( 'Edit <span class="screen-reader-text">%s</span>', 'nova-ui' ),
+                array(
+                    'span' => array(
+                        'class' => array(),
+                    ),
+                )
+            ),
+            wp_kses_post( get_the_title() )
+        ),
+        '<span class="edit-link">',
+        '</span>',
+        null,
+        'neo-button neo-button--outline neo-button--sm'
+    );
+}
