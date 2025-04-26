@@ -1,0 +1,298 @@
+/**
+ * Estilos de iconos para NovaUI
+ * Basado en el estilo Soft Neubrutalism
+ */
+
+/**
+ * Basado en Lucide Icons (https://lucide.dev/)
+ * Adaptado para el estilo Soft Neubrutalism
+ */
+
+@font-face {
+  font-family: 'NovaUIIcons';
+  src: url('../fonts/NovaUIIcons.woff2') format('woff2'),
+       url('../fonts/NovaUIIcons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="nova-icon-"], [class*=" nova-icon-"] {
+  /* uso de !important para prevenir problemas con browser extensions que cambian fonts */
+  font-family: 'NovaUIIcons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Iconos básicos */
+.nova-icon-circle:before {
+  content: "\e900";
+}
+.nova-icon-home:before {
+  content: "\e901";
+}
+.nova-icon-dashboard:before {
+  content: "\e902";
+}
+.nova-icon-search:before {
+  content: "\e903";
+}
+.nova-icon-settings:before {
+  content: "\e904";
+}
+.nova-icon-user:before {
+  content: "\e905";
+}
+.nova-icon-users:before {
+  content: "\e906";
+}
+.nova-icon-calendar:before {
+  content: "\e907";
+}
+.nova-icon-clock:before {
+  content: "\e908";
+}
+.nova-icon-bell:before {
+  content: "\e909";
+}
+.nova-icon-mail:before {
+  content: "\e90a";
+}
+.nova-icon-heart:before {
+  content: "\e90b";
+}
+.nova-icon-star:before {
+  content: "\e90c";
+}
+.nova-icon-plus:before {
+  content: "\e90d";
+}
+.nova-icon-minus:before {
+  content: "\e90e";
+}
+.nova-icon-x:before {
+  content: "\e90f";
+}
+.nova-icon-check:before {
+  content: "\e910";
+}
+.nova-icon-link:before {
+  content: "\e911";
+}
+.nova-icon-image:before {
+  content: "\e912";
+}
+.nova-icon-file:before {
+  content: "\e913";
+}
+.nova-icon-file-text:before {
+  content: "\e914";
+}
+.nova-icon-folder:before {
+  content: "\e915";
+}
+
+/* Iconos de navegación */
+.nova-icon-arrow-up:before {
+  content: "\e916";
+}
+.nova-icon-arrow-right:before {
+  content: "\e917";
+}
+.nova-icon-arrow-down:before {
+  content: "\e918";
+}
+.nova-icon-arrow-left:before {
+  content: "\e919";
+}
+.nova-icon-chevron-up:before {
+  content: "\e91a";
+}
+.nova-icon-chevron-right:before {
+  content: "\e91b";
+}
+.nova-icon-chevron-down:before {
+  content: "\e91c";
+}
+.nova-icon-chevron-left:before {
+  content: "\e91d";
+}
+.nova-icon-menu:before {
+  content: "\e91e";
+}
+.nova-icon-more-horizontal:before {
+  content: "\e91f";
+}
+.nova-icon-more-vertical:before {
+  content: "\e920";
+}
+
+/* Iconos específicos de la aplicación */
+.nova-icon-message-square:before {
+  content: "\e921";
+}
+.nova-icon-message-circle:before {
+  content: "\e922";
+}
+.nova-icon-send:before {
+  content: "\e923";
+}
+.nova-icon-link-2:before {
+  content: "\e924";
+}
+.nova-icon-external-link:before {
+  content: "\e925";
+}
+.nova-icon-share:before {
+  content: "\e926";
+}
+.nova-icon-bookmark:before {
+  content: "\e927";
+}
+.nova-icon-trash:before {
+  content: "\e928";
+}
+.nova-icon-edit:before {
+  content: "\e929";
+}
+.nova-icon-save:before {
+  content: "\e92a";
+}
+
+/* Iconos para gráficos y datos */
+.nova-icon-bar-chart:before {
+  content: "\e92b";
+}
+.nova-icon-bar-chart-2:before {
+  content: "\e92c";
+}
+.nova-icon-pie-chart:before {
+  content: "\e92d";
+}
+.nova-icon-activity:before {
+  content: "\e92e";
+}
+.nova-icon-trending-up:before {
+  content: "\e92f";
+}
+.nova-icon-trending-down:before {
+  content: "\e930";
+}
+.nova-icon-dollar-sign:before {
+  content: "\e931";
+}
+
+/* Iconos de tema y diseño */
+.nova-icon-sun:before {
+  content: "\e932";
+}
+.nova-icon-moon:before {
+  content: "\e933";
+}
+.nova-icon-layout:before {
+  content: "\e934";
+}
+.nova-icon-grid:before {
+  content: "\e935";
+}
+.nova-icon-layers:before {
+  content: "\e936";
+}
+.nova-icon-sliders:before {
+  content: "\e937";
+}
+.nova-icon-eye:before {
+  content: "\e938";
+}
+.nova-icon-eye-off:before {
+  content: "\e939";
+}
+
+/* Iconos estilo videojuego */
+.nova-icon-gamepad:before {
+  content: "\e93a";
+}
+.nova-icon-zap:before {
+  content: "\e93b";
+}
+.nova-icon-award:before {
+  content: "\e93c";
+}
+.nova-icon-gift:before {
+  content: "\e93d";
+}
+.nova-icon-shield:before {
+  content: "\e93e";
+}
+.nova-icon-hexagon:before {
+  content: "\e93f";
+}
+
+/* Estilos específicos para Soft Neubrutalism */
+[class^="nova-icon-"], [class*=" nova-icon-"] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efecto de sombra suave para iconos en tema claro */
+.light-mode [class^="nova-icon-"], 
+.light-mode [class*=" nova-icon-"],
+.auto-mode [class^="nova-icon-"],
+.auto-mode [class*=" nova-icon-"] {
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+/* Efecto de brillo suave para iconos en tema oscuro */
+.dark-mode [class^="nova-icon-"], 
+.dark-mode [class*=" nova-icon-"] {
+  text-shadow: 0 0 3px rgba(255,255,255,0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .auto-mode [class^="nova-icon-"],
+  .auto-mode [class*=" nova-icon-"] {
+    text-shadow: 0 0 3px rgba(255,255,255,0.2);
+  }
+}
+
+/* Estilos para iconos activos o destacados */
+.nova-icon--active,
+.active [class^="nova-icon-"],
+.active [class*=" nova-icon-"] {
+  color: var(--color-primary);
+}
+
+/* Tamaños de iconos */
+.nova-icon--xs {
+  font-size: 0.75rem;
+}
+
+.nova-icon--sm {
+  font-size: 0.875rem;
+}
+
+.nova-icon--md {
+  font-size: 1rem;
+}
+
+.nova-icon--lg {
+  font-size: 1.25rem;
+}
+
+.nova-icon--xl {
+  font-size: 1.5rem;
+}
+
+.nova-icon--2xl {
+  font-size: 2rem;
+}

@@ -1,0 +1,327 @@
+/**
+ * Estilos para el plugin de Quick Links
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+/*
+ * Estilos del dashboard y listado de perfiles
+ */
+.nova-ui-quick-links-section {
+  padding: var(--spacing-md);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.nova-ui-quick-links-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.nova-ui-quick-links-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nova-ui-quick-links-title i {
+  margin-right: var(--spacing-sm);
+  color: var(--color-accent);
+}
+
+.nova-ui-quick-links-action {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  border: var(--border-width) solid var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.nova-ui-quick-links-action:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nova-ui-quick-links-action i {
+  margin-right: var(--spacing-xs);
+}
+
+.nova-ui-quick-links-empty {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.nova-ui-quick-links-empty p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-light);
+}
+
+.nova-ui-quick-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.nova-ui-quick-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.nova-ui-quick-link-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.nova-ui-quick-link-info {
+  flex: 1;
+}
+
+.nova-ui-quick-link-title {
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-xs);
+}
+
+.nova-ui-quick-link-stats {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+.nova-ui-quick-link-edit {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-size-xs);
+  transition: background-color var(--transition-fast);
+}
+
+.nova-ui-quick-link-edit:hover {
+  background-color: var(--color-background-alt);
+  color: var(--color-primary);
+}
+
+.nova-ui-quick-link-view-all {
+  display: block;
+  text-align: center;
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.nova-ui-quick-link-view-all:hover {
+  background-color: var(--color-background-alt);
+}
+
+/*
+ * Estilos para el perfil público
+ */
+.nova-ui-quick-links-profile {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.nova-ui-quick-links-profile-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.nova-ui-quick-links-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 auto var(--spacing-md);
+  border: var(--border-width) solid var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.nova-ui-quick-links-profile-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.nova-ui-quick-links-profile-description {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.nova-ui-quick-links-profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Links por defecto */
+.nova-ui-quick-link-default {
+  display: block;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.nova-ui-quick-link-default:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Links tipo botón */
+.nova-ui-quick-link-button {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.nova-ui-quick-link-button:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Links tipo outline */
+.nova-ui-quick-link-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.nova-ui-quick-link-outline:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+/* Footer del perfil */
+.nova-ui-quick-links-profile-footer {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Botón de regreso al dashboard */
+.nova-ui-quick-links-back {
+  margin-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.nova-ui-quick-links-back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.nova-ui-quick-links-back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nova-ui-quick-links-back-button i {
+  margin-right: var(--spacing-sm);
+}
+
+/*
+ * Estilos editables por membresía/tipo de usuario
+ */
+.nova-ui-quick-links-profile.premium {
+  /* Estilos especiales para perfiles premium */
+}
+
+.nova-ui-quick-links-profile.team {
+  /* Estilos especiales para perfiles de equipo */
+}
+
+.nova-ui-quick-links-profile.enterprise {
+  /* Estilos especiales para perfiles enterprise */
+}
+
+/* Estilos para previsualización de plantillas */
+.nova-ui-quick-links-template-preview {
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  position: relative;
+}
+
+.nova-ui-quick-links-template-preview.active {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.nova-ui-quick-links-template-name {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.nova-ui-quick-links-template-thumbnail {
+  width: 100%;
+  height: 140px;
+  background-color: var(--color-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-sm);
+  overflow: hidden;
+}
+
+.nova-ui-quick-links-template-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nova-ui-quick-links-template-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}

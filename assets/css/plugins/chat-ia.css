@@ -1,0 +1,317 @@
+/**
+ * Estilos para el plugin de Chat IA
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+/* Contenedor principal de Chat IA */
+.nova-ui-chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 80vh;
+  background-color: var(--color-background-alt);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* Cabecera del chat */
+.nova-ui-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  background-color: var(--color-background);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.nova-ui-chat-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nova-ui-chat-title i {
+  margin-right: var(--spacing-sm);
+  color: var(--color-secondary);
+}
+
+.nova-ui-chat-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  background-color: rgba(78, 205, 196, 0.1);
+  color: var(--color-secondary);
+  border: var(--border-width) solid rgba(78, 205, 196, 0.2);
+}
+
+/* Área de mensajes */
+.nova-ui-chat-messages {
+  flex: 1;
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  background-color: var(--color-background);
+}
+
+/* Burbujas de mensaje */
+.nova-ui-chat-message {
+  display: flex;
+  margin-bottom: var(--spacing-md);
+  max-width: 85%;
+}
+
+.nova-ui-chat-message-user {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.nova-ui-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: white;
+  margin: 0 var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.nova-ui-chat-avatar-ai {
+  background-color: var(--color-secondary);
+}
+
+.nova-ui-chat-avatar-user {
+  background-color: var(--color-primary);
+}
+
+.nova-ui-chat-bubble {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  position: relative;
+}
+
+.nova-ui-chat-bubble-ai {
+  background-color: var(--chat-bubble-ai-bg);
+  border: var(--border-width) solid var(--chat-bubble-ai-border);
+}
+
+.nova-ui-chat-bubble-user {
+  background-color: var(--chat-bubble-user-bg);
+  border: var(--border-width) solid var(--chat-bubble-user-border);
+}
+
+/* Contenido dentro de las burbujas */
+.nova-ui-chat-bubble p {
+  margin: 0 0 var(--spacing-sm);
+}
+
+.nova-ui-chat-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.nova-ui-chat-bubble a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.nova-ui-chat-bubble pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  overflow-x: auto;
+  margin: var(--spacing-sm) 0;
+}
+
+.nova-ui-chat-bubble code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  padding: 0.2em 0.4em;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius-sm);
+}
+
+.nova-ui-chat-bubble ul,
+.nova-ui-chat-bubble ol {
+  margin: var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.nova-ui-chat-bubble li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Indicador de escritura */
+.nova-ui-chat-typing {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  max-width: 85%;
+}
+
+.nova-ui-chat-typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--chat-bubble-ai-bg);
+  border: var(--border-width) solid var(--chat-bubble-ai-border);
+  border-radius: var(--border-radius-md);
+}
+
+.nova-ui-chat-typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--chat-typing-indicator-color);
+  margin: 0 2px;
+  animation: typing-animation 1.4s infinite ease-in-out;
+}
+
+.nova-ui-chat-typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.nova-ui-chat-typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.nova-ui-chat-typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-animation {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* Área de entrada */
+.nova-ui-chat-input-container {
+  display: flex;
+  padding: var(--spacing-md);
+  background-color: var(--color-background);
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+.nova-ui-chat-input {
+  flex: 1;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  resize: none;
+  min-height: 48px;
+  outline: none;
+  color: var(--color-text);
+  transition: border-color var(--transition-fast);
+}
+
+.nova-ui-chat-input:focus {
+  border-color: var(--color-primary);
+}
+
+.nova-ui-chat-send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: white;
+  border: var(--border-width) solid var(--color-primary);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.nova-ui-chat-send-button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.nova-ui-chat-send-button:active {
+  transform: translateY(0);
+}
+
+.nova-ui-chat-send-button i {
+  margin-right: var(--spacing-sm);
+}
+
+/* Información de tokens */
+.nova-ui-chat-info {
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  background-color: var(--color-background);
+  border-top: 1px solid var(--border-color);
+}
+
+.nova-ui-chat-tokens-value {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+}
+
+.nova-ui-chat-view-all {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nova-ui-chat-view-all:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .nova-ui-chat-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nova-ui-chat-status {
+    margin-top: var(--spacing-sm);
+  }
+  
+  .nova-ui-chat-input-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .nova-ui-chat-input {
+    border-radius: var(--border-radius-md);
+  }
+  
+  .nova-ui-chat-send-button {
+    border-radius: var(--border-radius-md);
+    width: 100%;
+  }
+}
+
+/* Tema oscuro */
+.dark-mode .nova-ui-chat-bubble pre,
+.dark-mode .nova-ui-chat-bubble code {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .auto-mode .nova-ui-chat-bubble pre,
+  .auto-mode .nova-ui-chat-bubble code {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
