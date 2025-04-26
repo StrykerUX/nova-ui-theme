@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NovaUI</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Tabler Icons (CDN para propósitos de demo) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.42.0/tabler-icons.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidenav Menu Start -->
+        <div class="sidenav-menu">
+            <!-- Brand Logo -->
+            <a href="#" class="logo">
+                <span class="logo-light">
+                    <span class="logo-lg">
+                        <div class="text-logo">
+                            <div class="logo-icon">
+                                <div class="logo-bg" style="background-color: #FF6B6B;">
+                                    <i class="ti ti-apps"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="site-title-container">
+                            <span class="site-title">NovaUI</span>
+                        </div>
+                    </span>
+                </span>
+            </a>
+
+            <!-- Sidebar Hover Menu Toggle Button -->
+            <button class="button-sm-hover">
+                <i class="ti ti-circle align-middle"></i>
+            </button>
+
+            <!-- Full Sidebar Menu Close Button -->
+            <button class="button-close-fullsidebar">
+                <i class="ti ti-x align-middle"></i>
+            </button>
+
+            <div data-simplebar>
+                <!-- Sidenav Menu -->
+                <ul class="side-nav">
+                    <li class="side-nav-item active">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-smart-home"></i></span>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-chart-bar"></i></span>
+                            <span class="menu-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-message-circle"></i></span>
+                            <span class="menu-text">Chat AI</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-link"></i></span>
+                            <span class="menu-text">Quick Links</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-file"></i></span>
+                            <span class="menu-text">Documents</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-calendar"></i></span>
+                            <span class="menu-text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-briefcase"></i></span>
+                            <span class="menu-text">Projects</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-settings"></i></span>
+                            <span class="menu-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="help-widget">
+                    <span class="help-icon">
+                        <i class="ti ti-help-circle"></i>
+                    </span>
+                    <div class="help-content">
+                        <h4 class="help-title">Need help?</h4>
+                        <p class="help-text">Check out the docs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidenav Menu End -->
+
+        <!-- Topbar Start -->
+        <header class="app-topbar">
+            <div class="page-container topbar-menu">
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Brand Logo -->
+                    <a href="#" class="logo d-none">
+                        <span class="logo-light">
+                            <span class="logo-lg">
+                                <div class="text-logo">
+                                    <div class="logo-icon">
+                                        <div class="logo-bg" style="background-color: #FF6B6B;">
+                                            <i class="ti ti-apps"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                    </a>
+
+                    <!-- Sidebar Menu Toggle Button -->
+                    <button class="sidenav-toggle-button btn btn-outline-primary btn-icon">
+                        <i class="ti ti-menu-deep fs-24"></i>
+                    </button>
+
+                    <!-- Search for large screens -->
+                    <div class="topbar-search text-muted d-none d-xl-flex gap-2 align-items-center">
+                        <i class="ti ti-search fs-18"></i>
+                        <span class="me-2">Search something..</span>
+                        <button type="submit" class="ms-auto btn btn-sm btn-primary shadow-none">⌘K</button>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Search for small devices -->
+                    <div class="topbar-item d-flex d-xl-none">
+                        <button class="topbar-link btn btn-outline-primary btn-icon" type="button">
+                            <i class="ti ti-search fs-22"></i>
+                        </button>
+                    </div>
+
+                    <!-- Notification Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link btn btn-outline-primary btn-icon dropdown-toggle drop-arrow-none" type="button">
+                                <i class="ti ti-bell fs-22"></i>
+                                <span class="noti-icon-badge"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Light/Dark Mode Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link btn btn-outline-primary btn-icon" id="light-dark-mode" type="button">
+                            <i class="ti ti-moon fs-22"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <a class="topbar-link btn btn-outline-primary dropdown-toggle drop-arrow-none">
+                                <img src="https://ui-avatars.com/api/?name=M&background=FF6B6B&color=fff" width="24" class="rounded-circle me-lg-2 d-flex" alt="user-image">
+                                <i class="ti ti-chevron-down d-none d-lg-block align-middle ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Topbar End -->
+
+        <!-- Page Content Begin -->
+        <div class="page-content">
+            <div class="page-container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-head d-flex align-items-sm-center flex-sm-row flex-column">
+                            <div class="flex-grow-1">
+                                <h4 class="fs-18 text-uppercase fw-bold m-0">Dashboard</h4>
+                            </div>
+                            <div class="mt-3 mt-sm-0">
+                                <div class="row g-2 mb-0 align-items-center">
+                                    <div class="col-auto">
+                                        <a href="#" class="btn btn-outline">
+                                            <i class="ti ti-download me-1"></i>
+                                            <span>Export</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#" class="btn btn-primary">
+                                            <i class="ti ti-plus me-1"></i>
+                                            <span>New Report</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards Row -->
+                <div class="row">
+                    <div class="col">
+                        <div class="row row-cols-xxl-4 row-cols-md-2 row-cols-1 text-center">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted fs-13 text-uppercase">Total Revenue</h5>
+                                        <div class="d-flex align-items-center justify-content-center gap-2 my-2 py-1">
+                                            <div class="user-img fs-42 flex-shrink-0">
+                                                <span class="avatar-title text-bg-primary rounded-circle fs-22">
+                                                    <i class="ti ti-currency-dollar"></i>
+                                                </span>
+                                            </div>
+                                            <h3 class="mb-0 fw-bold">$124,592.40</h3>
+                                        </div>
+                                        <p class="mb-0 text-muted">
+                                            <span class="text-success me-2"><i class="ti ti-trending-up"></i> +12.4%</span>
+                                            <span class="text-nowrap">vs last month</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted fs-13 text-uppercase">Active Users</h5>
+                                        <div class="d-flex align-items-center justify-content-center gap-2 my-2 py-1">
+                                            <div class="user-img fs-42 flex-shrink-0">
+                                                <span class="avatar-title text-bg-primary rounded-circle fs-22" style="background-color: #4ECDC4 !important;">
+                                                    <i class="ti ti-users"></i>
+                                                </span>
+                                            </div>
+                                            <h3 class="mb-0 fw-bold">4,893</h3>
+                                        </div>
+                                        <p class="mb-0 text-muted">
+                                            <span class="text-success me-2"><i class="ti ti-trending-up"></i> +17.2%</span>
+                                            <span class="text-nowrap">vs last month</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted fs-13 text-uppercase">Conversion Rate</h5>
+                                        <div class="d-flex align-items-center justify-content-center gap-2 my-2 py-1">
+                                            <div class="user-img fs-42 flex-shrink-0">
+                                                <span class="avatar-title text-bg-primary rounded-circle fs-22" style="background-color: #FF8A5B !important;">
+                                                    <i class="ti ti-activity"></i>
+                                                </span>
+                                            </div>
+                                            <h3 class="mb-0 fw-bold">3.42%</h3>
+                                        </div>
+                                        <p class="mb-0 text-muted">
+                                            <span class="text-danger me-2"><i class="ti ti-trending-down"></i> -2.1%</span>
+                                            <span class="text-nowrap">vs last month</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat AI Card -->
+                <div class="card chat-ai-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="ti ti-message-circle"></i>
+                            <h2>Chat AI</h2>
+                        </div>
+                        <div class="card-badge active">ACTIVE</div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="chat-messages">
+                            <div class="chat-message ai-message">
+                                <div class="message-avatar">
+                                    <div class="avatar-icon" style="background-color: #4ECDC4;">
+                                        <span>AI</span>
+                                    </div>
+                                </div>
+                                <div class="message-content">
+                                    <p>I can analyze your recent sales data and provide insights on trends. Your revenue has increased 12.4% compared to last month. Would you like a detailed breakdown?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-message user-message">
+                                <div class="message-content">
+                                    <p>Yes, show me the breakdown by product category and highlight the best performers.</p>
+                                </div>
+                                <div class="message-avatar">
+                                    <div class="avatar-icon" style="background-color: #FF6B6B;">
+                                        <span>M</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" class="chat-input" placeholder="Ask AI assistant...">
+                            <button class="chat-send-btn" aria-label="Send">
+                                <i class="ti ti-send"></i>
+                                <span>Send</span>
+                            </button>
+                        </div>
+                        
+                        <div class="chat-footer">
+                            <div class="chat-tokens">
+                                <span>500</span> tokens remaining
+                            </div>
+                            <a href="#" class="chat-view-all">View all conversations →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Card -->
+                <div class="card quick-links-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="ti ti-link"></i>
+                            <h2>Quick Links</h2>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-sm btn-primary">
+                                <i class="ti ti-plus"></i>
+                                <span>New</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="quick-links-list">
+                            <div class="quick-link-item">
+                                <div class="quick-link-content">
+                                    <h3 class="quick-link-title">Product Portfolio</h3>
+                                    <div class="quick-link-views">1243 views</div>
+                                </div>
+                                <div class="quick-link-actions">
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-link-item">
+                                <div class="quick-link-content">
+                                    <h3 class="quick-link-title">Company Dashboard</h3>
+                                    <div class="quick-link-views">842 views</div>
+                                </div>
+                                <div class="quick-link-actions">
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-link-item">
+                                <div class="quick-link-content">
+                                    <h3 class="quick-link-title">Support Resources</h3>
+                                    <div class="quick-link-views">568 views</div>
+                                </div>
+                                <div class="quick-link-actions">
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="view-all-container">
+                            <a href="#" class="view-all-link">View All Links</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Help Widget -->
+                <div class="help-widget-floating">
+                    <div class="help-widget-icon">
+                        <i class="ti ti-help-circle"></i>
+                    </div>
+                    <div class="help-widget-text">
+                        <span>Need help?</span>
+                        <span class="help-widget-subtext">Check out the docs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Content End -->
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Dark/Light Mode
+        document.getElementById('light-dark-mode').addEventListener('click', function() {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            
+            const moonIcon = this.querySelector('i');
+            if (newTheme === 'dark') {
+                moonIcon.classList.replace('ti-moon', 'ti-sun');
+            } else {
+                moonIcon.classList.replace('ti-sun', 'ti-moon');
+            }
+            
+            // Save preference (localStorage would go here in a real app)
+        });
+        
+        // Sidebar Toggle
+        document.querySelector('.sidenav-toggle-button').addEventListener('click', function() {
+            document.querySelector('.sidenav-menu').classList.toggle('sidebar-collapsed');
+        });
+        
+        // Chat AI Send Button
+        document.querySelector('.chat-send-btn').addEventListener('click', function() {
+            const input = document.querySelector('.chat-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Create user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'chat-message user-message';
+                userMessage.innerHTML = `
+                    <div class="message-content">
+                        <p>${message}</p>
+                    </div>
+                    <div class="message-avatar">
+                        <div class="avatar-icon" style="background-color: #FF6B6B;">
+                            <span>M</span>
+                        </div>
+                    </div>
+                `;
+                
+                // Add to chat
+                document.querySelector('.chat-messages').appendChild(userMessage);
+                
+                // Clear input
+                input.value = '';
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'chat-message ai-message';
+                    aiMessage.innerHTML = `
+                        <div class="message-avatar">
+                            <div class="avatar-icon" style="background-color: #4ECDC4;">
+                                <span>AI</span>
+                            </div>
+                        </div>
+                        <div class="message-content">
+                            <p>This is a static demo. In a real implementation, this would be a response from the AI.</p>
+                        </div>
+                    `;
+                    
+                    document.querySelector('.chat-messages').appendChild(aiMessage);
+                }, 1000);
+            }
+        });
+        
+        // Handle Enter key in chat input
+        document.querySelector('.chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.querySelector('.chat-send-btn').click();
+            }
+        });
+    </script>
+</body>
+</html>
