@@ -1,0 +1,144 @@
+/**
+ * Estilos para alertas y notificaciones
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+.saas-alert,
+.alert {
+  position: relative;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.saas-alert--success,
+.alert--success {
+  background-color: rgba(123, 201, 80, 0.15);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.saas-alert--warning,
+.alert--warning {
+  background-color: rgba(255, 165, 82, 0.15);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.saas-alert--error,
+.alert--error {
+  background-color: rgba(247, 111, 142, 0.15);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.saas-alert--info,
+.alert--info {
+  background-color: rgba(78, 205, 196, 0.15);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+/* Alerta con icono */
+.saas-alert-with-icon,
+.alert-with-icon {
+  display: flex;
+  align-items: flex-start;
+}
+
+.saas-alert-icon,
+.alert-icon {
+  margin-right: var(--spacing-sm);
+  font-size: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saas-alert-content,
+.alert-content {
+  flex: 1;
+}
+
+.saas-alert-title,
+.alert-title {
+  font-weight: var(--font-weight-semibold);
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Alerta con botón de cerrar */
+.saas-alert-dismissible,
+.alert-dismissible {
+  padding-right: calc(var(--spacing-md) + 2rem);
+}
+
+.saas-alert-dismiss,
+.alert-dismiss {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  color: inherit;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.saas-alert-dismiss:hover,
+.alert-dismiss:hover {
+  opacity: 1;
+}
+
+/* Variante bordered */
+.saas-alert--bordered,
+.alert--bordered {
+  background-color: transparent;
+  border-width: var(--border-width);
+  border-left-width: 4px;
+}
+
+/* Variante con sombra fuerte */
+.saas-alert--neo,
+.alert--neo {
+  box-shadow: var(--shadow-md);
+  border-width: var(--border-width);
+}
+
+/* Toast/Notificaciones */
+.saas-toast-container,
+.toast-container {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.saas-toast,
+.toast {
+  min-width: 280px;
+  max-width: 350px;
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.saas-toast.show,
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

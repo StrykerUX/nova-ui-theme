@@ -1,0 +1,142 @@
+/**
+ * Estilos para badges y etiquetas
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+.saas-badge,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25em 0.75em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 1em;
+  border: var(--border-width) solid transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.saas-badge--primary,
+.badge--primary {
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+}
+
+.saas-badge--secondary,
+.badge--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-button-text);
+}
+
+.saas-badge--accent,
+.badge--accent {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.saas-badge--success,
+.badge--success {
+  background-color: var(--color-success);
+  color: var(--color-button-text);
+}
+
+.saas-badge--warning,
+.badge--warning {
+  background-color: var(--color-warning);
+  color: var(--color-dark);
+}
+
+.saas-badge--error,
+.badge--error {
+  background-color: var(--color-error);
+  color: var(--color-button-text);
+}
+
+/* Variante de badges con bordes */
+.saas-badge--outline,
+.badge--outline {
+  background-color: transparent;
+  border-width: 1px;
+}
+
+.saas-badge--outline.saas-badge--primary,
+.badge--outline.badge--primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.saas-badge--outline.saas-badge--secondary,
+.badge--outline.badge--secondary {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.saas-badge--outline.saas-badge--accent,
+.badge--outline.badge--accent {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.saas-badge--outline.saas-badge--success,
+.badge--outline.badge--success {
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.saas-badge--outline.saas-badge--warning,
+.badge--outline.badge--warning {
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.saas-badge--outline.saas-badge--error,
+.badge--outline.badge--error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* Variante de badges con sombra */
+.saas-badge--shadow,
+.badge--shadow {
+  box-shadow: var(--shadow-sm);
+}
+
+/* Variante de badges con píldora */
+.saas-badge--pill,
+.badge--pill {
+  border-radius: 20px;
+  padding-left: 0.85em;
+  padding-right: 0.85em;
+}
+
+/* Variantes de tamaño */
+.saas-badge--sm,
+.badge--sm {
+  font-size: 0.65em;
+  padding: 0.2em 0.6em;
+}
+
+.saas-badge--lg,
+.badge--lg {
+  font-size: 0.85em;
+  padding: 0.35em 0.85em;
+}
+
+/* Con iconos */
+.saas-badge-with-icon,
+.badge-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.saas-badge-icon,
+.badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+}

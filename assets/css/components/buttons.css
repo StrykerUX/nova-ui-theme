@@ -1,0 +1,107 @@
+/**
+ * Estilos para botones
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+.saas-button,
+button,
+.button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--button-padding);
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  border: var(--border-width) solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.saas-button:hover,
+button:hover,
+.button:hover,
+[type="button"]:hover,
+[type="reset"]:hover,
+[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.saas-button:active,
+button:active,
+.button:active,
+[type="button"]:active,
+[type="reset"]:active,
+[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Botón primario */
+.saas-button--primary,
+.button--primary,
+button.primary,
+[type="submit"] {
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  border-color: var(--color-primary);
+}
+
+.saas-button--primary:hover,
+.button--primary:hover,
+button.primary:hover,
+[type="submit"]:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Botón secundario */
+.saas-button--secondary,
+.button--secondary,
+button.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-button-text);
+  border-color: var(--color-secondary);
+}
+
+.saas-button--secondary:hover,
+.button--secondary:hover,
+button.secondary:hover {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+}
+
+/* Botón outline */
+.saas-button--outline,
+.button--outline,
+button.outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--border-color);
+}
+
+.saas-button--outline:hover,
+.button--outline:hover,
+button.outline:hover {
+  background-color: var(--color-background-alt);
+}
+
+/* Tamaños de botón */
+.saas-button--sm,
+.button--sm {
+  padding: var(--button-padding-sm);
+  font-size: var(--font-size-xs);
+}
+
+.saas-button--lg,
+.button--lg {
+  padding: var(--button-padding-lg);
+  font-size: var(--font-size-base);
+}

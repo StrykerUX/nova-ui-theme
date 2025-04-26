@@ -1,0 +1,192 @@
+/**
+ * Estilos para formularios
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--input-background);
+  background-clip: padding-box;
+  border: var(--border-width) solid var(--input-border);
+  border-radius: var(--border-radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--input-focus-border);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--color-primary-rgb), 0.25);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Checkboxes y radios personalizados */
+.form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.5rem;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: 0.25rem;
+  margin-left: -1.5rem;
+}
+
+.form-check-label {
+  margin-bottom: 0;
+}
+
+/* Estilos para campos de error */
+.is-invalid {
+  border-color: var(--color-error) !important;
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+}
+
+/* Estilos para campos deshabilitados */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--color-gray-200);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Formularios inline */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline .form-group {
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 0;
+  margin-right: var(--spacing-md);
+}
+
+.form-inline .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Botones de formulario */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+/* Formularios multi-paso */
+.multi-step-form {
+  position: relative;
+}
+
+.multi-step-form-step {
+  display: none;
+}
+
+.multi-step-form-step.active {
+  display: block;
+}
+
+.multi-step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.multi-step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--border-color);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.step-indicator {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--border-color);
+  position: relative;
+  z-index: 2;
+}
+
+.step-indicator.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.step-indicator.completed {
+  background-color: var(--color-success);
+  color: white;
+  border-color: var(--color-success);
+}
