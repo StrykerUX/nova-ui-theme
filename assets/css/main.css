@@ -1,0 +1,140 @@
+/**
+ * NovaUI - Main CSS
+ * Archivo principal que importa todas las hojas de estilo
+ */
+
+/**
+ * 1. Variables y configuraciones globales
+ */
+@import url('variables.css');
+@import url('dark-mode.css');
+
+/**
+ * 2. PicoCSS - Framework base (CDN)
+ * Framework ligero y semántico que usamos como base
+ */
+@import url('https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css');
+
+/**
+ * 3. Tipografía
+ * Importar fuentes de Google Fonts
+ */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+/**
+ * 4. Estilos Base
+ */
+@import url('base/reset.css');
+@import url('base/typography.css');
+@import url('base/layout.css');
+@import url('base/forms.css');
+@import url('base/accessibility.css');
+
+/**
+ * 5. Componentes
+ */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/navigation.css');
+@import url('components/header.css');
+@import url('components/sidebar.css');
+@import url('components/footer.css');
+@import url('components/modal.css');
+@import url('components/alerts.css');
+@import url('components/tables.css');
+@import url('components/widgets.css');
+
+/**
+ * 6. Templates
+ */
+@import url('templates/dashboard.css');
+@import url('templates/landing.css');
+@import url('templates/chat.css');
+@import url('templates/quicklinks.css');
+
+/**
+ * 7. WooCommerce (solo si está activo)
+ */
+@import url('woocommerce/products.css');
+@import url('woocommerce/checkout.css');
+@import url('woocommerce/my-account.css');
+@import url('woocommerce/memberships.css');
+
+/**
+ * 8. Utilidades y helpers
+ */
+/* Configuración básica */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Helpers para modo oscuro/claro */
+.dark-only {
+  display: none;
+}
+
+.light-only {
+  display: initial;
+}
+
+.dark-mode .dark-only {
+  display: initial;
+}
+
+.dark-mode .light-only {
+  display: none;
+}
+
+/* Utilidades básicas */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Modificaciones a PicoCSS */
+:root {
+  --form-element-spacing-vertical: var(--spacing-sm);
+  --form-element-spacing-horizontal: var(--spacing-md);
+  --border-radius: var(--border-radius-md);
+  --typography-spacing-vertical: 1.5rem;
+}
