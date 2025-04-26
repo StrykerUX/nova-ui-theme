@@ -43,6 +43,7 @@
 @import url('components/alerts.css');
 @import url('components/tables.css');
 @import url('components/widgets.css');
+@import url('components/dashboard-neo.css'); /* Nuevo estilo Neo-Brutalista */
 
 /**
  * 6. Templates
@@ -137,4 +138,148 @@ img {
   --form-element-spacing-horizontal: var(--spacing-md);
   --border-radius: var(--border-radius-md);
   --typography-spacing-vertical: 1.5rem;
+}
+
+/* Estilos para Ejemplo-random */
+.ejemplo-random-container {
+  padding: var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ejemplo-random-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.ejemplo-random-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+  text-align: center; 
+}
+
+.neo-card {
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.neo-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+}
+
+.neo-card__title svg {
+  margin-right: var(--spacing-sm);
+}
+
+.neo-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: var(--border-width) solid;
+  text-decoration: none;
+}
+
+.neo-button--primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-button--secondary {
+  background-color: var(--color-secondary);
+  color: white;
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-button--accent {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-button--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.neo-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-md);
+  text-transform: uppercase;
+}
+
+.neo-badge--primary {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: var(--color-primary);
+  border: var(--border-width) solid rgba(255, 107, 107, 0.2);
+}
+
+.neo-badge--secondary {
+  background-color: rgba(78, 205, 196, 0.1);
+  color: var(--color-secondary);
+  border: var(--border-width) solid rgba(78, 205, 196, 0.2);
+}
+
+.neo-badge--accent {
+  background-color: rgba(255, 230, 109, 0.1);
+  color: var(--color-accent);
+  border: var(--border-width) solid rgba(255, 230, 109, 0.2);
+}
+
+.neo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Para que se vea bien en el ejemplo */
+.example-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.example-section__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.example-demo {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
 }
