@@ -13,6 +13,9 @@ if ( ! is_user_logged_in() ) {
     wp_redirect( wp_login_url( get_permalink() ) );
     exit;
 }
+
+// Obtener información del usuario actual
+$current_user = wp_get_current_user();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -45,19 +48,17 @@ if ( ! is_user_logged_in() ) {
                         </a>
                         <?php
                     } else {
-                        // Si no hay logo personalizado, mostramos el nombre del sitio
+                        // Si no hay logo personalizado, mostramos el nombre del sitio con el ícono
                         ?>
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="dashboard-logo-text">
-                            <?php bloginfo( 'name' ); ?>
+                        <div class="dashboard-logo-icon">
+                            <?php echo nova_ui_get_svg_icon( 'gamepad-2', 'md' ); ?>
+                        </div>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="dashboard-logo-full">
+                            Nova<span style="color: var(--color-primary);">UI</span>
                         </a>
                         <?php
                     }
                     ?>
-                    <div class="dashboard-logo-icon">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                            <?php echo nova_ui_get_svg_icon( 'play', 'md' ); ?>
-                        </a>
-                    </div>
                 </div>
                 <button class="sidebar-toggle" aria-expanded="<?php echo get_theme_mod( 'nova_ui_collapse_sidebar', false ) ? 'false' : 'true'; ?>" aria-label="<?php esc_attr_e( 'Toggle Sidebar', 'nova-ui' ); ?>">
                     <?php echo nova_ui_get_svg_icon( 'menu', 'sm' ); ?>
@@ -91,14 +92,14 @@ if ( ! is_user_logged_in() ) {
                             </li>
                             <li class="dashboard-menu-item">
                                 <a href="#">
-                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'user', 'md' ); ?></span>
-                                    <span class="dashboard-menu-text"><?php esc_html_e( 'My Account', 'nova-ui' ); ?></span>
+                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'bar-chart-2', 'md' ); ?></span>
+                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Analytics', 'nova-ui' ); ?></span>
                                 </a>
                             </li>
                             <li class="dashboard-menu-item">
                                 <a href="#">
                                     <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'message-square', 'md' ); ?></span>
-                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Chat IA', 'nova-ui' ); ?></span>
+                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Chat AI', 'nova-ui' ); ?></span>
                                 </a>
                             </li>
                             <li class="dashboard-menu-item">
@@ -108,9 +109,27 @@ if ( ! is_user_logged_in() ) {
                                 </a>
                             </li>
                             <li class="dashboard-menu-item">
-                                <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>">
-                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'log-out', 'md' ); ?></span>
-                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Log Out', 'nova-ui' ); ?></span>
+                                <a href="#">
+                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'file-text', 'md' ); ?></span>
+                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Documents', 'nova-ui' ); ?></span>
+                                </a>
+                            </li>
+                            <li class="dashboard-menu-item">
+                                <a href="#">
+                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'calendar', 'md' ); ?></span>
+                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Calendar', 'nova-ui' ); ?></span>
+                                </a>
+                            </li>
+                            <li class="dashboard-menu-item">
+                                <a href="#">
+                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'briefcase', 'md' ); ?></span>
+                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Projects', 'nova-ui' ); ?></span>
+                                </a>
+                            </li>
+                            <li class="dashboard-menu-item">
+                                <a href="#">
+                                    <span class="dashboard-menu-icon"><?php echo nova_ui_get_svg_icon( 'settings', 'md' ); ?></span>
+                                    <span class="dashboard-menu-text"><?php esc_html_e( 'Settings', 'nova-ui' ); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -118,6 +137,17 @@ if ( ! is_user_logged_in() ) {
                     <?php
                 endif;
                 ?>
+            </div>
+
+            <!-- Ayuda en el Sidebar -->
+            <div class="dashboard-help">
+                <div class="help-icon">
+                    <?php echo nova_ui_get_svg_icon( 'help-circle', 'md' ); ?>
+                </div>
+                <div class="help-text">
+                    <p class="help-title"><?php esc_html_e( 'Need help?', 'nova-ui' ); ?></p>
+                    <p class="help-subtitle"><?php esc_html_e( 'Check out the docs', 'nova-ui' ); ?></p>
+                </div>
             </div>
 
             <div class="dashboard-sidebar-footer">
@@ -145,6 +175,7 @@ if ( ! is_user_logged_in() ) {
                             <div class="search-input-wrapper">
                                 <?php echo nova_ui_get_svg_icon( 'search', 'sm' ); ?>
                                 <input type="search" class="search-field" placeholder="<?php esc_attr_e( 'Search...', 'nova-ui' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                                <div class="keyboard-shortcut">⌘K</div>
                             </div>
                             <button type="submit" class="search-submit"><?php esc_html_e( 'Search', 'nova-ui' ); ?></button>
                         </form>
@@ -152,28 +183,72 @@ if ( ! is_user_logged_in() ) {
                 </div>
 
                 <div class="dashboard-header-end">
+                    <!-- Botón de notificaciones -->
+                    <button class="dashboard-header-button">
+                        <?php echo nova_ui_get_svg_icon( 'bell', 'md' ); ?>
+                    </button>
+                    
+                    <!-- Toggle de tema oscuro/claro para pantallas grandes -->
+                    <?php if ( get_theme_mod( 'nova_ui_show_dark_mode_toggle_header', true ) ) : ?>
+                        <button class="dashboard-header-button dark-mode-toggle">
+                            <span class="dark-mode-toggle moon"><?php echo nova_ui_get_svg_icon( 'moon', 'md' ); ?></span>
+                            <span class="dark-mode-toggle sun"><?php echo nova_ui_get_svg_icon( 'sun', 'md' ); ?></span>
+                        </button>
+                    <?php endif; ?>
+                    
                     <div class="dashboard-user-menu">
                         <button class="dashboard-user-toggle" aria-expanded="false">
                             <div class="dashboard-user-avatar">
                                 <?php
-                                $current_user = wp_get_current_user();
                                 if ( $current_user->exists() ) {
-                                    echo get_avatar( $current_user->ID, 32 );
+                                    echo get_avatar( $current_user->ID, 36 );
+                                } else {
+                                    echo 'M';
                                 }
                                 ?>
                             </div>
-                            <span class="dashboard-user-name"><?php echo esc_html( $current_user->display_name ); ?></span>
+                            <span class="dashboard-user-name hidden-mobile">
+                                <?php 
+                                if ( $current_user->exists() ) {
+                                    echo esc_html( $current_user->display_name );
+                                } else {
+                                    echo 'Miguel R.';
+                                }
+                                ?>
+                            </span>
                             <?php echo nova_ui_get_svg_icon( 'chevron-down', 'sm' ); ?>
                         </button>
 
                         <div class="dashboard-user-dropdown">
                             <div class="dashboard-user-dropdown-header">
                                 <div class="dashboard-user-avatar">
-                                    <?php echo get_avatar( $current_user->ID, 48 ); ?>
+                                    <?php 
+                                    if ( $current_user->exists() ) {
+                                        echo get_avatar( $current_user->ID, 48 );
+                                    } else {
+                                        echo 'M';
+                                    }
+                                    ?>
                                 </div>
                                 <div class="dashboard-user-info">
-                                    <div class="dashboard-user-name"><?php echo esc_html( $current_user->display_name ); ?></div>
-                                    <div class="dashboard-user-email"><?php echo esc_html( $current_user->user_email ); ?></div>
+                                    <div class="dashboard-user-name">
+                                        <?php 
+                                        if ( $current_user->exists() ) {
+                                            echo esc_html( $current_user->display_name );
+                                        } else {
+                                            echo 'Miguel R.';
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="dashboard-user-email">
+                                        <?php 
+                                        if ( $current_user->exists() ) {
+                                            echo esc_html( $current_user->user_email );
+                                        } else {
+                                            echo 'miguel.rodriguez@example.com';
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
 
@@ -185,9 +260,21 @@ if ( ! is_user_logged_in() ) {
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="#">
+                                        <?php echo nova_ui_get_svg_icon( 'settings', 'sm' ); ?>
+                                        <?php esc_html_e( 'Settings', 'nova-ui' ); ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <?php echo nova_ui_get_svg_icon( 'credit-card', 'sm' ); ?>
+                                        <?php esc_html_e( 'Subscription', 'nova-ui' ); ?>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>">
                                         <?php echo nova_ui_get_svg_icon( 'log-out', 'sm' ); ?>
-                                        <?php esc_html_e( 'Log Out', 'nova-ui' ); ?>
+                                        <?php esc_html_e( 'Sign out', 'nova-ui' ); ?>
                                     </a>
                                 </li>
                             </ul>
@@ -199,23 +286,38 @@ if ( ! is_user_logged_in() ) {
             <!-- Contenido del Dashboard -->
             <div class="dashboard-content">
                 <div class="dashboard-content-inner">
-                    <?php nova_ui_breadcrumbs(); ?>
+                    <?php 
+                    // Si estamos editando un contenido cargamos el post
+                    if ( have_posts() ) :
+                        while ( have_posts() ) :
+                            the_post();
+                            
+                            // Si hay contenido en la página, lo mostramos
+                            if ( '' !== get_the_content() ) :
+                                ?>
+                                <article id="post-<?php the_ID(); ?>" <?php post_class('saas-dashboard-page-content'); ?>>
+                                    <?php if ( get_the_title() ) : ?>
+                                        <header class="entry-header">
+                                            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                                        </header>
+                                    <?php endif; ?>
 
-                    <?php
-                    while ( have_posts() ) :
-                        the_post();
-                        ?>
-                        <article id="post-<?php the_ID(); ?>" <?php post_class('saas-dashboard-page-content'); ?>>
-                            <header class="entry-header">
-                                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                            </header><!-- .entry-header -->
-
-                            <div class="entry-content">
-                                <?php the_content(); ?>
-                            </div><!-- .entry-content -->
-                        </article>
-                        <?php
-                    endwhile;
+                                    <div class="entry-content">
+                                        <?php the_content(); ?>
+                                    </div>
+                                </article>
+                                <?php
+                            // Si no hay contenido, cargamos el contenido de ejemplo del dashboard
+                            else :
+                                // Incluir contenido de ejemplo de dashboard
+                                include( get_template_directory() . '/inc/template-parts/dashboard-content.php' );
+                            endif;
+                            
+                        endwhile;
+                    else :
+                        // Si no hay contenido, cargamos el contenido de ejemplo del dashboard
+                        include( get_template_directory() . '/inc/template-parts/dashboard-content.php' );
+                    endif;
                     ?>
                 </div>
             </div>
