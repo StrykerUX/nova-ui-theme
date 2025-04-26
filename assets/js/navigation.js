@@ -1,147 +1,152 @@
 /**
- * Archivo para manejar la navegación responsiva
- * Controla el menú de navegación principal y menú lateral
- *
- * @package NovaUI
+ * NovaUI Theme - Navegación
+ * 
+ * Este script gestiona la navegación principal, el menú de usuario y 
+ * la navegación del dashboard (sidebar colapsable).
  */
 
 (function() {
-  'use strict';
-
-  // Variables para el menú de navegación principal
-  const siteNavigation = document.getElementById('site-navigation');
-  const menuToggle = document.querySelector('.menu-toggle');
-
-  // Variables para el sidebar (menú lateral)
-  const sidebar = document.querySelector('.sidebar');
-  const sidebarToggle = document.querySelector('.sidebar-toggle');
-  const mainContent = document.querySelector('.dashboard-content');
-
-  /**
-   * Menú de navegación principal para móviles
-   */
-  if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
-      siteNavigation.classList.toggle('toggled');
-      
-      if (siteNavigation.classList.contains('toggled')) {
-        menuToggle.setAttribute('aria-expanded', 'true');
-      } else {
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', function(event) {
-      const isClickInside = siteNavigation.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-
-      if (!isClickInside && !isClickOnToggle && siteNavigation.classList.contains('toggled')) {
-        siteNavigation.classList.remove('toggled');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
-  /**
-   * Menú lateral (sidebar) colapsable
-   */
-  if (sidebarToggle && sidebar) {
-    // Restaurar estado del sidebar desde localStorage
-    const sidebarState = localStorage.getItem('sidebarCollapsed');
-    
-    if (sidebarState === 'true') {
-      sidebar.classList.add('sidebar-collapsed');
-      if (mainContent) {
-        mainContent.classList.add('sidebar-collapsed-content');
-      }
-    }
-
-    sidebarToggle.addEventListener('click', function() {
-      sidebar.classList.toggle('sidebar-collapsed');
-      
-      if (mainContent) {
-        mainContent.classList.toggle('sidebar-collapsed-content');
-      }
-      
-      // Guardar estado en localStorage
-      localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('sidebar-collapsed'));
-    });
-  }
-
-  /**
-   * Submenús en el sidebar
-   */
-  const sidebarSubmenus = document.querySelectorAll('.sidebar-submenu-toggle');
-  
-  if (sidebarSubmenus.length > 0) {
-    sidebarSubmenus.forEach(function(submenuToggle) {
-      submenuToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        const parentItem = this.closest('.sidebar-menu-item');
-        const submenu = parentItem.querySelector('.sidebar-submenu');
+    // Navegación Principal
+    function initMainNavigation() {
+        const mainNav = document.querySelector('.main-navigation');
+        const menuToggle = document.querySelector('.menu-toggle');
         
-        if (submenu) {
-          submenu.classList.toggle('active');
-          this.classList.toggle('active');
-          
-          if (submenu.classList.contains('active')) {
-            this.setAttribute('aria-expanded', 'true');
-          } else {
-            this.setAttribute('aria-expanded', 'false');
-          }
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('toggled');
+                
+                const expanded = mainNav.classList.contains('toggled');
+                menuToggle.setAttribute('aria-expanded', expanded);
+            });
         }
-      });
-    });
-  }
-
-  /**
-   * Accesibilidad para la navegación con teclado
-   */
-  function handleFocus() {
-    const focusableElements = siteNavigation.querySelectorAll('a, button');
+    }
     
-    focusableElements.forEach(function(element) {
-      element.addEventListener('focus', function() {
-        if (!siteNavigation.classList.contains('toggled') && window.innerWidth < 768) {
-          siteNavigation.classList.add('toggled');
-          menuToggle.setAttribute('aria-expanded', 'true');
+    // Menú de Usuario
+    function initUserMenu() {
+        const userMenuToggle = document.querySelector('.user-menu-toggle');
+        const userDropdown = document.querySelector('.user-dropdown');
+        
+        if (userMenuToggle && userDropdown) {
+            userMenuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                userDropdown.classList.toggle('active');
+                
+                // Cerrar el menú cuando se hace clic fuera de él
+                document.addEventListener('click', function closeMenu(event) {
+                    if (!userDropdown.contains(event.target) && !userMenuToggle.contains(event.target)) {
+                        userDropdown.classList.remove('active');
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            });
         }
-      });
-    });
-  }
-
-  if (siteNavigation) {
-    handleFocus();
-  }
-
-  /**
-   * Dropdown de usuario en el header
-   */
-  const userDropdownToggle = document.querySelector('.user-dropdown-toggle');
-  const userDropdownMenu = document.querySelector('.user-dropdown-menu');
-  
-  if (userDropdownToggle && userDropdownMenu) {
-    userDropdownToggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      userDropdownMenu.classList.toggle('active');
-      
-      if (userDropdownMenu.classList.contains('active')) {
-        userDropdownToggle.setAttribute('aria-expanded', 'true');
-      } else {
-        userDropdownToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+    }
     
-    // Cerrar dropdown al hacer clic fuera
-    document.addEventListener('click', function(event) {
-      const isClickInside = userDropdownToggle.contains(event.target) || userDropdownMenu.contains(event.target);
-      
-      if (!isClickInside && userDropdownMenu.classList.contains('active')) {
-        userDropdownMenu.classList.remove('active');
-        userDropdownToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
+    // Navegación del Dashboard
+    function initDashboardNavigation() {
+        const toggleSidebar = document.querySelector('.dashboard-toggle-sidebar');
+        const dashboardSidebar = document.querySelector('.dashboard-sidebar');
+        const overlay = document.querySelector('.dashboard-overlay');
+        
+        if (toggleSidebar && dashboardSidebar) {
+            // Alternar estado colapsado del sidebar
+            toggleSidebar.addEventListener('click', function() {
+                dashboardSidebar.classList.toggle('collapsed');
+                
+                // Guardar el estado del sidebar en localStorage
+                const collapsed = dashboardSidebar.classList.contains('collapsed');
+                localStorage.setItem('dashboard_sidebar_collapsed', collapsed ? 'true' : 'false');
+            });
+            
+            // Restaurar el estado del sidebar desde localStorage
+            if (localStorage.getItem('dashboard_sidebar_collapsed') === 'true') {
+                dashboardSidebar.classList.add('collapsed');
+            }
+            
+            // En móvil, cerrar el sidebar al hacer clic en el overlay
+            if (overlay) {
+                overlay.addEventListener('click', function() {
+                    dashboardSidebar.classList.add('collapsed');
+                });
+            }
+            
+            // Detectar cambios de tamaño de ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 991) {
+                    // En móvil, asegurarse de que exista el overlay
+                    if (!overlay) {
+                        const newOverlay = document.createElement('div');
+                        newOverlay.className = 'dashboard-overlay';
+                        document.body.appendChild(newOverlay);
+                        
+                        newOverlay.addEventListener('click', function() {
+                            dashboardSidebar.classList.add('collapsed');
+                        });
+                    }
+                } else {
+                    // En desktop, eliminar el overlay si existe
+                    if (overlay) {
+                        overlay.remove();
+                    }
+                }
+            });
+        }
+    }
+    
+    // Marcar el elemento activo en la navegación del Dashboard
+    function setActiveNavItem() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.dashboard-nav-link');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            
+            // Comparar la URL actual con el href del enlace
+            if (href === currentPath || (currentPath.includes(href) && href !== '/')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    
+    // Inicializar las acciones del header del dashboard
+    function initDashboardHeaderActions() {
+        const userToggle = document.querySelector('.dashboard-user');
+        const userDropdown = document.querySelector('.dashboard-user-dropdown');
+        
+        if (userToggle && userDropdown) {
+            userToggle.addEventListener('click', function() {
+                userDropdown.classList.toggle('active');
+                
+                // Cerrar el menú cuando se hace clic fuera de él
+                document.addEventListener('click', function closeMenu(event) {
+                    if (!userDropdown.contains(event.target) && !userToggle.contains(event.target)) {
+                        userDropdown.classList.remove('active');
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            });
+        }
+    }
+    
+    // Inicializar todos los componentes de navegación
+    function initNavigation() {
+        initMainNavigation();
+        initUserMenu();
+        
+        // Inicializar navegación de dashboard si estamos en esa plantilla
+        if (document.body.classList.contains('dashboard-layout')) {
+            initDashboardNavigation();
+            setActiveNavItem();
+            initDashboardHeaderActions();
+        }
+    }
+    
+    // Inicializar cuando el DOM esté cargado
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+        initNavigation();
+    }
 })();
