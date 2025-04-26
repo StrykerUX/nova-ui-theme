@@ -1,12 +1,14 @@
 /**
  * Estilos base para el tema NovaUI
- * Implementa reset, tipografía y estilos elementales con estilo Soft Neobrutalism
+ * Incluye reset, tipografía y estilos base generales
  */
 
-/* Importar variables CSS */
+/* Importación de variables CSS */
 @import 'variables.css';
 
-/* Reset básico y box model */
+/**
+ * Reset básico y configuración de box model
+ */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -15,440 +17,228 @@
 
 html {
     font-size: 16px;
-    height: 100%;
-    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    color: var(--color-dark);
-    background-color: var(--color-light);
-    min-height: 100%;
-    transition: color var(--transition-normal), background-color var(--transition-normal);
+    font-family: var(--nova-font-family-base);
+    font-size: var(--nova-font-size-md);
+    font-weight: var(--nova-font-weight-normal);
+    line-height: var(--nova-line-height-normal);
+    color: var(--nova-text-primary);
+    background-color: var(--nova-bg-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color var(--nova-transition-normal), color var(--nova-transition-normal);
 }
 
-/* Tema oscuro */
-body.dark-mode {
-    color: var(--color-dark);
-    background-color: var(--bg-dark);
-}
-
-/* Enlaces */
-a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    font-weight: var(--font-weight-medium);
-}
-
-a:hover {
-    color: var(--color-error);
-    text-decoration: underline;
-}
-
-/* Encabezados */
+/**
+ * Tipografía base
+ */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.2;
-    margin-bottom: var(--spacing-md);
+    font-family: var(--nova-font-family-headings);
+    font-weight: var(--nova-font-weight-bold);
+    line-height: var(--nova-line-height-tight);
+    margin-bottom: var(--nova-spacing-md);
+    color: var(--nova-text-primary);
 }
 
 h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--nova-font-size-xxl);
 }
 
 h2 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--nova-font-size-xl);
 }
 
 h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--nova-font-size-lg);
 }
 
 h4 {
-    font-size: var(--font-size-lg);
+    font-size: var(--nova-font-size-md);
 }
 
-h5 {
-    font-size: var(--font-size-md);
+h5, h6 {
+    font-size: var(--nova-font-size-sm);
 }
 
-h6 {
-    font-size: var(--font-size-base);
-}
-
-/* Párrafos y bloques de texto */
 p {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--nova-spacing-md);
 }
 
+a {
+    color: var(--nova-color-primary);
+    text-decoration: none;
+    transition: color var(--nova-transition-fast);
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--nova-color-primary) 80%, black);
+}
+
+small {
+    font-size: var(--nova-font-size-sm);
+}
+
+strong, b {
+    font-weight: var(--nova-font-weight-bold);
+}
+
+/**
+ * Listas
+ */
 ul, ol {
-    margin-bottom: var(--spacing-md);
-    padding-left: var(--spacing-lg);
+    padding-left: var(--nova-spacing-lg);
+    margin-bottom: var(--nova-spacing-md);
 }
 
-blockquote {
-    margin: var(--spacing-lg) 0;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-left: var(--border-width) solid var(--color-primary);
-    background-color: rgba(255, 107, 107, 0.05);
-    font-style: italic;
-    border-radius: var(--border-radius);
+li {
+    margin-bottom: var(--nova-spacing-sm);
 }
 
-.dark-mode blockquote {
-    background-color: rgba(255, 107, 107, 0.1);
-}
-
-/* Código */
-code {
-    font-family: var(--font-mono);
-    font-size: 0.9em;
-    background-color: var(--gray-100);
-    padding: 0.2em 0.4em;
-    border-radius: var(--border-radius-sm);
-}
-
-pre {
-    font-family: var(--font-mono);
-    background-color: var(--gray-100);
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    overflow-x: auto;
-    border-radius: var(--border-radius);
-    border: var(--border-width) solid var(--gray-200);
-}
-
-.dark-mode code, .dark-mode pre {
-    background-color: var(--bg-component);
-    border-color: var(--bg-element);
-}
-
-/* Imágenes */
-img {
+/**
+ * Imágenes y Medios
+ */
+img, video, svg {
     max-width: 100%;
     height: auto;
-    display: block;
+    vertical-align: middle;
 }
 
-/* Tablas */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-bottom: var(--spacing-lg);
-    border: var(--border-width) solid var(--gray-200);
-    border-radius: var(--border-radius);
-    overflow: hidden;
+/**
+ * Estilos de formularios básicos
+ */
+input, button, select, optgroup, textarea {
+    font-family: var(--nova-font-family-base);
+    font-size: var(--nova-font-size-md);
+    line-height: var(--nova-line-height-normal);
 }
 
-th, td {
-    padding: var(--spacing-sm) var(--spacing-md);
-    text-align: left;
-    border-bottom: 1px solid var(--gray-200);
-}
-
-th {
-    background-color: var(--gray-100);
-    font-weight: var(--font-weight-semibold);
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-.dark-mode table {
-    border-color: var(--bg-element);
-}
-
-.dark-mode th, .dark-mode td {
-    border-color: var(--bg-element);
-}
-
-.dark-mode th {
-    background-color: var(--bg-element);
-}
-
-/* Formularios */
-input, textarea, select, button {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-base);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="date"],
-textarea,
-select {
-    display: block;
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: var(--border-width) solid var(--gray-300);
-    border-radius: var(--border-radius);
-    background-color: var(--color-light);
-    color: var(--color-dark);
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.dark-mode input[type="text"],
-.dark-mode input[type="email"],
-.dark-mode input[type="url"],
-.dark-mode input[type="password"],
-.dark-mode input[type="search"],
-.dark-mode input[type="number"],
-.dark-mode input[type="tel"],
-.dark-mode input[type="date"],
-.dark-mode textarea,
-.dark-mode select {
-    background-color: var(--bg-dark);
-    border-color: var(--bg-element);
-    color: var(--gray-300);
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
-}
-
-/* Botones con estilo Neo-brutalista */
-button, 
-.button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-    display: inline-block;
-    padding: var(--button-padding-y) var(--button-padding-x);
-    border: var(--border-width) solid var(--color-primary);
-    border-radius: var(--border-radius);
-    background-color: var(--color-primary);
-    color: white;
-    font-weight: var(--font-weight-medium);
-    text-align: center;
-    cursor: pointer;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    box-shadow: var(--shadow-normal);
-    text-decoration: none;
-}
-
-button:hover, 
-.button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-large);
-}
-
-button:active, 
-.button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-    transform: translateY(0);
-    box-shadow: var(--shadow-active);
-}
-
-/* Variantes de botones */
-.button-secondary {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
-}
-
-.button-accent {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-dark);
-}
-
-.button-success {
-    background-color: var(--color-success);
-    border-color: var(--color-success);
-}
-
-.button-warning {
-    background-color: var(--color-warning);
-    border-color: var(--color-warning);
-}
-
-.button-error {
-    background-color: var(--color-error);
-    border-color: var(--color-error);
-}
-
-.button-outline {
+button, input, select, textarea {
     background-color: transparent;
-    color: var(--color-primary);
+    border: var(--nova-border-width) solid var(--nova-border-color);
+    border-radius: var(--nova-border-radius);
+    padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+    transition: all var(--nova-transition-fast);
 }
 
-.button-outline:hover {
-    background-color: rgba(255, 107, 107, 0.1);
+button, select {
+    text-transform: none;
 }
 
-.dark-mode .button-outline {
-    color: var(--color-primary);
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
 }
 
-.dark-mode .button-outline:hover {
-    background-color: rgba(255, 107, 107, 0.2);
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+    cursor: pointer;
 }
 
-/* Layout básico */
+/**
+ * Contenedores básicos
+ */
 .container {
     width: 100%;
-    max-width: var(--container-max-width);
-    margin-left: auto;
+    padding-right: var(--nova-spacing-md);
+    padding-left: var(--nova-spacing-md);
     margin-right: auto;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
+    margin-left: auto;
 }
 
-.site-main {
-    padding-top: var(--spacing-2xl);
-    padding-bottom: var(--spacing-2xl);
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+/* Breakpoints responsivos para contenedores */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
     }
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
 }
 
-.animate-fade-in {
-    animation: fadeIn 0.5s ease forwards;
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
 }
 
-.animate-slide-up {
-    animation: slideInUp 0.5s ease forwards;
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
 }
 
-.animate-pulse {
-    animation: pulse 2s infinite;
+/**
+ * Estilos base Soft Neo-Brutalistas
+ */
+
+/* Background suave para el contenido principal */
+.site-content {
+    background-color: var(--nova-bg-body);
+    transition: background-color var(--nova-transition-normal);
 }
 
-/* Utility classes para espaciado */
-.mt-1 { margin-top: var(--spacing-xs); }
-.mt-2 { margin-top: var(--spacing-sm); }
-.mt-3 { margin-top: var(--spacing-md); }
-.mt-4 { margin-top: var(--spacing-lg); }
-.mt-5 { margin-top: var(--spacing-xl); }
-
-.mb-1 { margin-bottom: var(--spacing-xs); }
-.mb-2 { margin-bottom: var(--spacing-sm); }
-.mb-3 { margin-bottom: var(--spacing-md); }
-.mb-4 { margin-bottom: var(--spacing-lg); }
-.mb-5 { margin-bottom: var(--spacing-xl); }
-
-.ml-1 { margin-left: var(--spacing-xs); }
-.ml-2 { margin-left: var(--spacing-sm); }
-.ml-3 { margin-left: var(--spacing-md); }
-.ml-4 { margin-left: var(--spacing-lg); }
-.ml-5 { margin-left: var(--spacing-xl); }
-
-.mr-1 { margin-right: var(--spacing-xs); }
-.mr-2 { margin-right: var(--spacing-sm); }
-.mr-3 { margin-right: var(--spacing-md); }
-.mr-4 { margin-right: var(--spacing-lg); }
-.mr-5 { margin-right: var(--spacing-xl); }
-
-.p-1 { padding: var(--spacing-xs); }
-.p-2 { padding: var(--spacing-sm); }
-.p-3 { padding: var(--spacing-md); }
-.p-4 { padding: var(--spacing-lg); }
-.p-5 { padding: var(--spacing-xl); }
-
-/* Accesibilidad */
-.screen-reader-text {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
-    word-wrap: normal !important;
+/* Contenedor principal para el contenido */
+.main-content {
+    padding: var(--nova-spacing-lg) 0;
 }
 
-.screen-reader-text:focus {
-    background-color: var(--color-light);
-    clip: auto !important;
-    clip-path: none;
-    color: var(--color-primary);
-    display: block;
-    font-size: var(--font-size-base);
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000;
+/* Contorno Neobrutalism para elementos de enfoque */
+.neo-focus {
+    border: var(--nova-border-width) solid var(--nova-color-dark);
+    box-shadow: var(--nova-shadow-md);
+    border-radius: var(--nova-border-radius);
 }
 
-/* Compatibilidad con editor de Gutenberg */
-.alignleft {
-    float: left;
-    margin-right: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+.dark-mode .neo-focus {
+    border-color: var(--nova-color-light);
 }
 
-.alignright {
-    float: right;
-    margin-left: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+/* Animación para botones y elementos interactivos */
+.neo-interactive {
+    transition: transform var(--nova-transition-fast), box-shadow var(--nova-transition-fast);
 }
 
-.aligncenter {
-    clear: both;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.neo-interactive:hover {
+    transform: translateY(-2px);
 }
 
-.wp-caption {
-    margin-bottom: var(--spacing-md);
-    max-width: 100%;
+.neo-interactive:active {
+    transform: translateY(0);
 }
 
-.wp-caption img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* Scrollbar personalizada con estilo Soft Neobrutalism */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.wp-caption-text {
-    text-align: center;
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-xs) 0;
-    color: var(--gray-600);
+::-webkit-scrollbar-track {
+    background-color: var(--nova-bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--nova-color-primary);
+    border-radius: var(--nova-border-radius);
+    border: 2px solid var(--nova-bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--nova-color-primary) 80%, black);
+}
+
+/* Selección de texto customizada */
+::selection {
+    background-color: var(--nova-color-primary);
+    color: white;
 }
