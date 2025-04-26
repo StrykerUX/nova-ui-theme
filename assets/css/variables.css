@@ -1,0 +1,221 @@
+/**
+ * Variables CSS globales para NovaUI Theme
+ * Con soporte para tema claro/oscuro
+ */
+
+:root {
+  /* Colores primarios - Soft Neobrutalism */
+  --color-primary: #FF6B6B; /* Coral */
+  --color-secondary: #4ECDC4; /* Teal suave */
+  --color-accent: #FFE66D; /* Amarillo cálido */
+  --color-success: #7BC950; /* Verde pastel */
+  --color-warning: #FFA552; /* Naranja suave */
+  --color-error: #F76F8E; /* Rosa-rojo suave */
+  
+  /* Valores RGB para manipulaciones */
+  --color-primary-rgb: 255, 107, 107;
+  --color-secondary-rgb: 78, 205, 196;
+  --color-accent-rgb: 255, 230, 109;
+  --color-success-rgb: 123, 201, 80;
+  --color-warning-rgb: 255, 165, 82;
+  --color-error-rgb: 247, 111, 142;
+  
+  /* Colores base */
+  --color-dark: #505168; /* Gris-púrpura oscuro */
+  --color-light: #F7F9F9; /* Blanco hueso */
+  --color-xp: #8971D0; /* Púrpura para XP/progreso */
+  --color-energy: #45D09E; /* Verde menta para energía/recursos */
+  
+  /* Estado de componentes interactivos */
+  --color-primary-hover: #FF8A8A;
+  --color-primary-active: #FF4F4F;
+  --color-secondary-hover: #6ED7D0;
+  --color-secondary-active: #3DBDB6;
+  --color-accent-hover: #FFEB8F;
+  --color-accent-active: #FFE045;
+  
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+  --color-button-text: white;
+  --color-button-text-hover: white;
+  
+  /* Escala de grises personalizada (cálida) */
+  --color-gray-100: #F7F7F7;
+  --color-gray-200: #E1E1E1;
+  --color-gray-300: #CFCFCF;
+  --color-gray-400: #B1B1B1;
+  --color-gray-500: #9E9E9E;
+  --color-gray-600: #7E7E7E;
+  --color-gray-700: #626262;
+  --color-gray-800: #515151;
+  --color-gray-900: #313131;
+  
+  /* Colores de fondo y texto */
+  --color-background: var(--color-light);
+  --color-background-alt: var(--color-gray-100);
+  --color-text: var(--color-dark);
+  --color-text-light: var(--color-gray-600);
+  
+  /* Tipografía */
+  --font-primary: 'Jost', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-secondary: 'Jost', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-mono: 'Roboto Mono', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --font-size-base: 1rem; /* 16px */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Espaciado y layout */
+  --spacing-base: 1rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  --container-width: 1280px;
+  --container-padding: var(--spacing-md);
+  
+  /* Bordes y esquinas */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --border-width: 2px;
+  --border-color: var(--color-gray-200);
+  
+  /* Sombras - Soft Neubrutalism */
+  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1);
+  --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.1);
+  
+  /* Transiciones */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  
+  /* Componentes específicos */
+  --header-height: 4rem;
+  --header-background: var(--color-background);
+  
+  --footer-background: var(--color-background-alt);
+  --footer-padding-y: var(--spacing-lg);
+  
+  --sidebar-width: 16rem;
+  --sidebar-width-collapsed: 5rem;
+  --sidebar-background: var(--color-background-alt);
+  
+  --card-background: var(--color-background);
+  --card-padding: var(--spacing-md);
+  --card-shadow: var(--shadow-md);
+  
+  --input-background: var(--color-background-alt);
+  --input-border: var(--border-color);
+  --input-focus-border: var(--color-primary);
+  
+  --button-padding: var(--spacing-sm) var(--spacing-md);
+  --button-padding-sm: var(--spacing-xs) var(--spacing-sm);
+  --button-padding-lg: var(--spacing-md) var(--spacing-lg);
+  
+  --nav-item-spacing: var(--spacing-xs);
+  
+  /* Quick Links específicos */
+  --ql-card-background: var(--color-background);
+  --ql-card-border: var(--border-color);
+  --ql-card-shadow: var(--shadow-md);
+  
+  /* Chat IA específicos */
+  --chat-bubble-user-bg: rgba(255, 107, 107, 0.1);
+  --chat-bubble-user-border: rgba(255, 107, 107, 0.3);
+  --chat-bubble-ai-bg: var(--color-background-alt);
+  --chat-bubble-ai-border: var(--border-color);
+  --chat-typing-indicator-color: var(--color-secondary);
+  
+  /* Tema claro/oscuro toggle */
+  --theme-toggle-visibility: visible; /* Puede ser cambiado a 'hidden' */
+}
+
+/* Modo oscuro - para cuando se activa manualmente o por preferencia del sistema */
+@media (prefers-color-scheme: dark) {
+  :root.auto-mode {
+    /* Colores de fondo y texto */
+    --color-background: #2A2D45;
+    --color-background-alt: #343A5E;
+    --color-text: var(--color-light);
+    --color-text-light: var(--color-gray-300);
+    
+    /* Ajustes para componentes */
+    --border-color: #3F4577;
+    --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Quick Links específicos */
+    --ql-card-border: #3F4577;
+    
+    /* Chat IA específicos */
+    --chat-bubble-user-bg: rgba(255, 107, 107, 0.1);
+    --chat-bubble-user-border: rgba(255, 107, 107, 0.3);
+    --chat-bubble-ai-bg: #2A2D45;
+    --chat-bubble-ai-border: #3F4577;
+  }
+}
+
+/* Modo oscuro manual */
+:root.dark-mode {
+  /* Colores de fondo y texto */
+  --color-background: #2A2D45;
+  --color-background-alt: #343A5E;
+  --color-text: var(--color-light);
+  --color-text-light: var(--color-gray-300);
+  
+  /* Ajustes para componentes */
+  --border-color: #3F4577;
+  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.3);
+  
+  /* Quick Links específicos */
+  --ql-card-border: #3F4577;
+  
+  /* Chat IA específicos */
+  --chat-bubble-user-bg: rgba(255, 107, 107, 0.1);
+  --chat-bubble-user-border: rgba(255, 107, 107, 0.3);
+  --chat-bubble-ai-bg: #2A2D45;
+  --chat-bubble-ai-border: #3F4577;
+}
+
+/* Modo claro forzado */
+:root.light-mode {
+  /* Restablecer a los valores de luz */
+  --color-background: var(--color-light);
+  --color-background-alt: var(--color-gray-100);
+  --color-text: var(--color-dark);
+  --color-text-light: var(--color-gray-600);
+  
+  --border-color: var(--color-gray-200);
+  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1);
+  --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.1);
+  
+  /* Quick Links específicos */
+  --ql-card-border: var(--color-gray-200);
+  
+  /* Chat IA específicos */
+  --chat-bubble-user-bg: rgba(255, 107, 107, 0.05);
+  --chat-bubble-user-border: rgba(255, 107, 107, 0.1);
+  --chat-bubble-ai-bg: var(--color-background-alt);
+  --chat-bubble-ai-border: var(--border-color);
+}

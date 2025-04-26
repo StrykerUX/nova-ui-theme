@@ -1,0 +1,194 @@
+/**
+ * Estilos específicos para la plantilla de perfiles Quick Links
+ * NovaUI Theme - Soft Neubrutalism
+ */
+
+/* Ajustes generales para perfiles de enlaces */
+.quick-links-profile {
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-links-container {
+  width: 100%;
+  max-width: 600px;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ql-card-background);
+  border: var(--border-width) solid var(--ql-card-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--ql-card-shadow);
+}
+
+/* Header del perfil */
+.quick-links-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.quick-links-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-links-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quick-links-logo-default {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.quick-links-title {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.quick-links-description {
+  color: var(--color-text-light);
+  max-width: 400px;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+/* Contenido de enlaces */
+.quick-links-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Estilos para los enlaces - Estilo por defecto (estilo tarjeta) */
+.quick-link {
+  display: block;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.quick-link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Variante botón */
+.quick-link-button {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: var(--font-weight-semibold);
+}
+
+.quick-link-button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Variante outline */
+.quick-link-outline {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.quick-link-outline:hover {
+  background-color: rgba(255, 107, 107, 0.05);
+}
+
+/* Footer del perfil */
+.quick-links-footer {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+/* Variantes de estilo Minimalista */
+.quick-links-minimal {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.quick-links-minimal .quick-link {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Variante de estilo Neón */
+.quick-links-neon .quick-link {
+  border-width: 3px;
+  box-shadow: 0 0 10px rgba(var(--color-primary-rgb), 0.5);
+}
+
+.quick-links-neon .quick-link:hover {
+  box-shadow: 0 0 15px rgba(var(--color-primary-rgb), 0.7);
+}
+
+/* Tema oscuro específico para quick links */
+@media (prefers-color-scheme: dark) {
+  :root.auto-mode.quick-links-profile {
+    --ql-card-background: #343A5E;
+    --ql-card-border: #3F4577;
+  }
+}
+
+:root.dark-mode.quick-links-profile {
+  --ql-card-background: #343A5E;
+  --ql-card-border: #3F4577;
+}
+
+/* Responsive */
+@media screen and (max-width: 640px) {
+  .quick-links-container {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md);
+    max-width: calc(100% - var(--spacing-md) * 2);
+  }
+  
+  .quick-links-logo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .quick-links-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .quick-links-description {
+    font-size: var(--font-size-sm);
+  }
+}
