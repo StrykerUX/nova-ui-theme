@@ -1,0 +1,465 @@
+/**
+ * NovaUI - Estilos principales
+ * Este archivo importa todos los estilos del tema
+ * 
+ * @package NovaUI
+ */
+
+/* Variables CSS globales */
+@import 'variables.css';
+
+/* Estilos base */
+@import 'base.css';
+
+/* Estilos de componentes */
+@import 'components/dashboard.css';
+@import 'components/cards.css';
+@import 'components/buttons.css';
+@import 'components/forms.css';
+@import 'components/widgets.css';
+@import 'components/modals.css';
+
+/* Estilos específicos para plantillas */
+@import 'templates/dashboard.css';
+@import 'templates/chat-ai.css';
+@import 'templates/quick-links.css';
+@import 'templates/canvas.css';
+
+/* Estilos de utilidad */
+@import 'utilities.css';
+
+/**
+ * Reglas específicas del tema WordPress
+ */
+
+/* Header estándar (no dashboard) */
+.site-header {
+    background-color: var(--color-light);
+    border-bottom: var(--border-width) solid var(--gray-200);
+    padding: var(--spacing-md) 0;
+}
+
+.dark-mode .site-header {
+    background-color: var(--bg-dark);
+    border-color: var(--bg-element);
+}
+
+.site-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.site-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+}
+
+.site-title a {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+.dark-mode .site-title a {
+    color: var(--color-light);
+}
+
+.site-description {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin: 0 0 0 var(--spacing-md);
+}
+
+.dark-mode .site-description {
+    color: var(--gray-400);
+}
+
+/* Navegación principal */
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: var(--spacing-sm);
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.dark-mode .menu-toggle {
+    color: var(--color-light);
+}
+
+.menu-toggle-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark);
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+}
+
+.dark-mode .menu-toggle-icon {
+    background-color: var(--color-light);
+}
+
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark);
+    left: 0;
+}
+
+.dark-mode .menu-toggle-icon::before,
+.dark-mode .menu-toggle-icon::after {
+    background-color: var(--color-light);
+}
+
+.menu-toggle-icon::before {
+    top: -6px;
+}
+
+.menu-toggle-icon::after {
+    bottom: -6px;
+}
+
+.primary-menu-container {
+    display: flex;
+}
+
+.primary-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-menu li {
+    margin: 0 var(--spacing-sm);
+}
+
+.primary-menu a {
+    color: var(--color-dark);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-sm);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.dark-mode .primary-menu a {
+    color: var(--color-light);
+}
+
+.primary-menu a:hover {
+    color: var(--color-primary);
+}
+
+.primary-menu .current-menu-item > a {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Botón de cambio de tema */
+.theme-toggle {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--gray-100);
+    border: var(--border-width) solid var(--gray-200);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--spacing-sm);
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.dark-mode .theme-toggle {
+    background-color: var(--bg-component);
+    border-color: var(--bg-element);
+}
+
+.theme-toggle-dark {
+    display: block;
+}
+
+.theme-toggle-light {
+    display: none;
+}
+
+.dark-mode .theme-toggle-dark {
+    display: none;
+}
+
+.dark-mode .theme-toggle-light {
+    display: block;
+    color: var(--color-accent);
+}
+
+/* Footer estándar */
+.site-footer {
+    background-color: var(--gray-100);
+    border-top: var(--border-width) solid var(--gray-200);
+    padding: var(--spacing-xl) 0;
+}
+
+.dark-mode .site-footer {
+    background-color: var(--bg-component);
+    border-color: var(--bg-element);
+}
+
+.site-footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.site-footer-navigation {
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.dark-mode .site-footer-navigation {
+    border-color: var(--bg-element);
+}
+
+.footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.footer-menu li {
+    margin: 0 var(--spacing-sm);
+}
+
+.footer-menu a {
+    color: var(--gray-700);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+}
+
+.dark-mode .footer-menu a {
+    color: var(--gray-300);
+}
+
+.footer-menu a:hover {
+    color: var(--color-primary);
+}
+
+.site-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+.dark-mode .site-info {
+    color: var(--gray-400);
+}
+
+.site-credit a {
+    color: var(--color-primary);
+}
+
+.nova-branding {
+    display: flex;
+    align-items: center;
+}
+
+.nova-brand-box {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-light);
+    border: var(--border-width) solid var(--gray-200);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+}
+
+.dark-mode .nova-brand-box {
+    background-color: var(--bg-element);
+    border-color: var(--bg-highlight);
+}
+
+.nova-brand-text {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+}
+
+.nova-brand-accent {
+    color: var(--color-primary);
+}
+
+/* Sidebar estándar */
+.widget-area {
+    padding: var(--spacing-lg);
+    background-color: var(--gray-100);
+    border: var(--border-width) solid var(--gray-200);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-normal);
+}
+
+.dark-mode .widget-area {
+    background-color: var(--bg-component);
+    border-color: var(--bg-element);
+}
+
+.widget {
+    margin-bottom: var(--spacing-lg);
+}
+
+.widget:last-child {
+    margin-bottom: 0;
+}
+
+.widget-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: var(--border-width) solid var(--gray-200);
+}
+
+.dark-mode .widget-title {
+    border-color: var(--bg-element);
+}
+
+/* Responsive para el diseño estándar */
+@media (max-width: 768px) {
+    .site-header-inner {
+        flex-wrap: wrap;
+    }
+    
+    .site-branding {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .primary-menu-container {
+        display: none;
+        width: 100%;
+    }
+    
+    .primary-menu-container.active {
+        display: block;
+    }
+    
+    .primary-menu {
+        flex-direction: column;
+    }
+    
+    .primary-menu li {
+        margin: var(--spacing-xs) 0;
+    }
+    
+    .site-info {
+        flex-direction: column;
+    }
+    
+    .site-credit {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* Estilos para WordPress Gutenberg */
+.wp-block-image {
+    margin-bottom: var(--spacing-md);
+}
+
+.wp-block-button__link {
+    display: inline-block;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border: var(--border-width) solid var(--color-primary);
+    border-radius: var(--border-radius);
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: var(--shadow-normal);
+}
+
+.wp-block-button__link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
+    text-decoration: none;
+}
+
+.wp-block-button__link:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-active);
+}
+
+.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.is-style-outline .wp-block-button__link:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.dark-mode .is-style-outline .wp-block-button__link:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+}
+
+/* Mensajes de error y éxito */
+.error-message {
+    padding: var(--spacing-md);
+    background-color: rgba(247, 111, 142, 0.1);
+    border: var(--border-width) solid var(--color-error);
+    border-radius: var(--border-radius);
+    color: var(--color-error);
+    margin-bottom: var(--spacing-md);
+}
+
+.success-message {
+    padding: var(--spacing-md);
+    background-color: rgba(123, 201, 80, 0.1);
+    border: var(--border-width) solid var(--color-success);
+    border-radius: var(--border-radius);
+    color: var(--color-success);
+    margin-bottom: var(--spacing-md);
+}
+
+.info-message {
+    padding: var(--spacing-md);
+    background-color: rgba(78, 205, 196, 0.1);
+    border: var(--border-width) solid var(--color-secondary);
+    border-radius: var(--border-radius);
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.warning-message {
+    padding: var(--spacing-md);
+    background-color: rgba(255, 165, 82, 0.1);
+    border: var(--border-width) solid var(--color-warning);
+    border-radius: var(--border-radius);
+    color: var(--color-warning);
+    margin-bottom: var(--spacing-md);
+}
