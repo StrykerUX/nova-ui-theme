@@ -29,9 +29,11 @@
 @import url('base/layout.css');
 @import url('base/forms.css');
 @import url('base/accessibility.css');
+@import url('base/neo-brutalism.css'); /* Base Neo-Brutalista global */
 
 /**
  * 5. Componentes
+ * Todos estos componentes ahora heredarán la estética neo-brutalista
  */
 @import url('components/buttons.css');
 @import url('components/cards.css');
@@ -43,7 +45,7 @@
 @import url('components/alerts.css');
 @import url('components/tables.css');
 @import url('components/widgets.css');
-@import url('components/dashboard-neo.css'); /* Nuevo estilo Neo-Brutalista */
+@import url('components/dashboard-neo.css'); /* Estilos específicos para el dashboard */
 
 /**
  * 6. Templates
@@ -163,6 +165,7 @@ img {
   text-align: center; 
 }
 
+/* Estos estilos ahora son redundantes ya que están en neo-brutalism.css
 .neo-card {
   background-color: var(--color-background);
   border: var(--border-width) solid var(--color-border);
@@ -257,6 +260,7 @@ img {
   color: var(--color-accent);
   border: var(--border-width) solid rgba(255, 230, 109, 0.2);
 }
+*/
 
 .neo-grid {
   display: grid;
