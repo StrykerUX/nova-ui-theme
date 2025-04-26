@@ -1,259 +1,122 @@
 <?php
 /**
- * Funciones que mejoran el tema al añadir funcionalidad personalizada
+ * Funciones que mejoran el tema añadiendo características personalizadas
  *
  * @package NovaUI
  */
 
 /**
- * Agrega clases al body_class para estilizar mejor
+ * Obtener un icono SVG de Lucide Icons
  *
- * @param array $classes Classes for the body element.
- * @return array
+ * @param string $icon Nombre del icono a mostrar
+ * @param string $size Tamaño del icono (sm, md, lg)
+ * @return string HTML del icono SVG
  */
-function nova_ui_body_classes( $classes ) {
-    // Agregar clase basada en el tema claro/oscuro (por defecto es tema claro)
-    $classes[] = 'light-mode';
-    
-    // Agregar una clase para cuando no hay barra lateral
-    if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-        $classes[] = 'no-sidebar';
-    }
-    
-    // Determinar si es la página frontal o blog
-    if ( is_front_page() && is_home() ) {
-        $classes[] = 'home-blog';
-    } elseif ( is_front_page() ) {
-        $classes[] = 'home';
-    } elseif ( is_home() ) {
-        $classes[] = 'blog';
-    }
-    
-    // Determinar si estamos en una plantilla de dashboard
-    if ( is_page_template( 'templates/dashboard.php' ) ) {
-        $classes[] = 'dashboard-page';
-    }
-    
-    // Añadir clase de layout sin sidebar si estamos usando esa plantilla
-    if ( is_page_template( 'templates/sin-sidebar.php' ) ) {
-        $classes[] = 'no-sidebar-template';
-    }
-    
-    // Añadir clase de canvas (página en blanco) si estamos usando esa plantilla
-    if ( is_page_template( 'templates/canvas.php' ) ) {
-        $classes[] = 'canvas-template';
-    }
-    
-    // Verificar si WooCommerce está activo
-    if ( class_exists( 'WooCommerce' ) ) {
-        $classes[] = 'woocommerce-active';
-        
-        // Añadir clases específicas para páginas de WooCommerce
-        if ( is_woocommerce() ) {
-            $classes[] = 'woocommerce-page';
-        }
-        
-        if ( is_cart() ) {
-            $classes[] = 'woocommerce-cart';
-        }
-        
-        if ( is_checkout() ) {
-            $classes[] = 'woocommerce-checkout';
-        }
-        
-        if ( is_account_page() ) {
-            $classes[] = 'woocommerce-account';
-        }
-    }
-    
-    return $classes;
-}
-add_filter( 'body_class', 'nova_ui_body_classes' );
-
-/**
- * Agrega una etiqueta meta de verificación del modo color preferido
- */
-function nova_ui_add_meta_theme_color() {
-    echo '<meta name="theme-color" content="#FF6B6B">';
-    echo '<meta name="color-scheme" content="light dark">';
-}
-add_action( 'wp_head', 'nova_ui_add_meta_theme_color' );
-
-/**
- * Agrega soporte para atributos async y defer a los scripts
- */
-function nova_ui_script_loader_tag( $tag, $handle, $src ) {
-    // Los handles de los scripts que deben cargar con async/defer
-    $async_scripts = array( 'nova-ui-dark-mode' );
-    $defer_scripts = array( 'nova-ui-navigation' );
-    
-    // Agregar atributo async
-    if ( in_array( $handle, $async_scripts ) ) {
-        $tag = str_replace( ' src', ' async src', $tag );
-    }
-    
-    // Agregar atributo defer
-    if ( in_array( $handle, $defer_scripts ) ) {
-        $tag = str_replace( ' src', ' defer src', $tag );
-    }
-    
-    return $tag;
-}
-add_filter( 'script_loader_tag', 'nova_ui_script_loader_tag', 10, 3 );
-
-/**
- * Agrega clases personalizadas a los menús
- */
-function nova_ui_menu_classes( $classes, $item, $args ) {
-    // Agregar clase para elementos con submenús
-    if ( in_array( 'menu-item-has-children', $classes ) ) {
-        $classes[] = 'saas-dropdown';
-    }
-    
-    // Agregar clases específicas según el menú
-    if ( isset( $args->theme_location ) ) {
-        $classes[] = 'saas-menu-item--' . $args->theme_location;
-    }
-    
-    return $classes;
-}
-add_filter( 'nav_menu_css_class', 'nova_ui_menu_classes', 10, 3 );
-
-/**
- * Función de ayuda para verificar si estamos en una página de dashboard
- */
-function nova_ui_is_dashboard() {
-    return is_page_template( 'templates/dashboard.php' ) ||
-           ( function_exists( 'is_account_page' ) && is_account_page() ) ||
-           apply_filters( 'nova_ui_is_dashboard', false );
-}
-
-/**
- * Personalizar el título del extracto de los posts
- */
-function nova_ui_excerpt_more( $more ) {
-    return '...';
-}
-add_filter( 'excerpt_more', 'nova_ui_excerpt_more' );
-
-/**
- * Personalizar la longitud del extracto
- */
-function nova_ui_excerpt_length( $length ) {
-    return 30;
-}
-add_filter( 'excerpt_length', 'nova_ui_excerpt_length' );
-
-/**
- * Personalizar el link de edición de post
- */
-function nova_ui_edit_post_link( $id = 0 ) {
-    if ( ! $id ) {
-        $id = get_the_ID();
-    }
-    
-    edit_post_link(
-        sprintf(
-            wp_kses(
-                /* translators: %s: Name of current post. Only visible to screen readers */
-                __( 'Edit<span class="screen-reader-text">%s</span>', 'nova-ui' ),
-                array(
-                    'span' => array(
-                        'class' => array(),
-                    ),
-                )
-            ),
-            wp_kses_post( get_the_title($id) )
-        ),
-        '<span class="edit-link">',
-        '</span>',
-        $id
+function nova_ui_get_svg_icon($icon, $size = 'md') {
+    // Mapeo de tamaños a píxeles
+    $sizes = array(
+        'sm' => 16,
+        'md' => 20,
+        'lg' => 24,
+        'xl' => 32,
     );
-}
-
-/**
- * Agregar clases personalizadas a los widgets
- */
-function nova_ui_widget_classes( $params ) {
-    $params[0]['before_widget'] = str_replace( 'class="', 'class="saas-widget ', $params[0]['before_widget'] );
-    return $params;
-}
-add_filter( 'dynamic_sidebar_params', 'nova_ui_widget_classes' );
-
-/**
- * Soporte para SVG en cargas de archivos
- */
-function nova_ui_mime_types( $mimes ) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-}
-add_filter( 'upload_mimes', 'nova_ui_mime_types' );
-
-/**
- * Obtener URL del ícono según el formato de post
- */
-function nova_ui_get_post_format_icon() {
-    $format = get_post_format();
-    $icon = 'file-text'; // Por defecto
     
-    switch ( $format ) {
-        case 'video':
-            $icon = 'video';
-            break;
-        case 'audio':
-            $icon = 'music';
-            break;
-        case 'image':
-            $icon = 'image';
-            break;
-        case 'gallery':
-            $icon = 'grid';
-            break;
-        case 'quote':
-            $icon = 'message-square';
-            break;
-        case 'link':
-            $icon = 'link';
-            break;
-        case 'status':
-            $icon = 'message-circle';
-            break;
-        case 'chat':
-            $icon = 'message-circle';
-            break;
-        case 'aside':
-            $icon = 'file-text';
-            break;
+    // Asegurar que el tamaño es válido
+    if (!isset($sizes[$size])) {
+        $size = 'md';
     }
     
-    return $icon;
-}
-
-/**
- * Agregar soporte para la opción "Abrir en nueva pestaña" en el menú
- */
-function nova_ui_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
-    if ( isset( $item->target ) && $item->target === '_blank' ) {
-        $atts['rel'] = 'noopener noreferrer';
+    $pixel_size = $sizes[$size];
+    
+    // Incluir iconos de Lucide
+    $lucide_icons = include_once(get_template_directory() . '/inc/lucide-icons.php');
+    
+    // Si el icono no existe, devolver un icono de "ayuda" por defecto
+    if (!isset($lucide_icons[$icon])) {
+        $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'.$pixel_size.'" height="'.$pixel_size.'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-help-circle"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>';
+        return $svg;
     }
-    return $atts;
-}
-add_filter( 'nav_menu_link_attributes', 'nova_ui_nav_menu_link_attributes', 10, 4 );
-
-/**
- * Detectar si estamos en una página con barra lateral colapsada
- */
-function nova_ui_is_sidebar_collapsed() {
-    return isset( $_COOKIE['novaui-sidebar-state'] ) && $_COOKIE['novaui-sidebar-state'] === 'collapsed';
+    
+    // Obtener el icono SVG y ajustar sus dimensiones
+    $svg = $lucide_icons[$icon];
+    $svg = str_replace('width="24"', 'width="'.$pixel_size.'"', $svg);
+    $svg = str_replace('height="24"', 'height="'.$pixel_size.'"', $svg);
+    
+    return $svg;
 }
 
 /**
- * Generar clases para entradas de menú activas
+ * Añadir clases al body dependiendo de las opciones del tema
+ *
+ * @param array $classes Clases actuales del body
+ * @return array Clases actualizadas
  */
-function nova_ui_menu_item_classes( $classes, $item ) {
-    if ( in_array( 'current-menu-item', $classes ) || in_array( 'current-page-ancestor', $classes ) ) {
-        $classes[] = 'saas-active';
+function nova_ui_body_classes($classes) {
+    // Añadir clase para modo oscuro si está activado por defecto
+    $default_mode = get_option('novastudio_options', array());
+    if (isset($default_mode['theme']['default_mode']) && $default_mode['theme']['default_mode'] === 'dark') {
+        $classes[] = 'dark-mode';
     }
+    
+    // Clase para sidebar colapsado
+    if (get_theme_mod('nova_ui_collapse_sidebar', false)) {
+        $classes[] = 'sidebar-collapsed';
+    }
+    
     return $classes;
 }
-add_filter( 'nav_menu_css_class', 'nova_ui_menu_item_classes', 10, 2 );
+add_filter('body_class', 'nova_ui_body_classes');
+
+/**
+ * Generar breadcrumbs para las páginas
+ */
+function nova_ui_breadcrumbs() {
+    // No mostrar en la página de inicio
+    if (is_front_page()) {
+        return;
+    }
+    
+    echo '<div class="nova-breadcrumbs">';
+    
+    // Enlace a la página de inicio
+    echo '<a href="' . esc_url(home_url('/')) . '" class="nova-breadcrumb-item">' . esc_html__('Home', 'nova-ui') . '</a>';
+    echo '<span class="nova-breadcrumb-separator">' . nova_ui_get_svg_icon('chevron-right', 'sm') . '</span>';
+    
+    if (is_category() || is_single()) {
+        // Categoría del post
+        if (is_single()) {
+            $categories = get_the_category();
+            if (!empty($categories)) {
+                echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" class="nova-breadcrumb-item">' . esc_html($categories[0]->name) . '</a>';
+                echo '<span class="nova-breadcrumb-separator">' . nova_ui_get_svg_icon('chevron-right', 'sm') . '</span>';
+            }
+            // Título del post
+            echo '<span class="nova-breadcrumb-item nova-breadcrumb-current">' . get_the_title() . '</span>';
+        } else {
+            // Página de categoría
+            echo '<span class="nova-breadcrumb-item nova-breadcrumb-current">' . single_cat_title('', false) . '</span>';
+        }
+    } elseif (is_page()) {
+        // Si es una subpágina, mostrar la jerarquía
+        if ($post->post_parent) {
+            $ancestors = get_post_ancestors($post->ID);
+            $ancestors = array_reverse($ancestors);
+            
+            foreach ($ancestors as $ancestor) {
+                echo '<a href="' . esc_url(get_permalink($ancestor)) . '" class="nova-breadcrumb-item">' . esc_html(get_the_title($ancestor)) . '</a>';
+                echo '<span class="nova-breadcrumb-separator">' . nova_ui_get_svg_icon('chevron-right', 'sm') . '</span>';
+            }
+        }
+        
+        // Título de la página actual
+        echo '<span class="nova-breadcrumb-item nova-breadcrumb-current">' . get_the_title() . '</span>';
+    } elseif (is_search()) {
+        // Página de resultados de búsqueda
+        echo '<span class="nova-breadcrumb-item nova-breadcrumb-current">' . esc_html__('Search Results for: ', 'nova-ui') . get_search_query() . '</span>';
+    } elseif (is_404()) {
+        // Página 404
+        echo '<span class="nova-breadcrumb-item nova-breadcrumb-current">' . esc_html__('404 Not Found', 'nova-ui') . '</span>';
+    }
+    
+    echo '</div>';
+}
