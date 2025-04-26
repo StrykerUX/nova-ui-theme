@@ -1,9 +1,0 @@
-/**
- * Archivo de importación de todos los layouts
- * NovaUI Theme - Soft Neubrutalism
- */
-
-@import 'layout/base.css';
-@import 'layout/sidebar.css';
-@import 'layout/templates.css';
-@import 'layout/content.css';
