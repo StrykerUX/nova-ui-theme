@@ -9,9 +9,9 @@
     /* Colores de texto y fondo */
     --color-text: #E0E0E0;
     --color-text-light: #A0A0A0;
-    --color-background: #2A2D45;
-    --color-background-alt: #343A5E;
-    --color-border: #3F4577;
+    --color-background: #2A2D45; /* Azul-gris oscuro como en la imagen */
+    --color-background-alt: #343A5E; /* Un poco más claro que el fondo principal */
+    --color-border: #3F4577; /* Azul medio para bordes */
     
     /* Estados de componentes interactivos - mantener colores primarios similares */
     --color-primary-hover: #FF5252;
@@ -65,7 +65,7 @@
 
 .dark-mode .dashboard-menu-item:hover, 
 .dark-mode .dashboard-menu-item.active {
-  background-color: var(--color-gray-800);
+  background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-text);
 }
 
@@ -86,7 +86,7 @@
 }
 
 .dark-mode .dashboard-search input {
-  background-color: var(--color-gray-800);
+  background-color: rgba(0, 0, 0, 0.2);
   color: var(--color-text);
   border-color: var(--color-border);
 }
@@ -98,32 +98,82 @@
 }
 
 .dark-mode .dashboard-user-menu-list li a:hover {
-  background-color: var(--color-gray-700);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 
  * Estilos especiales para el modo oscuro del diseño Neo-Brutalist
  * Estos estilos se aplicarán solo cuando el modo oscuro esté activo
  */
-.dark-mode .nova-card-game {
-  border-color: rgba(255, 255, 255, 0.1);
+.dark-mode .neo-card-game {
+  border-color: var(--color-border);
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-.dark-mode .nova-card-game:hover {
+.dark-mode .neo-card-game:hover {
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
 }
 
-.dark-mode .nova-btn-primary,
-.dark-mode .nova-btn-secondary,
-.dark-mode .nova-btn-accent {
+.dark-mode .neo-button-primary,
+.dark-mode .neo-button-secondary,
+.dark-mode .neo-button-accent {
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-.dark-mode .nova-btn-primary:hover,
-.dark-mode .nova-btn-secondary:hover,
-.dark-mode .nova-btn-accent:hover {
+.dark-mode .neo-button-primary:hover,
+.dark-mode .neo-button-secondary:hover,
+.dark-mode .neo-button-accent:hover {
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos específicos para la interfaz del dashboard */
+.dark-mode .stats-card {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+}
+
+.dark-mode .widget-chat,
+.dark-mode .widget-quicklinks,
+.dark-mode .widget-tasks,
+.dark-mode .widget-membership {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+}
+
+.dark-mode .chat-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--color-border);
+}
+
+.dark-mode .chat-bubble.ai {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .chat-bubble.user {
+  background-color: rgba(255, 107, 107, 0.1);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.dark-mode .chat-input {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .quicklink-item,
+.dark-mode .task-item {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--color-border);
+}
+
+.dark-mode .resource-progress {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .btn-dashboard-secondary {
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  border-color: var(--color-border);
 }
 
 /* Transición suave cuando se cambia entre modos */
@@ -135,9 +185,50 @@ body {
 .nova-btn, 
 .dashboard-menu-item,
 .dashboard-sidebar,
-.dashboard-header {
+.dashboard-header,
+.stats-card,
+.widget-chat,
+.widget-quicklinks,
+.chat-bubble,
+.quicklink-item,
+.btn-dashboard {
   transition: background-color 0.3s ease, 
               border-color 0.3s ease, 
               color 0.3s ease,
               box-shadow 0.3s ease;
+}
+
+/* Mejoras específicas para el dashboard con estilo de juego */
+.dark-mode .dashboard-content {
+  background-color: var(--color-background);
+}
+
+.dark-mode .search-input-wrapper {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+}
+
+.dark-mode .dark-mode-toggle {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+}
+
+.dark-mode .dashboard-help {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border);
+}
+
+.dark-mode .stats-card-icon {
+  color: white;
+}
+
+.dark-mode .membership-stats .stat-card {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--color-border);
+}
+
+.dark-mode .view-all-links {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-light);
 }
