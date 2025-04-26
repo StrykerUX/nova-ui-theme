@@ -1,0 +1,334 @@
+/**
+ * Estilos para formularios con estilo Soft Neobrutalism
+ */
+
+/* Formulario base */
+.nova-form {
+    margin-bottom: var(--nova-spacing-lg);
+}
+
+/* Contenedor para controles de formulario */
+.nova-form-group {
+    margin-bottom: var(--nova-spacing-md);
+}
+
+/* Etiquetas de formulario */
+.nova-form-label {
+    display: block;
+    margin-bottom: var(--nova-spacing-sm);
+    font-weight: var(--nova-font-weight-medium);
+    color: var(--nova-text-primary);
+}
+
+/* Controles de formulario base */
+.nova-form-control,
+.nova-input,
+.nova-textarea,
+.nova-select {
+    display: block;
+    width: 100%;
+    padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+    font-size: var(--nova-font-size-md);
+    line-height: var(--nova-line-height-normal);
+    color: var(--nova-text-primary);
+    background-color: var(--nova-bg-input);
+    background-clip: padding-box;
+    border: var(--nova-border-width) solid var(--nova-border-color);
+    border-radius: var(--nova-border-radius);
+    box-shadow: var(--nova-shadow-sm);
+    transition: all var(--nova-transition-fast);
+}
+
+/* Estado hover y focus */
+.nova-form-control:hover,
+.nova-input:hover,
+.nova-textarea:hover,
+.nova-select:hover {
+    border-color: var(--nova-border-color-hover);
+}
+
+.nova-form-control:focus,
+.nova-input:focus,
+.nova-textarea:focus,
+.nova-select:focus {
+    border-color: var(--nova-border-color-focus);
+    outline: 0;
+    box-shadow: var(--nova-shadow-md);
+}
+
+/* Input de texto con posibilidad de tener icono */
+.nova-input-group {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+.nova-input-group .nova-input {
+    position: relative;
+    flex: 1 1 auto;
+}
+
+.nova-input-group-prepend,
+.nova-input-group-append {
+    display: flex;
+    align-items: center;
+    padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+    background-color: var(--nova-bg-card);
+    border: var(--nova-border-width) solid var(--nova-border-color);
+    font-size: var(--nova-font-size-md);
+    color: var(--nova-text-secondary);
+}
+
+.nova-input-group-prepend {
+    border-right: 0;
+    border-top-left-radius: var(--nova-border-radius);
+    border-bottom-left-radius: var(--nova-border-radius);
+}
+
+.nova-input-group-append {
+    border-left: 0;
+    border-top-right-radius: var(--nova-border-radius);
+    border-bottom-right-radius: var(--nova-border-radius);
+}
+
+.nova-input-group .nova-input:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.nova-input-group .nova-input:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Checkbox y radio con estilo neo-brutalista */
+.nova-checkbox-group,
+.nova-radio-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--nova-spacing-sm);
+}
+
+.nova-checkbox,
+.nova-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.nova-checkbox-label,
+.nova-radio-label {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    user-select: none;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.nova-checkbox-label:before,
+.nova-radio-label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--nova-bg-input);
+    border: var(--nova-border-width) solid var(--nova-border-color);
+    transition: all var(--nova-transition-fast);
+    box-shadow: var(--nova-shadow-sm);
+}
+
+.nova-checkbox-label:before {
+    border-radius: var(--nova-border-radius-sm);
+}
+
+.nova-radio-label:before {
+    border-radius: 50%;
+}
+
+.nova-checkbox-label:hover:before,
+.nova-radio-label:hover:before {
+    border-color: var(--nova-border-color-hover);
+}
+
+.nova-checkbox:focus + .nova-checkbox-label:before,
+.nova-radio:focus + .nova-radio-label:before {
+    border-color: var(--nova-border-color-focus);
+    box-shadow: var(--nova-shadow-md);
+}
+
+/* Estilos para checkboxes y radios marcados */
+.nova-checkbox:checked + .nova-checkbox-label:before {
+    background-color: var(--nova-color-primary);
+    border-color: var(--nova-color-primary);
+}
+
+.nova-radio:checked + .nova-radio-label:before {
+    border-color: var(--nova-color-primary);
+}
+
+.nova-checkbox:checked + .nova-checkbox-label:after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.nova-radio:checked + .nova-radio-label:after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--nova-color-primary);
+}
+
+/* Campo de texto deshabilitado */
+.nova-form-control:disabled,
+.nova-input:disabled,
+.nova-textarea:disabled,
+.nova-select:disabled,
+.nova-checkbox:disabled + .nova-checkbox-label,
+.nova-radio:disabled + .nova-radio-label {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Mensaje de ayuda/validación */
+.nova-form-text {
+    display: block;
+    margin-top: var(--nova-spacing-sm);
+    font-size: var(--nova-font-size-sm);
+    color: var(--nova-text-secondary);
+}
+
+/* Estados de validación */
+.nova-form-group.is-valid .nova-form-control,
+.nova-form-group.is-valid .nova-input,
+.nova-form-group.is-valid .nova-select {
+    border-color: var(--nova-color-success);
+}
+
+.nova-form-group.is-invalid .nova-form-control,
+.nova-form-group.is-invalid .nova-input,
+.nova-form-group.is-invalid .nova-select {
+    border-color: var(--nova-color-error);
+}
+
+.nova-form-group.is-invalid .nova-form-text.invalid-feedback {
+    color: var(--nova-color-error);
+}
+
+/* Switche (toggle) */
+.nova-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.nova-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.nova-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--nova-bg-input);
+    transition: .4s;
+    border-radius: 34px;
+    border: var(--nova-border-width) solid var(--nova-border-color);
+    box-shadow: var(--nova-shadow-sm);
+}
+
+.nova-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nova-switch input:checked + .nova-switch-slider {
+    background-color: var(--nova-color-primary);
+    border-color: var(--nova-color-primary);
+}
+
+.nova-switch input:focus + .nova-switch-slider {
+    box-shadow: var(--nova-shadow-md);
+}
+
+.nova-switch input:checked + .nova-switch-slider:before {
+    transform: translateX(26px);
+}
+
+/* Estilo videojuego para formularios */
+.nova-form-game label {
+    font-family: "Press Start 2P", var(--nova-font-family-base);
+    text-transform: uppercase;
+    font-size: var(--nova-font-size-sm);
+    margin-bottom: var(--nova-spacing-md);
+}
+
+.nova-form-game .nova-input,
+.nova-form-game .nova-select,
+.nova-form-game .nova-textarea {
+    border-width: 3px;
+    border-color: var(--nova-color-dark);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+    padding: var(--nova-spacing-md);
+    font-size: var(--nova-font-size-md);
+    margin-bottom: var(--nova-spacing-lg);
+    transition: all var(--nova-transition-fast);
+}
+
+.nova-form-game .nova-input:focus,
+.nova-form-game .nova-select:focus,
+.nova-form-game .nova-textarea:focus {
+    transform: translateY(-3px);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Mensajes de validación estilo videojuego */
+.nova-form-game .nova-form-text {
+    background-color: var(--nova-color-dark);
+    color: white;
+    padding: var(--nova-spacing-sm) var(--nova-spacing-md);
+    border-radius: var(--nova-border-radius-sm);
+    position: relative;
+    max-width: fit-content;
+}
+
+.nova-form-game .nova-form-text:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--nova-color-dark);
+}
