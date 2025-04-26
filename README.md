@@ -1,260 +1,110 @@
-# NovaUI Theme
+# NovaUI - Tema WordPress con Estilo Neo-Brutalista
 
-Un tema WordPress personalizado para plataformas SaaS con diseño neo-brutalista suave y elementos de UI de videojuego indie.
+NovaUI es un tema WordPress personalizado con un diseño neo-brutalista suave (Soft Neo-Brutalism) y elementos de interfaz inspirados en videojuegos indie.
 
-## Características
+## Características Principales
 
-- Tema WordPress personalizado para plataformas SaaS
-- Diseño Neo-brutalista suave con elementos de UI de videojuego indie
-- Sistema de variables CSS para personalización completa (30-50 variables)
-- Soporte para tema claro/oscuro con detección automática de preferencias
-- Plantillas especializadas para diferentes contextos:
-  - Canvas (página en blanco para máxima flexibilidad)
-  - Full (con header, footer, sidebar y contenido principal)
-  - Sin Sidebar (contenido a ancho completo)
-  - Dashboard (panel especializado para usuario)
-- Sistema de shortcodes para creación rápida de contenido
-- Integración con WooCommerce y complementos de membresía
-- Soporte para plugins propios: Chat IA, Quick Links, y CRM
+- **Diseño Neo-Brutalista**: Con bordes definidos, sombras características y un estilo visual único.
+- **Modo Claro/Oscuro**: Sistema integrado de tema claro y oscuro con detección automática de preferencias.
+- **Dashboard Moderno**: Interfaz de dashboard con sidebar colapsable, tarjetas de estadísticas y widgets.
+- **Componentes Interactivos**: Botones, tarjetas, badges y elementos UI con estética de videojuegos.
+- **Sistema de Variables CSS**: Más de 40 variables CSS para personalizar todos los aspectos visuales.
+- **Plantillas Especializadas**: Templates para diferentes layouts y propósitos.
 
-## Estilo Neo-Brutalista
+## Paleta de Colores
 
-NovaUI implementa un estilo Neo-Brutalista suave con elementos de UI de videojuego indie de manera consistente en **todos los componentes**. Este estilo se caracteriza por:
+El tema utiliza una paleta de colores cuidadosamente seleccionada para crear un diseño atractivo y moderno:
 
-- Bordes visibles y definidos
-- Esquinas redondeadas
-- Sombras características (no difuminadas)
-- Colores vibrantes pero no agresivos
-- Elementos inspirados en interfaces de videojuegos
+- **Coral (#FF6B6B)**: Color principal para elementos destacados y botones primarios.
+- **Teal (#4ECDC4)**: Color secundario para elementos informativos y relacionados con IA.
+- **Amarillo (#FFE66D)**: Color de acento para notificaciones y badges.
+- **Verde Pastel (#7BC950)**: Para elementos de éxito y métricas positivas.
+- **Naranja Suave (#FFA552)**: Para advertencias y elementos que requieren atención.
+- **Rosa-Rojo (#F76F8E)**: Para errores y alertas.
 
-Tenemos una [guía completa de estilo Neo-Brutalista](docs/neo-brutalism-style-guide.md) para mantener la consistencia visual en todo el tema.
+## Estructura del Tema
 
-## Estructura del Proyecto
+El tema está organizado de la siguiente manera:
 
 ```
 nova-ui-theme/
 ├── assets/
 │   ├── css/
-│   │   ├── base/               # Estilos base y reset
-│   │   │   ├── neo-brutalism.css  # Base Neo-Brutalista global
-│   │   │   └── neo-helpers.css   # Helpers para estilos Neo-Brutalistas
-│   │   ├── components/         # Componentes reutilizables
-│   │   ├── templates/          # Estilos específicos por plantilla
-│   │   ├── woocommerce/        # Personalización WooCommerce
-│   │   ├── variables.css       # Variables CSS globales (tema claro)
-│   │   └── dark-mode.css       # Variables para tema oscuro
-│   ├── js/
-│   │   ├── components/         # Scripts para componentes específicos
-│   │   ├── theme-customizer.js # Interacción con personalizador
-│   │   └── dark-mode.js        # Control de tema oscuro/claro
-│   └── fonts/                  # Fuentes locales (si las hay)
+│   │   ├── base/              # Estilos base como tipografía, reset, etc.
+│   │   ├── components/        # Componentes UI (botones, tarjetas, etc.)
+│   │   ├── templates/         # Estilos específicos para plantillas
+│   │   ├── dark-mode.css      # Estilos para modo oscuro
+│   │   ├── main.css           # Archivo principal que importa todo
+│   │   └── variables.css      # Variables CSS globales
+│   └── js/
+│       ├── dashboard.js       # Funcionalidades del dashboard
+│       ├── dark-mode.js       # Control de tema oscuro
+│       └── navigation.js      # Control de menús y navegación
 ├── inc/
-│   ├── customizer/             # Funciones del personalizador
-│   ├── template-parts/         # Partes reutilizables de templates
-│   ├── woocommerce/            # Integraciones con WooCommerce
-│   └── shortcodes/             # Sistema de shortcodes
+│   ├── customizer/            # Funciones del personalizador
+│   ├── helpers/               # Funciones de utilidad
+│   ├── shortcodes/            # Definición de shortcodes
+│   └── woocommerce/           # Integración con WooCommerce
 ├── templates/
-│   ├── canvas.php              # Template en blanco
-│   ├── full.php                # Template completo
-│   ├── sin-sidebar.php         # Template sin sidebar
-│   └── dashboard.php           # Template para dashboard
-├── woocommerce/                # Templates sobrescritas de WooCommerce
-├── docs/
-│   └── neo-brutalism-style-guide.md # Guía de estilo Neo-Brutalista
-├── functions.php               # Funciones principales del tema
-└── style.css                   # Información del tema
+│   ├── partials/              # Partes reutilizables de templates
+│   ├── template-dashboard.php # Template base para dashboard
+│   └── template-dashboard-example.php # Ejemplo completo del dashboard
+└── functions.php              # Funciones principales del tema
 ```
 
-## Sistema de Variables CSS
+## Dashboard Neo-Brutalista
 
-NovaUI implementa un sistema completo de variables CSS que permite una personalización sencilla y coherente. Sigue el estándar de 30-50 variables organizadas en categorías:
+### Características del Dashboard
 
-- **Colores base** (primario, secundario, acento, éxito, advertencia, error)
-- **Estados de componentes interactivos** (hover, active, etc.)
-- **Tipografía** (familias, tamaños, pesos)
-- **Espaciado y layout** (márgenes, paddings, anchos de contenedor)
-- **Componentes específicos** (tarjetas, buttons, inputs, etc.)
-- **Tema claro/oscuro** (variables específicas para cada modo)
+- **Sidebar Colapsable**: Menú lateral que puede minimizarse para maximizar el espacio de trabajo.
+- **Tema Claro/Oscuro**: Toggle para cambiar entre temas, con guardado de preferencias.
+- **Tarjetas de Estadísticas**: Visualización de datos con estilo neo-brutalista.
+- **Widgets Interactivos**: Componentes funcionales para chat, enlaces rápidos y más.
+- **Interfaz Responsiva**: Adaptable a diferentes tamaños de pantalla.
 
-### Principales Variables
+### Componentes Principales
 
-```css
-:root {
-  /* Colores principales */
-  --color-primary: #FF6B6B;     /* Coral */
-  --color-secondary: #4ECDC4;   /* Teal suave */
-  --color-accent: #FFE66D;      /* Amarillo cálido */
-  
-  /* Tipografía */
-  --font-primary: 'Jost', 'Quicksand', sans-serif;
-  --font-size-base: 16px;
-  
-  /* Espaciado */
-  --spacing-base: 1rem;
-  
-  /* Bordes y esquinas */
-  --border-radius-lg: 0.5rem;
-  --border-width: 2px;
-  
-  /* Sombras neo-brutalistas */
-  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1);
-}
-```
-
-## Aplicando el Estilo Neo-Brutalista
-
-El estilo Neo-Brutalista está implementado a nivel global a través de:
-
-1. **Base global**: En `assets/css/base/neo-brutalism.css` que define la estética fundamental.
-2. **Helpers utilitarios**: En `assets/css/base/neo-helpers.css` con clases para aplicación rápida.
-3. **Variables CSS**: En `assets/css/variables.css` con los valores que definen el aspecto visual.
-
-### Clases Principales
-
-```html
-<!-- Usando componentes Neo-Brutalistas -->
-<div class="neo-container">
-  <h2 class="neo-heading">Título</h2>
-  <p>Contenido de ejemplo...</p>
-  <button class="neo-button neo-button--primary">Acción</button>
-</div>
-
-<!-- Usando helpers utilitarios -->
-<div class="card card-primary">
-  <div class="card-header">
-    <h3 class="card-title">Título de Tarjeta</h3>
-  </div>
-  <div class="card-body">
-    <p>Contenido...</p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary">Acción</button>
-  </div>
-</div>
-```
-
-Para más detalles, consulta la [guía de estilo Neo-Brutalista](docs/neo-brutalism-style-guide.md).
-
-## Sistema de Shortcodes
-
-NovaUI incluye un completo sistema de shortcodes para facilitar la creación de contenido estructurado:
-
-### Shortcodes de Layout
-
-- `[saas_section]` - Para contenedores principales
-- `[saas_row]` y `[saas_column]` - Para sistema de grid
-
-### Shortcodes de Componentes
-
-- `[saas_heading]` - Para títulos y encabezados
-- `[saas_button]` - Para botones y llamados a la acción
-- `[saas_feature]` - Para bloques de características
-- `[saas_testimonial]` - Para testimonios
-- `[saas_cta]` - Para llamadas a la acción
-
-### Ejemplo de Uso
-
-```
-[saas_section layout="hero" padding="xl" background="#f5f8ff"]
-    [saas_row align="center"]
-        [saas_column width="50%"]
-            [saas_heading size="2xl"]Potencia tu Negocio con IA Especializada[/saas_heading]
-            [saas_text]Nuestros chatbots con IA pre-entrenada están diseñados específicamente para emprendedores y PyMEs en México y Latinoamérica. Automatiza la atención al cliente, genera contenido y más.[/saas_text]
-            [saas_button url="/registro" style="primary" size="lg"]Comenzar Ahora[/saas_button] [saas_button url="/demos" style="outline" size="lg"]Ver Demos[/saas_button]
-        [/saas_column]
-        [saas_column width="50%"]
-            [saas_image src="/wp-content/uploads/2025/04/dashboard-preview.png" alt="Dashboard de IA" class="rounded-xl shadow-lg"]
-        [/saas_column]
-    [/saas_row]
-[/saas_section]
-```
-
-## Requisitos
-
-- WordPress 5.5 o superior
-- PHP 7.4 o superior
-- Navegadores modernos (2 últimas versiones)
+- **Stats Cards**: Tarjetas para mostrar métricas y estadísticas.
+- **Chat Widget**: Componente para interacciones conversacionales con IA.
+- **Quick Links**: Gestor de enlaces con estadísticas de visitas.
+- **Task Manager**: Organizador de tareas con prioridades y estados.
+- **Membership Panel**: Visualización de plan, recursos y límites.
 
 ## Instalación
 
-1. Descarga el archivo zip del tema
-2. Ve a tu panel de administración de WordPress > Apariencia > Temas > Añadir nuevo > Subir tema
-3. Selecciona el archivo zip y haz clic en "Instalar ahora"
-4. Activa el tema
+1. Descarga el tema desde este repositorio.
+2. Sube la carpeta `nova-ui-theme` al directorio `wp-content/themes/` de tu instalación WordPress.
+3. Activa el tema desde el panel de administración de WordPress (Apariencia > Temas).
+4. Navega a la página de ejemplo en `/dashboard-ejemplo` para ver el dashboard en acción.
 
-## Personalización
+## Uso
 
-NovaUI está diseñado para trabajar con el plugin NovaStudio que permite personalización extensiva. También puedes personalizar el tema a través del Personalizador de WordPress incluido:
+### Crear una Página con Dashboard
 
-1. Ve a Apariencia > Personalizar
-2. Explora las opciones en el panel "NovaUI Theme Options":
-   - Colores
-   - Tipografía
-   - Layout
-   - Características adicionales
+1. Crea una nueva página en WordPress.
+2. En el panel de atributos de página, selecciona "Dashboard Example" como plantilla.
+3. Publica la página y visítala para ver el dashboard con todos los componentes.
 
-## Desarrollo
+### Personalizar Colores
 
-### Requisitos para desarrollo
+El tema utiliza variables CSS que pueden ser modificadas para personalizar todos los aspectos visuales. Puedes cambiar estas variables a través del plugin NovaStudio o editando directamente los archivos CSS.
 
-- Node.js 14.x o superior
-- npm 6.x o superior
+Las principales variables se encuentran en `assets/css/variables.css` y para el modo oscuro en `assets/css/dark-mode.css`.
 
-### Instrucciones para desarrollo
+## Funcionalidades JavaScript
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/StrykerUX/nova-ui-theme.git
-   cd nova-ui-theme
-   ```
+El tema incluye varias funcionalidades JavaScript:
 
-2. Instala las dependencias (cuando se implemente el sistema de build):
-   ```bash
-   npm install
-   ```
+- **Toggle de Sidebar**: Permite colapsar/expandir el sidebar lateral.
+- **Control de Tema Oscuro**: Cambia entre tema claro y oscuro con guardado de preferencia.
+- **Animaciones de Estadísticas**: Contador animado para las cifras en tarjetas de stats.
+- **Menú de Usuario**: Dropdown con opciones de perfil y cuenta.
 
-3. Para desarrollo (watches y compilación automática):
-   ```bash
-   npm run dev
-   ```
+## Agradecimientos
 
-4. Para compilar para producción:
-   ```bash
-   npm run build
-   ```
-
-## WooCommerce
-
-NovaUI incluye soporte completo para WooCommerce con estilos personalizados para:
-
-- Páginas de productos
-- Carrito
-- Checkout
-- Mi cuenta
-- Membresías (si está activo WooCommerce Memberships)
-
-## Integraciones con Plugins Propios
-
-### Chat IA
-- Estilos para interfaz de chat
-- Componentes para asistentes de IA
-- Visualización de tokens y recursos
-
-### Quick Links
-- Estilos para tarjetas de enlaces
-- Sistemas de edición y estadísticas
-- Templates personalizados para perfiles
-
-### Futuro CRM
-- Estructura base para componentes
-- Preparación para integración fluida
+- Iconos proporcionados por [Lucide Icons](https://lucide.dev/).
+- Framework base: [PicoCSS](https://picocss.com/).
 
 ## Licencia
 
-Este tema está licenciado bajo la [GNU General Public License v2 o posterior](https://www.gnu.org/licenses/gpl-2.0.html).
-
-## Créditos
-
-- Diseñado y desarrollado por StrykerUX
-- Utiliza [PicoCSS](https://picocss.com/) como framework base
-- Iconos de [Lucide Icons](https://lucide.dev/)
+Este tema está licenciado bajo [MIT](LICENSE).
