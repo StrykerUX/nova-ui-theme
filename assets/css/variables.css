@@ -1,0 +1,209 @@
+/**
+ * NovaUI Theme CSS Variables
+ *
+ * Soft Neobrutalism Style with Game UI elements
+ */
+
+:root {
+    /* Color Palette - Light Mode */
+    --color-primary: #FF6B6B; /* Coral red - softer than pure red */
+    --color-secondary: #4ECDC4; /* Soft teal */
+    --color-accent: #FFE66D; /* Warm yellow */
+    --color-success: #7BC950; /* Pastel green */
+    --color-warning: #FFA552; /* Soft orange */
+    --color-error: #F76F8E; /* Pastel pink/red */
+
+    /* State variations */
+    --color-primary-hover: #FF5252;
+    --color-primary-active: #FF3838;
+    --color-secondary-hover: #3DBEB6;
+    --color-secondary-active: #35ADA5;
+    --color-link: #4ECDC4;
+    --color-link-hover: #3DBEB6;
+    --color-button-text: #FFFFFF;
+    --color-button-text-hover: #FFFFFF;
+
+    /* Text and backgrounds */
+    --color-dark: #505168; /* Dark gray-purple instead of pure black */
+    --color-light: #F7F9F9; /* Off white */
+    --color-text: #505168;
+    --color-text-light: #656688;
+    --color-background: #F7F9F9;
+    --color-background-alt: #F2F5FA;
+
+    /* Game UI specific colors */
+    --color-xp: #8971D0; /* Purple for XP/progress */
+    --color-energy: #45D09E; /* Mint green for energy/resources */
+    --color-health: #FC6471; /* Soft red for health indicators */
+
+    /* Grayscale */
+    --color-gray-100: #F7F7F7;
+    --color-gray-200: #E1E1E1;
+    --color-gray-300: #CFCFCF;
+    --color-gray-400: #B1B1B1;
+    --color-gray-500: #9E9E9E;
+    --color-gray-600: #7E7E7E;
+    --color-gray-700: #626262;
+    --color-gray-800: #515151;
+    --color-gray-900: #313131;
+
+    /* Typography */
+    --font-primary: 'Jost', 'Quicksand', sans-serif;
+    --font-secondary: 'Jost', 'Quicksand', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+    --font-size-base: 1rem; /* 16px */
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem; /* 20px */
+    --font-size-2xl: 1.5rem; /* 24px */
+    --font-size-3xl: 1.875rem; /* 30px */
+    --font-size-4xl: 2.25rem; /* 36px */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+
+    /* Spacing */
+    --spacing-base: 1rem; /* 16px */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem; /* 8px */
+    --spacing-md: 1rem; /* 16px */
+    --spacing-lg: 1.5rem; /* 24px */
+    --spacing-xl: 2rem; /* 32px */
+    --spacing-2xl: 3rem; /* 48px */
+    --spacing-3xl: 4rem; /* 64px */
+    --spacing-inline: var(--spacing-md);
+    --spacing-block: var(--spacing-md);
+
+    /* Layout */
+    --container-width: 1280px;
+    --container-padding: var(--spacing-md);
+
+    /* Borders */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-width: 2px;
+    --border-color: var(--color-gray-200);
+
+    /* Shadows - Soft Neobrutalism Style */
+    --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 5px 5px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.1);
+    --shadow-focus: 0 0 0 4px rgba(78, 205, 196, 0.4);
+
+    /* Component specific */
+    --header-height: 4rem;
+    --header-background: var(--color-light);
+    --footer-background: var(--color-background-alt);
+    --sidebar-width: 16rem;
+    --sidebar-width-collapsed: 5rem;
+    --sidebar-background: var(--color-background-alt);
+    --card-background: var(--color-light);
+    --card-padding: var(--spacing-lg);
+    --card-shadow: var(--shadow-md);
+    --input-background: var(--color-gray-100);
+    --input-border: var(--color-gray-300);
+    --button-padding: 0.5rem 1rem;
+    --nav-item-spacing: 0.75rem;
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+
+    /* Z-indices */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal-backdrop: 1040;
+    --z-index-modal: 1050;
+    --z-index-popover: 1060;
+    --z-index-tooltip: 1070;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #E0E0E0;
+        --color-text-light: #B0B0B0;
+        --color-background: #2A2D45;
+        --color-background-alt: #343A5E;
+        --color-dark: #E0E0E0; /* Inverted for dark mode */
+        --color-light: #2A2D45; /* Inverted for dark mode */
+        
+        --color-primary-hover: #FF5252;
+        --color-primary-active: #FF3838;
+        --color-secondary-hover: #3DBEB6;
+        --color-secondary-active: #35ADA5;
+        
+        --color-gray-100: #313131;
+        --color-gray-200: #505050;
+        --color-gray-300: #696969;
+        --color-gray-400: #7E7E7E;
+        --color-gray-500: #9E9E9E;
+        --color-gray-600: #B1B1B1;
+        --color-gray-700: #CFCFCF;
+        --color-gray-800: #E1E1E1;
+        --color-gray-900: #F7F7F7;
+        
+        --border-color: #3F4577;
+        
+        --header-background: var(--color-background);
+        --footer-background: var(--color-background-alt);
+        --sidebar-background: var(--color-background-alt);
+        --card-background: var(--color-background-alt);
+        --input-background: var(--color-background);
+        --input-border: #3F4577;
+        
+        /* Shadows for dark mode - more subtle */
+        --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
+        --shadow-md: 5px 5px 0 rgba(0, 0, 0, 0.3);
+        --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.3);
+        --shadow-focus: 0 0 0 4px rgba(78, 205, 196, 0.4);
+    }
+}
+
+/* Dark Mode Class for Toggle */
+html.dark-mode {
+    --color-text: #E0E0E0;
+    --color-text-light: #B0B0B0;
+    --color-background: #2A2D45;
+    --color-background-alt: #343A5E;
+    --color-dark: #E0E0E0; /* Inverted for dark mode */
+    --color-light: #2A2D45; /* Inverted for dark mode */
+    
+    --color-primary-hover: #FF5252;
+    --color-primary-active: #FF3838;
+    --color-secondary-hover: #3DBEB6;
+    --color-secondary-active: #35ADA5;
+    
+    --color-gray-100: #313131;
+    --color-gray-200: #505050;
+    --color-gray-300: #696969;
+    --color-gray-400: #7E7E7E;
+    --color-gray-500: #9E9E9E;
+    --color-gray-600: #B1B1B1;
+    --color-gray-700: #CFCFCF;
+    --color-gray-800: #E1E1E1;
+    --color-gray-900: #F7F7F7;
+    
+    --border-color: #3F4577;
+    
+    --header-background: var(--color-background);
+    --footer-background: var(--color-background-alt);
+    --sidebar-background: var(--color-background-alt);
+    --card-background: var(--color-background-alt);
+    --input-background: var(--color-background);
+    --input-border: #3F4577;
+    
+    /* Shadows for dark mode - more subtle */
+    --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 5px 5px 0 rgba(0, 0, 0, 0.3);
+    --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.3);
+    --shadow-focus: 0 0 0 4px rgba(78, 205, 196, 0.4);
+}
