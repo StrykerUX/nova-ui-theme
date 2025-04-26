@@ -1,0 +1,120 @@
+/**
+ * Variables CSS Globales - NovaUI Theme
+ * Modo Claro (Default)
+ */
+
+:root {
+  /* Colores principales */
+  --color-primary: #FF6B6B; /* Coral - color principal */
+  --color-secondary: #4ECDC4; /* Teal suave - color secundario */
+  --color-accent: #FFE66D; /* Amarillo cálido - color de acento */
+  
+  /* Colores de estado */
+  --color-success: #7BC950; /* Verde pastel - éxito */
+  --color-warning: #FFA552; /* Naranja suave - advertencia */
+  --color-error: #F76F8E; /* Rosa-rojo suave - error */
+  
+  /* Colores específicos para UI */
+  --color-xp: #8971D0; /* Púrpura - para progreso/XP */
+  --color-energy: #45D09E; /* Verde menta - para recursos */
+  --color-health: #FC6471; /* Rojo suave - para salud */
+  
+  /* Colores de texto y fondo */
+  --color-text: #505168; /* Gris-púrpura oscuro - texto principal */
+  --color-text-light: #718096; /* Gris claro - texto secundario */
+  --color-background: #F7F9F9; /* Blanco hueso - fondo principal */
+  --color-background-alt: #F2F5FA; /* Gris muy claro - fondo alternativo */
+  --color-border: #E2E8F0; /* Gris muy claro - bordes */
+  
+  /* Estados de componentes interactivos */
+  --color-primary-hover: #FF5252; /* Estado hover del color primario */
+  --color-primary-active: #FF3A3A; /* Estado active del color primario */
+  --color-link: #3490DC; /* Color para enlaces */
+  --color-link-hover: #2779BD; /* Color para enlaces en hover */
+  --color-button-text: #FFFFFF; /* Color de texto para botones */
+  --color-button-text-hover: #FFFFFF; /* Color de texto para botones en hover */
+  
+  /* Escala de grises */
+  --color-gray-100: #F7F7F7;
+  --color-gray-200: #E1E1E1;
+  --color-gray-300: #CFCFCF;
+  --color-gray-400: #B1B1B1;
+  --color-gray-500: #9E9E9E;
+  --color-gray-600: #7E7E7E;
+  --color-gray-700: #626262;
+  --color-gray-800: #515151;
+  --color-gray-900: #313131;
+  
+  /* Tipografía */
+  --font-primary: 'Jost', 'Quicksand', sans-serif;
+  --font-secondary: 'Jost', 'Quicksand', sans-serif;
+  --font-monospace: 'Roboto Mono', monospace;
+  
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-2xl: 3rem;    /* 48px */
+  --spacing-3xl: 4rem;    /* 64px */
+  
+  /* Layout */
+  --container-width: 1280px;
+  --sidebar-width: 256px;
+  --sidebar-collapsed-width: 80px;
+  --header-height: 64px;
+  
+  /* Bordes y esquinas */
+  --border-radius-sm: 0.125rem; /* 2px */
+  --border-radius-md: 0.25rem;  /* 4px */
+  --border-radius-lg: 0.5rem;   /* 8px */
+  --border-radius-xl: 1rem;     /* 16px */
+  --border-width: 2px;
+  
+  /* Sombras */
+  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.1); /* Neo-brutalista suave */
+  --shadow-lg: 10px 10px 0 rgba(0, 0, 0, 0.1);
+  --shadow-focus: 0 0 0 3px rgba(79, 205, 196, 0.25);
+  
+  /* Transiciones */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  
+  /* Componentes específicos */
+  --header-background: var(--color-background);
+  --footer-background: var(--color-background-alt);
+  --sidebar-background: var(--color-background-alt);
+  --card-background: var(--color-background);
+  --card-padding: var(--spacing-md);
+  --card-shadow: var(--shadow-md);
+  --input-background: var(--color-background);
+  --input-border: var(--color-border);
+  --button-padding: 0.5rem 1rem;
+  --nav-item-spacing: var(--spacing-sm);
+  
+  /* Tema claro/oscuro */
+  --theme-toggle-visibility: visible;
+}
